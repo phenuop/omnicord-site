@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omnicord Terms of Service</title>
+<style>
+/* CSS Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+}
+
+p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 15px 0;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.fun-stuff {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.fun-stuff h2 {
+  color: #007bff;
+}
+
+.fun-stuff ul {
+  list-style: none;
+  padding: 0;
+}
+
+.fun-stuff li {
+  margin-bottom: 10px;
+}
+
+.fun-stuff li a {
+  display: block;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.fun-stuff li a:hover {
+  background-color: #0056b3;
+}
+
+.gallery-container {
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-container img {
+  max-width: 150px;
+  max-height: 150px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.camera-container {
+  position: relative;
+}
+
+.camera-video {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.camera-switch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.camera-switch:hover {
+  background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Omnicord Terms of Service</h1>
+  <p>Welcome to Omnicord! By using our Discord bot, you agree to comply with and be bound by the following terms and conditions:</p>
+  
+  <h2>1. Acceptance of Terms</h2>
+  <p>By using Omnicord, you agree to be bound by these Terms of Service, all applicable laws, and regulations.</p>
+  
+  <h2>2. Description of Service</h2>
+  <p>Omnicord provides various functionalities for enhancing your Discord server experience.</p>
+  
+  <h2>3. User Conduct</h2>
+  <p>Users are responsible for their actions and content posted through Omnicord. Any misuse or abuse may result in suspension or termination of service.</p>
+  
+  <h2>4. Modifications</h2>
+  <p>Omnicord reserves the right to modify these terms at any time. Users are responsible for regularly reviewing these terms.</p>
+  
+  <h2>5. Contact Us</h2>
+  <p>If you have any questions or concerns about these Terms of Service, please contact us at support@omnicord.com</p>
+  
+  <a href="#" class="button">Agree and Continue</a>
+  
+  <div class="fun-stuff">
+    <h2>Fun Stuff to Do When Bored</h2>
+    <ul>
+      <li><a href="#" onclick="fetchRandomQuiz()">Take a Quiz</a></li>
+      <li><a href="#" onclick="takePicture()">Take a Picture</a></li>
+    </ul>
+  </div>
+  
+  <div class="quiz-container" style="display: none;">
+    <h2>Random Quiz</h2>
+    <div class="quiz-question" id="quizQuestion"></div>
+    <div class="quiz-answer" id="quizAnswers"></div>
+    <button class="quiz-submit" onclick="submitQuiz()">Submit Answer</button>
+  </div>
+
+  <div class="camera-container" style="display: none;">
+    <h2>Camera</h2>
+    <video class="camera-video" id="cameraVideo" autoplay playsinline></video>
+    <button class="camera-switch" onclick="toggleCamera()">Switch Camera</button>
+    <button class="button" onclick="captureImage()">Capture Image</button>
+  </div>
+
+  <div class="gallery-container">
+    <h2>Gallery</h2>
+    <div id="gallery"></div>
+  </div>
+</div>
+
+<script>
+// JavaScript code
+document.querySelector('.button').addEventListener('click', function() {
+  // Redirect to Discord server invite link
+  window.location.href = "YOUR_DISCORD_SERVER_INVITE_LINK_HERE";
+});
+
+function fetchRandomQuiz() {
+  fetch('https://opentdb.com/api.php?amount=1&type=multiple')
+    .then(response => response.json())
+    .then(data => {
+      const quizQuestion = data.results[0].question;
+      const quizAnswers = data.results[0].incorrect_answers;
+      const correctAnswer = data.results[0].correct_answer;
+
+      document.getElementById('quizQuestion').innerHTML = quizQuestion;
+      document.getElementById('quizAnswers').innerHTML = '';
+      quizAnswers.push(correctAnswer);
+      quizAnswers.sort(() => Math.random() - 0.5);
+      quizAnswers.forEach(answer => {
+        const input = document.createElement('input');
+        input.setAttribute('type', 'radio');
+        input.setAttribute('name', 'answer');
+        input.setAttribute('value', answer);
+        const label = document.createElement('label');
+        label.textContent = answer;
+        const br = document.createElement('br');
+        document.getElementById('quizAnswers').appendChild(input);
+        document.getElementById('quizAnswers').appendChild(label);
+        document.getElementById('quizAnswers').appendChild(br);
+      });
+
+      document.querySelector('.quiz-container').style.display = 'block';
+    })
+    .catch(error => console.log(error));
+}
+
+function submitQuiz() {
+  const selectedAnswer = document.querySelector('input[name="answer"]:checked').value;
+  const correctAnswer = document.querySelector('input[type="radio"][value="' + correctAnswer + '"]').value;
+
+  if (selectedAnswer === correctAnswer) {
+    alert('Correct! You are a quiz master!');
+  } else {
+    alert('Oops! Incorrect answer. Better luck next time!');
+  }
+}
+
+function takePicture() {
+  document.querySelector('.gallery-container').style.display = 'none';
+  document.querySelector('.quiz-container').style.display = 'none';
+  document.querySelector('.camera-container').style.display = 'block';
+  const cameraVideo = document.getElementById('cameraVideo');
+
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
+      cameraVideo.srcObject = stream;
+    })
+    .catch(error => console.log(error));
+}
+
+function toggleCamera() {
+  const cameraVideo = document.getElementById('cameraVideo');
+  const tracks = cameraVideo.srcObject.getTracks();
+  tracks.forEach(track => track.enabled = !track.enabled);
+}
+
+function captureImage() {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  const cameraVideo = document.getElementById('cameraVideo');
+  
+  canvas.width = cameraVideo.videoWidth;
+  canvas.height = cameraVideo.videoHeight;
+  context.drawImage(cameraVideo, 0, 0, canvas.width, canvas.height);
+  
+  const imageDataURL = canvas.toDataURL('image/png');
+  saveImageToGallery(imageDataURL);
+
+  document.querySelector('.gallery-container').style.display = 'block';
+  document.querySelector('.camera-container').style.display = 'none';
+
+  cameraVideo.srcObject.getTracks().forEach(track => track.stop());
+}
+
+function saveImageToGallery(imageDataURL) {
+  let gallery = JSON.parse(localStorage.getItem('gallery')) || [];
+  gallery.push(imageDataURL);
+  localStorage.setItem('gallery', JSON.stringify(gallery));
+  displayGallery();
+}
+
+function displayGallery() {
+  const galleryContainer = document.getElementById('gallery');
+  galleryContainer.innerHTML = '';
+
+  const galleryImages = JSON.parse(localStorage.getItem('gallery')) || [];
+  galleryImages.forEach(imageDataURL => {
+    const img = document.createElement('img');
+    img.src = imageDataURL;
+    galleryContainer.appendChild(img);
+  });
+}
+</script>
+
+</body>
+</html>

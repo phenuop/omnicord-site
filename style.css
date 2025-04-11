@@ -1,0 +1,548 @@
+/* Reset */
+
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Background */
+body {
+    background: #e8dbff; /* Softer light purple */
+    color: #333;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #d4c2ff, #b39ddb); /* Gradient light purple */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Styling */
+nav .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #5a48d1;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Logo Hover Effect */
+nav .logo:hover {
+    transform: scale(1.1);
+    color: #4b0082; /* Darker purple */
+}
+
+/* Navbar Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+/* Navbar Items */
+nav ul li {
+    margin: 0 15px;
+}
+
+/* Navbar Links */
+nav ul li a {
+    text-decoration: none;
+    color: #5a48d1;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background: #5a48d1;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.btnn {
+    background: #5a48d1;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(90, 72, 209, 0.4);
+}
+
+/* Button Hover Effect */
+.btnn:hover {
+    background: #4b0082;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Header Section */
+header {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header h1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: #4a3bb2;
+}
+
+header p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #5a48d1;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #5a48d1;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Feature Section Styling */
+#features {
+    display: flex;
+    flex-direction: column;
+    gap: 120px; /* Increased spacing */
+    padding: 50px 0;
+}
+
+/* Container for Each Feature */
+.feature-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    margin: auto;
+}
+
+/* Image Styling (Large and Shifted) */
+.feature-image {
+    width: 960px; /* Large image */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Feature Text Box */
+.feature-text {
+    position: absolute;
+    top: -20px; /* Moves text on top */
+    background: #5a48d1;
+    color: white;
+    padding: 30px 40px;
+    width: 500px;
+    height: 150px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Left and Right Adjustments */
+.feature-container.left .feature-text {
+    right: 20px; /* Text on right of image */
+}
+
+.feature-container.right .feature-text {
+    left: -20px; /* Text on left of image */
+}
+
+/* Alternating Layout */
+.feature-container.left {
+    justify-content: flex-start; /* Image shifts left */
+}
+
+.feature-container.right {
+    justify-content: flex-end; /* Image shifts right */
+}
+
+/* Centering the buttons */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: 40px;
+}
+
+/* Button Styling */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add Omnicord Button */
+.add-bot {
+    background-color: #6a5acd; /* Light purple */
+    color: white;
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.3);
+}
+
+/* Join Server Button */
+.join-server {
+    background-color: #4b0082; /* Dark purple */
+    color: white;
+    box-shadow: 0 4px 10px rgba(75, 0, 130, 0.3);
+}
+
+/* Hover Effects */
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Button Icons */
+.btn-icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+}
+
+/* Centering <h3> (Features Header) */
+h3 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #5a48d1; /* Purple */
+    margin-top: 50px;
+}
+/* Profile Container (Centers the PFP) */
+.profile-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically if needed */
+    width: 100%; /* Ensures full width */
+    margin-top: 40px; /* Adjust spacing */
+}
+
+/* Profile Picture (Perfectly Round & Centered) */
+.pfp {
+    width: 160px; /* Set size */
+    height: 160px; /* Must be same as width */
+    border-radius: 90%; /* Makes it a circle */
+    object-fit: cover; /* Ensures it stays circular */
+    border: 3px solid #5a48d1; /* Optional border */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional shadow */
+}
+
+/* TOS Page Hero Section */
+.tos-hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #5a48d1, #d4c2ff);
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Table of Contents (Sticky) */
+.toc {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    width: 250px;
+    background: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toc h3 {
+    font-size: 22px;
+    color: #5a48d1;
+    margin-bottom: 10px;
+}
+
+.toc ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toc ul li {
+    margin: 10px 0;
+}
+
+.toc ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.toc ul li a:hover {
+    color: #5a48d1;
+}
+
+/* Main TOS Container */
+.tos-container {
+    width: 70%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Section Headings */
+.tos-container h2 {
+    color: #5a48d1;
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+/* Section Paragraphs */
+.tos-container p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* List Styling */
+.tos-container ul {
+    padding-left: 30px;
+}
+
+.tos-container ul li {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #5a48d1;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #5a48d1;
+    color: white;
+    font-size: 18px;
+}
+/*contact*/
+/* Bot Message */
+.bot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    max-width: 600px;
+    background: #2f3136;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* Bot Text Styling */
+.bot-text {
+    background: #2b2d31; /* Darker background for contrast */
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+    max-width: 90%;
+    text-align: left;
+    color: #ffffff; /* White text for contrast */
+}
+
+/* Bot Name */
+.bot-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #7289da; /* Discord blue */
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Bot Message Text */
+.bot-text p {
+    font-size: 30px;
+    color: #b9bbbe; /* Lighter gray for readability */
+    margin: 0;
+}
+
+/* Bot Profile Picture */
+.bot-pfp {
+    width: 60px; /* Standard Discord avatar size */
+    height: 60px;
+    border-radius: 50%; /* Makes it fully round */
+    object-fit: cover; /* Ensures the image fits properly */
+    border: 2px solid #7289da; /* Discord blue border */
+    box-shadow: 0 0 8px rgba(114, 137, 218, 0.5); /* Soft glow effect */
+}
+
+
+/* Embed Container */
+.embed-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Embed Styling */
+.embed {
+    background: #2f3136;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: left;
+    border-left: 4px solid #7289da;
+}
+
+.embed-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.embed-content {
+    font-size: 16px;
+    color: #b9bbbe;
+}
+
+.embed a {
+    color: #00aff4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.embed a:hover {
+    text-decoration: underline;
+}
+
+/* Different Embed Colors */
+.embed-blue { border-left: 4px solid #4f9dff; }
+.embed-green { border-left: 4px solid #43b581; }
+.embed-purple { border-left: 4px solid #9b59b6; }
+.embed-red { border-left: 4px solid #e74c3c; }
+
+/* Custom Cursor (Dual Circles) */
+        .cursor-small {
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 80%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: transform 0.03s ease-out;
+            box-shadow: 0 0 10px var(--primary);
+            z-index: 9999;
+        }
+
+        .cursor-big {
+            width: 25px;
+            height: 25px;
+            color: #fff000;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            position: fixed;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            transition: transform 0.1s ease-out;
+            z-index: 9998;
+        }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* Remove images on small screens */
+    .feature-image {
+        display: none;
+    }
+
+    /* Make feature text full-width */
+    .feature-text {
+        position: relative;
+        width: 90%;
+        height: auto;
+        top: 0;
+        padding: 20px;
+        font-size: 16px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    /* Adjust feature container for better spacing */
+    .feature-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    /* Center feature text */
+    .feature-container.left .feature-text,
+    .feature-container.right .feature-text {
+        left: 0;
+        right: 0;
+    }
+/* Mobile-Friendly Navbar */
+    nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 15px;
+    }
+
+    /* Hide menu initially */
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #b39ddb; /* Light purple */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Show menu when active */
+    nav ul.active {
+        display: flex;
+    }
+
+    /* Adjust menu items */
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* Menu Button (Hamburger) */
+    .menu-btn {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        color: #5a48d1;
+        background: none;
+        border: none;
+        padding: 5px 10px;
+    }
+}
+
+/* Hide Menu Button on Desktop */
+@media (min-width: 769px) {
+    .menu-btn {
+        display: none;
+    }
+    }
+    

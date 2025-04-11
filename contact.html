@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Omnicord</title>
+    <meta property="og:image" content="https://omnicord.neocities.org/pfp.jpg">
+<meta name="twitter:image" content="https://omnicord.neocities.org/pfp.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="pfp.jpg" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <h1>Contact Omnicord</h1>
+        <p>Need help? Here’s how you can reach us!</p>
+    </header>
+
+    <main>
+
+        <!-- Omnicord Bot Message -->
+        <div class="bot-container">
+            <img src="pfp.jpg" alt="Omnicord" class="bot-pfp">
+            <div class="bot-text">
+                <span class="bot-name">Omnicord</span>
+                <p>Here are the ways to contact us:</p>
+            </div>
+        </div>
+
+        <div class="embed-container">
+            <!-- Support Server -->
+            <div class="embed">
+                <div class="embed-title">🌍 Join Our Support Server</div>
+                <div class="embed-content">
+                    📌 Need help or have questions? Join our official **Discord Support Server** for real-time assistance!  
+                    🔗 <a href="https://discord.gg/example" target="_blank">Click Here to Join</a>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="embed embed-blue">
+                <div class="embed-title">📩 Contact via Email</div>
+                <div class="embed-content">
+                    📨 Have a business inquiry or issue? Contact us via email.  
+                    ✉️ **Email:** <a href="mailto:support@omnicord.com">support@omnicord.com</a>
+                </div>
+            </div>
+
+            <!-- Website -->
+            <div class="embed embed-green">
+                <div class="embed-title">🌐 Visit Our Website</div>
+                <div class="embed-content">
+                    🏠 Check out our official website for updates and documentation.  
+                    🔗 <a href="https://omnicord.neocities.org" target="_blank">Visit Omnicord</a>
+                </div>
+            </div>
+
+            <!-- GitHub -->
+            <div class="embed embed-purple">
+                <div class="embed-title">🛠️ Check Out Our GitHub</div>
+                <div class="embed-content">
+                    👨‍💻 Want to contribute or check out our open-source code?  
+                    🔗 <a href="https://github.com/Omnicord" target="_blank">Omnicord GitHub</a>
+                </div>
+            </div>
+
+            <!-- Urgent Support -->
+            <div class="embed embed-red">
+                <div class="embed-title">⚠️ Urgent Support</div>
+                <div class="embed-content">
+                    🆘 Need urgent help? Try these:  
+                    📜 <a href="https://omnicord.neocities.org/faq" target="_blank">Check FAQ</a>  
+                    📝 <a href="https://omnicord.neocities.org/ticket" target="_blank">Submit a Ticket</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer">
+    <div class="footer-container">
+        <img src="pfp.jpg" alt="Omnicord" class="footer-pfp" width="70" height="70"> <!-- Smaller Icon -->
+        <div class="footer-links">
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="contact.html">Contact</a>
+            <a href="about.html">About</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <p class="footer-text">© 2025 Omnicord. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+        // Custom Cursor Movement
+        const smallCursor = document.querySelector('.cursor-small');
+        const bigCursor = document.querySelector('.cursor-big');
+
+        document.addEventListener('mousemove', (e) => {
+            smallCursor.style.left = e.clientX + 'px';
+            smallCursor.style.top = e.clientY + 'px';
+
+            setTimeout(() => {
+                bigCursor.style.left = e.clientX + 'px';
+                bigCursor.style.top = e.clientY + 'px';
+            }, 50);
+        });
+    </script>
+</body>
+</html>

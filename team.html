@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Phyniex (Founder of Omnicord)">
+<meta name="description" content="Omnicord is a Discord bot developed by a passionate team led by Phyniex.">
+    <title>Omnicord Team</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Body Background */
+        body {
+    background: linear-gradient(to right, #d4b5ff, #e8dbff); /* Soft purple gradient */
+    color: #333;
+}
+
+
+/* Logo Styling */
+nav .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #5a48d1;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Logo Hover Effect */
+nav .logo:hover {
+    transform: scale(1.1);
+    color: #4b0082; /* Darker purple */
+}
+
+/* Navbar Menu */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+/* Navbar Items */
+nav ul li {
+    margin: 0 15px;
+}
+
+/* Navbar Links */
+nav ul li a {
+    text-decoration: none;
+    color: #5a48d1;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    background: #5a48d1;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #d4c2ff, #b39ddb); /* Gradient light purple */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Team Section */
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 80px auto;
+            flex-wrap: wrap;
+            max-width: 1200px;
+        }
+
+        .dev-card {
+    background: linear-gradient(to bottom, #f5f5f5, #6a0dad); /* Light to Dark */
+    border: 2px solid #222; /* Subtle Border */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    border-radius: 10px;
+            padding: 15px;
+            width: 350px;
+            height: 500px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+}
+        .quote-phenu {
+            font-style: italic;
+            font-size: 14px;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+.dev-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .banner {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px 10px 0 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid white;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .name {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 40px;
+        }
+/*Badge*/
+        .badge {
+    background: #ff6600;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.8);
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Shiny Effect */
+.badge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: shine 2s infinite linear;
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 102, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 102, 0, 1);
+    }
+}
+
+/* Shine Animation */
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+/* QuoTe*/
+
+        .quote {
+            font-style: italic;
+            font-size: 14px;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+
+        .discord-button {
+            background: #5865F2;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .popup h2 {
+            margin: 10px 0;
+        }
+
+        .popup p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .close-btn {
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Background Overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 5;
+        }
+
+        /* Footer */
+        .footer {
+    background: linear-gradient(135deg, #d4c2ff, #b39ddb); /* Gradient light purple */
+    padding: 15px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    position: relative; /* Prevents overlap */
+    margin-top: 20px; /* Pushes it below content */
+}
+
+@media (max-width: 768px) {
+    .footer {
+        position: relative; /* No absolute positioning on small screens */
+    }
+}
+
+        /* Custom Theme for Phenu */
+.dev-phenu {
+    background: linear-gradient(to bottom, #f5f5f5, #6a0dad); /* Light to Dark */
+    border: 2px solid #222; /* Subtle Border */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    border-radius: 10px;
+            padding: 15px;
+            width: 350px;
+            height: 500px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+}
+        .quote-phenu {
+            font-style: italic;
+            font-size: 14px;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+.dev-phenu:hover {
+            transform: translateY(-5px);
+        }
+        
+       /* Developer Description */
+.dev-description {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Fun Fact Styling */
+.fun-fact {
+    background: linear-gradient(to right, #8a2be2, #6a0dad); /* Purple gradient */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-style: italic;
+    display: inline-block;
+    margin-top: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Rotate Animation on Hover */
+.fun-fact:hover {
+    transform: rotate(-3deg);
+}
+
+
+.badge-container {
+            position: relative;
+            display: inline-block;
+        }
+
+
+/* 🔵 Blue Gradient Badge */
+.badge-blu {
+    background: linear-gradient(to right, #1e90ff, #4169e1); /* Deep Blue Gradient */
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.8);
+    animation: glow-blue 1.5s infinite alternate;
+}
+
+/* 🟣 Purple Gradient Badge */
+/* Particle Effects */
+        .particle-container {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            filter: blur(2px);
+        }
+
+       .particle {
+    position: absolute;
+    width: 7px; /* Medium size */
+    height: 7px;
+    background: #000000; /* Strong purple */
+    border-radius: 50%;
+    box-shadow: 
+        0 0 25px rgba(212, 0, 255, 1), 
+        0 0 50px rgba(212, 0, 255, 0.9); /* Stronger glow */
+    opacity: 1; /* Full visibility */
+    animation: pulseGlow 1.8s infinite alternate, floatStill 3s ease-in-out infinite;
+}
+
+/* Stronger Glow Effect */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 15px rgba(212, 0, 255, 0.8); }
+    100% { box-shadow: 0 0 35px rgba(212, 0, 255, 1); }
+}
+
+/* Smooth Floating */
+@keyframes floatStill {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+
+
+
+
+
+        
+        /* Badge with Glow & Shine */
+       .badge-pur {
+            position: relative;
+            background: linear-gradient(135deg, #a000ff, #5b0082);
+            color: white;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            /*text-transform: uppercase;
+            font-weight: bold;*/
+            box-shadow: 0 0 20px rgba(160, 0, 255, 1);
+            animation: glow 1.5s infinite alternate;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        /* Shiny Effect */
+        .badge-pur::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(128, 0, 128, 0.6), transparent);
+    animation: particle-animation 1.5s infinite;
+}
+
+
+        /* Glowing Animation */
+       @keyframes glow {
+    0% {
+        box-shadow: 0 0 20px rgba(138, 0, 255, 0.8), 0 0 40px rgba(138, 0, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 40px rgba(138, 0, 255, 1), 0 0 80px rgba(138, 0, 255, 0.8);
+    }
+}
+
+        /* Shine Animation */
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+/* ⚫ Black Gradient Badge */
+.badge-blk {
+    background: linear-gradient(to right, #1a1a1a, #000000); /* Deep Black Gradient */
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    animation: glow-black 1.5s infinite alternate;
+}
+
+/* ⚪ Silver Gradient Badge */
+.badge-slv {
+    background: linear-gradient(to right, #C0C0C0, #A8A8A8, #909090, #A8A8A8, #C0C0C0); /* High Contrast Silver */
+    color: black;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(192, 192, 192, 0.9);
+    animation: glow-silver 1.5s infinite alternate;
+}
+
+
+/* 🔴 Red Gradient Badge */
+.badge-red {
+    background: linear-gradient(to right, #ff0000, #8b0000); /* Bright to Dark Red Gradient */
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    animation: glow-red 1.5s infinite alternate;
+}
+
+/* ✨ Shine Animation for All Badges */
+.badge-blu::before,
+.badge-pur::before,
+.badge-blk::before,
+.badge-slv::before,
+.badge-red::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shine 2s infinite linear;
+}
+
+/* ✨ Glow Animations */
+@keyframes glow-blue {
+    0% { box-shadow: 0 0 5px rgba(30, 144, 255, 0.6); }
+    100% { box-shadow: 0 0 15px rgba(30, 144, 255, 1); }
+}
+
+@keyframes glow-purple {
+    0% { box-shadow: 0 0 5px rgba(138, 43, 226, 0.6); }
+    100% { box-shadow: 0 0 15px rgba(138, 43, 226, 1); }
+}
+
+@keyframes glow-black {
+    0% { box-shadow: 0 0 5px rgba(0, 0, 0, 0.6); }
+    100% { box-shadow: 0 0 15px rgba(0, 0, 0, 1); }
+}
+
+@keyframes glow-silver {
+    0% { box-shadow: 0 0 5px rgba(192, 192, 192, 0.6); }
+    100% { box-shadow: 0 0 15px rgba(192, 192, 192, 1); }
+}
+
+@keyframes glow-red {
+    0% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.6); }
+    100% { box-shadow: 0 0 15px rgba(255, 0, 0, 1); }
+}
+
+/* ✨ Universal Shine Effect */
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+    <nav>
+        <div class="navbar">Our Team</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tos.html" class="active">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- Team Section -->
+    <div class="team-container">
+        <div class="dev-phenu" onclick="openPopup('phenu')">
+            <div class="banner" style="background-image: url('https://files.catbox.moe/ggfc4b.gif');"></div>
+            <img class="avatar" src="https://omnicord.neocities.org/phenu.png" alt="Phyniex">
+            <div class="name">Phyniex</div>
+            <div class="badge-container">
+    <div class="particle-container"></div>
+    <div class="badge-pur">Nether Architect</div>
+</div> <div class="badge-blu">Admin</div> <div class="badge-blk">Dumb</div>
+            <div class="dev-description">Phenu is the brain behind OmniCord, leading development with insane coding skills and a <strong>“zero-bugs”</strong> policy (though bugs still sneak in sometimes 🤫).
+    
+    <div class="fun-fact">Fun Fact: He once spent 48 hours straight debugging… only to realize the issue was a missing semicolon.</div>
+</div>
+            <div class="quote-phenu">"MUwha :3"</div>
+            <a href="https://discord.com/" class="discord-button">Discord</a>
+        </div>
+
+        <div class="dev-card" onclick="openPopup('shone')">
+            <div class="banner" style="background-image: url('https://files.catbox.moe/4zzz0l.gif');"></div>
+            <img class="avatar" src="https://omnicord.neocities.org/shone.png" alt="Shone">
+            <div class="name">Shone</div>
+            <div class="badge-container">
+    <div class="particle-container"></div>
+    <div class="badge-pur">Nether Architect</div>
+</div> <div class="badge-blu">Admin</div> <div class="badge-red">404 ERROR</div>
+            <div class="dev-description">
+    <p>The architect behind Omnicord's core. Shone makes sure everything runs without a hitch, crushing bugs like a pro.</p>
+    
+    <div class="fun-fact">
+        <span>Fun Fact:</span> Shone once fixed a bug in their sleep... and had no idea how.
+    </div>
+</div>
+
+            <div class="quote">"The Topper."</div>
+            <a href="https://discord.com/" class="discord-button">Discord</a>
+        </div>
+
+        <div class="dev-card" onclick="openPopup('levi')">
+            <div class="banner" style="background-image: url('https://files.catbox.moe/jssxr3.gif');"></div>
+            <img class="avatar" src="https://files.catbox.moe/lgjj0b.gif" alt="levi">
+            <div class="name">Levithan</div>
+            <div class="badge">Community Manager</div>
+            <div class="dev-description">
+    <p>The ruler of both **Hell** and the Omnicord server. Leviathan keeps the community engaged, ensuring chaos remains *fun* and not destructive.</p>
+
+    <div class="fun-fact">
+        <span>Fun Fact:</span> Once threatened to ban someone from Hell itself… they apologized immediately.
+    </div>
+</div>
+            <div class="quote">"Ruler Of the HELL."</div>
+            <a href="https://discord.com/" class="discord-button">Discord</a>
+        </div>
+    </div>
+
+    <!-- Popup Modals -->
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+    <div class="popup" id="popup-phenu">
+        <h2>Phyniex</h2>
+        <p>Hello Me Phyniex I love ahh ahh man i love nothing nor anyone loves me either :(( .I got some fun goals which i will complete before i die anyway enjoy the bot :33</p>
+        <div class="close-btn" onclick="closePopup()">Close</div>
+    </div>
+
+    <div class="popup" id="popup-shone">
+        <h2>Shone</h2>
+        <p>Gotta find this desc.</p>
+        <div class="close-btn" onclick="closePopup()">Close</div>
+    </div>
+
+    <div class="popup" id="popup-levi">
+        <h2>Levithan</h2>
+        <p>I Manage and rule the hell and omnicord server</p>
+        <div class="close-btn" onclick="closePopup()">Close</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">© 2025 Omnicord Team. All rights reserved.</div>
+
+    <script>
+        function openPopup(dev) {
+            document.getElementById("popup-" + dev).style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.querySelectorAll(".popup").forEach(p => p.style.display = "none");
+            document.getElementById("overlay").style.display = "none";
+        }
+        
+        
+       function createParticle(container) {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
+
+    const angle = Math.random() * Math.PI * 2;
+    const radius = 12 + Math.random() * 20; // Medium spread
+    const x = Math.cos(angle) * radius;
+    const y = Math.sin(angle) * radius;
+
+    particle.style.left = `${x + 50}%`;
+    particle.style.top = `${y + 50}%`;
+    particle.style.animationDuration = `${1.5 + Math.random() * 1}s`; // Medium fade-out
+    particle.style.width = `${5 + Math.random() * 3}px`;
+    particle.style.height = particle.style.width;
+    particle.style.opacity = `600`; // Full opacity
+    particle.style.boxShadow = `0 0 25px rgba(212, 0, 255, 1)`;
+
+    container.appendChild(particle);
+
+    setTimeout(() => {
+        particle.remove();
+    }, 1800); // Medium lifespan
+}
+
+// **Balanced particle emission**
+function startParticles() {
+    document.querySelectorAll('.particle-container').forEach(container => {
+        setInterval(() => {
+            createParticle(container);
+        }, 180); // **Medium speed (180ms per particle)**
+    });
+}
+
+startParticles();
+
+    </script>
+
+</body>
+</html>
