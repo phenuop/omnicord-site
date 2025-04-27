@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Omnicord - Ben 10 Discord Bot</title>
-  
+
   <!-- Meta -->
   <meta name="author" content="Phyniex">
   <meta name="description" content="Omnicord - The ultimate Ben 10 Discord bot. Transform, battle, and have fun with friends.">
   <meta name="keywords" content="Discord Bot, Ben10, Omnicord, Gaming, Community">
-  <meta name="robots" content="index, follow">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Omnicord - Ben 10 Discord Bot">
@@ -21,7 +20,7 @@
   <!-- Favicon -->
   <link rel="icon" href="https://omnicord.neocities.org/pfp.jpg" type="image/png">
 
-  <!-- Internal Styles -->
+  <!-- Internal CSS -->
   <style>
     body {
       margin: 0;
@@ -29,10 +28,6 @@
       background: #0b0b0b;
       color: #f5f5f5;
       line-height: 1.6;
-    }
-    header, section, footer {
-      padding: 60px 20px;
-      text-align: center;
     }
     nav {
       background: #111;
@@ -42,7 +37,7 @@
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 1000;
     }
     nav .logo {
       font-size: 1.8rem;
@@ -64,6 +59,10 @@
     }
     nav ul li a:hover {
       color: #00ff99;
+    }
+    header, section, footer {
+      padding: 60px 20px;
+      text-align: center;
     }
     .hero img {
       width: 120px;
@@ -95,24 +94,22 @@
     .btn:hover {
       background: #00cc77;
     }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .previews {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       gap: 40px;
       margin-top: 40px;
     }
-    .feature {
-      background: #1a1a1a;
-      padding: 20px;
+    .previews img {
+      width: 90%;
+      max-width: 800px;
       border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 255, 153, 0.4);
       transition: transform 0.3s;
     }
-    .feature:hover {
-      transform: translateY(-10px);
-    }
-    .feature img {
-      width: 80px;
-      margin-bottom: 15px;
+    .previews img:hover {
+      transform: scale(1.02);
     }
     footer {
       font-size: 0.9rem;
@@ -127,7 +124,7 @@
   <nav>
     <div class="logo">Omnicord</div>
     <ul>
-      <li><a href="#features">Features</a></li>
+      <li><a href="#features">Previews</a></li>
       <li><a href="#invite">Invite</a></li>
       <li><a href="#team">Team</a></li>
     </ul>
@@ -137,29 +134,17 @@
   <header class="hero">
     <img src="https://omnicord.neocities.org/pfp.jpg" alt="Omnicord Logo">
     <h1>The Ultimate Ben 10 Discord Bot</h1>
-    <p>Transform into aliens, battle villains, and top the Omniverse leaderboards. Built by Phyniex with passion!</p>
+    <p>Transform into aliens, battle villains, and dominate the Omniverse leaderboards.</p>
     <a href="#invite" class="btn">Invite Omnicord</a>
   </header>
 
-  <!-- Features Section -->
+  <!-- Previews Section -->
   <section id="features">
-    <h2>Features</h2>
-    <div class="features">
-      <div class="feature">
-        <img src="quest.png" alt="Quest">
-        <h3>Transform & Battle</h3>
-        <p>Choose your alien and face off against iconic enemies from the Ben 10 universe.</p>
-      </div>
-      <div class="feature">
-        <img src="battle.png" alt="Battle">
-        <h3>Leaderboards</h3>
-        <p>Rank up by winning battles, gaining XP, and unlocking new powerful forms!</p>
-      </div>
-      <div class="feature">
-        <img src="bal.png" alt="Balance">
-        <h3>Unique Abilities</h3>
-        <p>Each alien form has special abilities that you can master and use in fights.</p>
-      </div>
+    <h2>Bot Previews</h2>
+    <div class="previews">
+      <img src="quest.png" alt="Quest Preview">
+      <img src="battle.png" alt="Battle Preview">
+      <img src="bal.png" alt="Balance Preview">
     </div>
   </section>
 
