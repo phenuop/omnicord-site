@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ | Omnicord</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #d4b5ff, #e8dbff);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #5a48d1;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .faq-container {
+      width: 90%;
+      max-width: 800px;
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .question {
+      font-weight: 600;
+      font-size: 20px;
+      color: #5a48d1;
+      position: relative;
+      padding-right: 30px;
+      transition: color 0.3s ease;
+    }
+
+    .question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 24px;
+      color: #5a48d1;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .question {
+      color: #4b0082;
+    }
+
+    .faq-item.active .question::after {
+      transform: rotate(45deg);
+    }
+
+    .answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      font-size: 16px;
+      color: #555;
+      margin-top: 10px;
+      padding-left: 10px;
+    }
+
+    .faq-item.active .answer {
+      max-height: 300px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 36px;
+      }
+      .faq-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Frequently Asked Questions</h1>
+
+  <div class="faq-container">
+    <div class="faq-item">
+      <div class="question">What is Omnicord?</div>
+      <div class="answer">Omnicord is an advanced Discord bot designed to manage, moderate, and enhance your server experience with powerful features and sleek designs.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">Is Omnicord free to use?</div>
+      <div class="answer">Yes! Omnicord is free to use for all servers. We also offer premium features for users who wish to support development.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">How can I add Omnicord to my server?</div>
+      <div class="answer">Simply visit our website and click the "Invite" button. You'll be guided through the process to add Omnicord to your Discord server in seconds.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">How do I contact support?</div>
+      <div class="answer">You can reach our support team through our Discord server. Just head to the #support channel and open a ticket.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 Omnicord. All rights reserved.
+  </div>
+
+  <script>
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
