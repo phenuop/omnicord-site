@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation | Omnicord</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #d4b5ff, #e8dbff);
+      min-height: 100vh;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      color: #5a48d1;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav {
+      background: white;
+      padding: 15px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #5a48d1;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #4b0082;
+    }
+
+    main {
+      width: 90%;
+      max-width: 1000px;
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      margin-bottom: 50px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    section h2 {
+      color: #5a48d1;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      font-size: 16px;
+      margin-bottom: 15px;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 4px 8px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      font-size: 15px;
+      color: #c7254e;
+    }
+
+    pre {
+      background: #1e1e2f;
+      color: #eee;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 15px;
+      margin-top: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-top: auto;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 36px;
+      }
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      main {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Omnicord Documentation</h1>
+</header>
+
+<nav>
+  <a href="#getting-started">Getting Started</a>
+  <a href="#commands">Commands</a>
+  <a href="#api">API</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<main>
+
+  <section id="getting-started">
+    <h2>Getting Started</h2>
+    <p>Welcome to Omnicord! To begin, simply invite the bot to your server using our <a href="#">invite link</a> and grant the necessary permissions.</p>
+    <p>Example:</p>
+    <pre>
+Invite Omnicord ➔ Authorize ➔ Setup your first command!
+    </pre>
+  </section>
+
+  <section id="commands">
+    <h2>Commands</h2>
+    <p>Omnicord offers a wide variety of commands, from moderation to music! Here's how to use one:</p>
+    <p><code>/ban @user [reason]</code> - Bans a user from the server.</p>
+    <p><code>/play [song name]</code> - Plays a song in your voice channel.</p>
+  </section>
+
+  <section id="api">
+    <h2>API</h2>
+    <p>Developers can interact with Omnicord's public API.</p>
+    <p>Example request:</p>
+    <pre>
+GET https://api.omnicord.dev/v1/server/info
+Authorization: Bearer YOUR_API_KEY
+    </pre>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <p><strong>Q: How do I reset my settings?</strong></p>
+    <p>A: Simply use the <code>/reset</code> command or visit the dashboard.</p>
+    <p><strong>Q: Is Omnicord open source?</strong></p>
+    <p>A: Currently, Omnicord is closed source to ensure quality control and security.</p>
+  </section>
+
+</main>
+
+<div class="footer">
+  © 2025 Omnicord. All rights reserved.
+</div>
+
+</body>
+</html>
