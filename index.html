@@ -69,14 +69,17 @@
       height: 120px;
       border-radius: 50%;
       margin-bottom: 20px;
+      border: 3px solid #00ff99;
     }
-    h1 {
+    h1, h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
+      color: #00ff99;
     }
     p {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto 20px;
+      font-size: 1.1rem;
     }
     .btn {
       display: inline-block;
@@ -89,10 +92,11 @@
       font-weight: bold;
       border-radius: 5px;
       text-decoration: none;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s;
     }
     .btn:hover {
       background: #00cc77;
+      transform: translateY(-2px);
     }
     .previews {
       display: flex;
@@ -101,19 +105,32 @@
       gap: 40px;
       margin-top: 40px;
     }
-    .previews img {
-      width: 90%;
-      max-width: 800px;
+    .preview-card {
+      background: #111;
+      padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0, 255, 153, 0.4);
+      max-width: 800px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
       transition: transform 0.3s;
     }
-    .previews img:hover {
+    .preview-card:hover {
       transform: scale(1.02);
+    }
+    .preview-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .preview-card p {
+      font-size: 1rem;
+      color: #ccc;
     }
     footer {
       font-size: 0.9rem;
       background: #111;
+      padding: 20px;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -134,7 +151,7 @@
   <header class="hero">
     <img src="https://omnicord.neocities.org/pfp.jpg" alt="Omnicord Logo">
     <h1>The Ultimate Ben 10 Discord Bot</h1>
-    <p>Transform into aliens, battle villains, and dominate the Omniverse leaderboards.</p>
+    <p>Transform into powerful aliens, conquer epic battles, and climb the Omniverse leaderboards. Adventure is just one click away!</p>
     <a href="#invite" class="btn">Invite Omnicord</a>
   </header>
 
@@ -142,16 +159,25 @@
   <section id="features">
     <h2>Bot Previews</h2>
     <div class="previews">
-      <img src="quest.png" alt="Quest Preview">
-      <img src="battle.png" alt="Battle Preview">
-      <img src="bal.png" alt="Balance Preview">
+      <div class="preview-card">
+        <img src="quest.png" alt="Quest Preview">
+        <p>Embark on thrilling quests, discover rare artifacts, and unlock secret alien forms to boost your power!</p>
+      </div>
+      <div class="preview-card">
+        <img src="battle.png" alt="Battle Preview">
+        <p>Challenge your friends or rivals to battles. Only the smartest and strongest Omnitrix bearer will win!</p>
+      </div>
+      <div class="preview-card">
+        <img src="bal.png" alt="Balance Preview">
+        <p>Manage your Omnitrix energy and alien roster wisely. Every decision could mean victory or defeat!</p>
+      </div>
     </div>
   </section>
 
   <!-- Call To Action -->
   <section id="invite">
     <h2>Ready to Transform?</h2>
-    <p>Invite Omnicord to your server and unleash the power of the Omnitrix!</p>
+    <p>Don't just watch from the sidelines. Take the Omnitrix into your hands and shape the fate of the Omniverse!</p>
     <a href="YOUR_INVITE_LINK" class="btn">Invite Now</a>
     <a href="YOUR_SUPPORT_SERVER_LINK" class="btn">Support Server</a>
   </section>
@@ -159,12 +185,12 @@
   <!-- Team Section -->
   <section id="team">
     <h2>Meet the Creator</h2>
-    <p>Omnicord is proudly created and maintained by <strong>Phyniex</strong>.</p>
+    <p>Omnicord is crafted with dedication and passion by <strong>Phyniex</strong>. Join us and become a legend!</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Omnicord. All rights reserved.</p>
+    <p>&copy; 2025 Omnicord. All rights reserved. Powered by passion and the Omnitrix.</p>
   </footer>
 
 </body>
