@@ -1,108 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Omnicord</title>
-    <meta property="og:image" content="https://omnicord.neocities.org/pfp.jpg">
-<meta name="twitter:image" content="https://omnicord.neocities.org/pfp.jpg">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="pfp.jpg" type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Omnicord</title>
+  <meta property="og:image" content="https://omnicord.neocities.org/pfp.jpg">
+  <meta name="twitter:image" content="https://omnicord.neocities.org/pfp.jpg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="pfp.jpg" type="image/x-icon">
+  <style>
+    body {
+      background-color: #36393f;
+      color: #dcddde;
+      font-family: 'gg sans', 'Noto Sans', 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      text-align: center;
+      padding: 20px;
+    }
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .bot-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .bot-pfp {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .bot-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .bot-name {
+      font-weight: bold;
+      color: #00aff4;
+      font-size: 16px;
+    }
+    .bot-message {
+      background-color: #2f3136;
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+    .embed-container {
+      margin-top: 20px;
+    }
+    .embed {
+      background-color: #2f3136;
+      border-left: 5px solid #4f545c;
+      border-radius: 4px;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+    }
+    .embed-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #ffffff;
+      font-size: 15px;
+    }
+    .embed-content a {
+      color: #00b0f4;
+      text-decoration: none;
+    }
+    .embed-content a:hover {
+      text-decoration: underline;
+    }
+    .embed-blue { border-left-color: #3498db; }
+    .embed-green { border-left-color: #2ecc71; }
+    .embed-purple { border-left-color: #9b59b6; }
+    .embed-red { border-left-color: #e74c3c; }
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .footer-links a {
+      color: #00b0f4;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #72767d;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Contact Omnicord</h1>
-        <p>Need help? Here’s how you can reach us!</p>
-    </header>
+<header>
+  <h1>Contact Omnicord</h1>
+  <p>Need help? Here’s how you can reach us!</p>
+</header>
 
-    <main>
+<main>
 
-        <!-- Omnicord Bot Message -->
-        <div class="bot-container">
-            <img src="pfp.jpg" alt="Omnicord" class="bot-pfp">
-            <div class="bot-text">
-                <span class="bot-name">Omnicord</span>
-                <p>Here are the ways to contact us:</p>
-            </div>
-        </div>
-
-        <div class="embed-container">
-            <!-- Support Server -->
-            <div class="embed">
-                <div class="embed-title">🌍 Join Our Support Server</div>
-                <div class="embed-content">
-                    📌 Need help or have questions? Join our official **Discord Support Server** for real-time assistance!  
-                    🔗 <a href="https://discord.gg/example" target="_blank">Click Here to Join</a>
-                </div>
-            </div>
-
-            <!-- Email -->
-            <div class="embed embed-blue">
-                <div class="embed-title">📩 Contact via Email</div>
-                <div class="embed-content">
-                    📨 Have a business inquiry or issue? Contact us via email.  
-                    ✉️ **Email:** <a href="mailto:support@omnicord.com">support@omnicord.com</a>
-                </div>
-            </div>
-
-            <!-- Website -->
-            <div class="embed embed-green">
-                <div class="embed-title">🌐 Visit Our Website</div>
-                <div class="embed-content">
-                    🏠 Check out our official website for updates and documentation.  
-                    🔗 <a href="https://omnicord.neocities.org" target="_blank">Visit Omnicord</a>
-                </div>
-            </div>
-
-            <!-- GitHub -->
-            <div class="embed embed-purple">
-                <div class="embed-title">🛠️ Check Out Our GitHub</div>
-                <div class="embed-content">
-                    👨‍💻 Want to contribute or check out our open-source code?  
-                    🔗 <a href="https://github.com/Omnicord" target="_blank">Omnicord GitHub</a>
-                </div>
-            </div>
-
-            <!-- Urgent Support -->
-            <div class="embed embed-red">
-                <div class="embed-title">⚠️ Urgent Support</div>
-                <div class="embed-content">
-                    🆘 Need urgent help? Try these:  
-                    📜 <a href="https://omnicord.neocities.org/faq" target="_blank">Check FAQ</a>  
-                    📝 <a href="https://omnicord.neocities.org/ticket" target="_blank">Submit a Ticket</a>
-                </div>
-            </div>
-        </div>
-
-    </main>
-    <footer class="footer">
-    <div class="footer-container">
-        <img src="pfp.jpg" alt="Omnicord" class="footer-pfp" width="70" height="70"> <!-- Smaller Icon -->
-        <div class="footer-links">
-            <a href="terms.html">Terms of Service</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="contact.html">Contact</a>
-            <a href="about.html">About</a>
-            <a href="faq.html">FAQ</a>
-        </div>
-        <p class="footer-text">© 2025 Omnicord. All rights reserved.</p>
+  <!-- Bot Message Header -->
+  <div class="bot-container">
+    <img src="pfp.jpg" alt="Omnicord" class="bot-pfp">
+    <div class="bot-text">
+      <span class="bot-name">Omnicord <span style="color:#72767d;">Today at 3:45 PM</span></span>
+      <div class="bot-message">
+        Here are the ways to contact us:
+      </div>
     </div>
+  </div>
+
+  <!-- Embeds Section -->
+  <div class="embed-container">
+    <div class="embed">
+      <div class="embed-title">🌍 Join Our Support Server</div>
+      <div class="embed-content">
+        📌 Need help or have questions? Join our official <strong>Discord Support Server</strong> for real-time assistance!<br>
+        🔗 <a href="https://discord.gg/example" target="_blank">Click Here to Join</a>
+      </div>
+    </div>
+
+    <div class="embed embed-blue">
+      <div class="embed-title">📩 Contact via Email</div>
+      <div class="embed-content">
+        📨 Have a business inquiry or issue? Contact us via email.<br>
+        ✉️ <a href="mailto:support@omnicord.com">support@omnicord.com</a>
+      </div>
+    </div>
+
+    <div class="embed embed-green">
+      <div class="embed-title">🌐 Visit Our Website</div>
+      <div class="embed-content">
+        🏠 Check out our official website for updates and documentation.<br>
+        🔗 <a href="https://omnicord.neocities.org" target="_blank">Visit Omnicord</a>
+      </div>
+    </div>
+
+    <div class="embed embed-purple">
+      <div class="embed-title">🛠️ Check Out Our GitHub</div>
+      <div class="embed-content">
+        👨‍💻 Want to contribute or check out our open-source code?<br>
+        🔗 <a href="https://github.com/Omnicord" target="_blank">Omnicord GitHub</a>
+      </div>
+    </div>
+
+    <div class="embed embed-red">
+      <div class="embed-title">⚠️ Urgent Support</div>
+      <div class="embed-content">
+        🆘 Need urgent help? Try these:<br>
+        📜 <a href="https://omnicord.neocities.org/faq" target="_blank">Check FAQ</a><br>
+        📝 <a href="https://omnicord.neocities.org/ticket" target="_blank">Submit a Ticket</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <img src="pfp.jpg" alt="Omnicord" class="footer-pfp" width="70" height="70">
+    <div class="footer-links">
+      <a href="terms.html">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <p class="footer-text">© 2025 Omnicord. All rights reserved.</p>
+  </div>
 </footer>
-<script>
-        // Custom Cursor Movement
-        const smallCursor = document.querySelector('.cursor-small');
-        const bigCursor = document.querySelector('.cursor-big');
 
-        document.addEventListener('mousemove', (e) => {
-            smallCursor.style.left = e.clientX + 'px';
-            smallCursor.style.top = e.clientY + 'px';
-
-            setTimeout(() => {
-                bigCursor.style.left = e.clientX + 'px';
-                bigCursor.style.top = e.clientY + 'px';
-            }, 50);
-        });
-    </script>
 </body>
 </html>
