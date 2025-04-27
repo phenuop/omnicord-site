@@ -25,12 +25,12 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0b0b0b;
-      color: #f5f5f5;
+      background: linear-gradient(135deg, #1b002f, #3a0066);
+      color: #f5f5ff;
       line-height: 1.6;
     }
     nav {
-      background: #111;
+      background: #2d014f;
       padding: 15px 20px;
       display: flex;
       justify-content: space-between;
@@ -38,11 +38,12 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
     }
     nav .logo {
       font-size: 1.8rem;
       font-weight: bold;
-      color: #00ff99;
+      color: #bb86fc;
     }
     nav ul {
       list-style: none;
@@ -52,13 +53,13 @@
       padding: 0;
     }
     nav ul li a {
-      color: #f5f5f5;
+      color: #f5f5ff;
       text-decoration: none;
       font-weight: 500;
       transition: color 0.3s;
     }
     nav ul li a:hover {
-      color: #00ff99;
+      color: #bb86fc;
     }
     header, section, footer {
       padding: 60px 20px;
@@ -69,34 +70,33 @@
       height: 120px;
       border-radius: 50%;
       margin-bottom: 20px;
-      border: 3px solid #00ff99;
+      box-shadow: 0 0 20px #bb86fc;
     }
     h1, h2 {
       font-size: 2.5rem;
       margin-bottom: 10px;
-      color: #00ff99;
+      color: #ffffff;
     }
     p {
-      max-width: 700px;
+      max-width: 600px;
       margin: 0 auto 20px;
-      font-size: 1.1rem;
+      color: #d8d8ff;
     }
     .btn {
       display: inline-block;
       margin: 10px;
       padding: 12px 24px;
       border: none;
-      background: #00ff99;
+      background: #bb86fc;
       color: #0b0b0b;
       font-size: 1rem;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 8px;
       text-decoration: none;
-      transition: background 0.3s, transform 0.3s;
+      transition: background 0.3s;
     }
     .btn:hover {
-      background: #00cc77;
-      transform: translateY(-2px);
+      background: #9b65e4;
     }
     .previews {
       display: flex;
@@ -106,12 +106,12 @@
       margin-top: 40px;
     }
     .preview-card {
-      background: #111;
+      background: #260041;
+      border-radius: 12px;
       padding: 20px;
-      border-radius: 10px;
-      max-width: 800px;
       width: 90%;
-      box-shadow: 0 0 20px rgba(0, 255, 153, 0.3);
+      max-width: 800px;
+      box-shadow: 0 0 15px rgba(187, 134, 252, 0.3);
       transition: transform 0.3s;
     }
     .preview-card:hover {
@@ -119,18 +119,19 @@
     }
     .preview-card img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 8px;
       margin-bottom: 15px;
     }
     .preview-card p {
+      margin: 0;
       font-size: 1rem;
-      color: #ccc;
+      color: #e0e0ff;
     }
     footer {
       font-size: 0.9rem;
-      background: #111;
+      background: #2d014f;
+      color: #bbbbff;
       padding: 20px;
-      margin-top: 60px;
     }
   </style>
 </head>
@@ -151,7 +152,7 @@
   <header class="hero">
     <img src="https://omnicord.neocities.org/pfp.jpg" alt="Omnicord Logo">
     <h1>The Ultimate Ben 10 Discord Bot</h1>
-    <p>Transform into powerful aliens, conquer epic battles, and climb the Omniverse leaderboards. Adventure is just one click away!</p>
+    <p>Transform into aliens, battle villains, and dominate the Omniverse leaderboards.</p>
     <a href="#invite" class="btn">Invite Omnicord</a>
   </header>
 
@@ -161,15 +162,15 @@
     <div class="previews">
       <div class="preview-card">
         <img src="quest.png" alt="Quest Preview">
-        <p>Embark on thrilling quests, discover rare artifacts, and unlock secret alien forms to boost your power!</p>
+        <p><strong>Embark on epic quests</strong> and discover hidden artifacts across the Omniverse. Every decision matters!</p>
       </div>
       <div class="preview-card">
         <img src="battle.png" alt="Battle Preview">
-        <p>Challenge your friends or rivals to battles. Only the smartest and strongest Omnitrix bearer will win!</p>
+        <p><strong>Challenge your friends</strong> or battle fierce villains. Show off your alien transformations and strategic skills!</p>
       </div>
       <div class="preview-card">
         <img src="bal.png" alt="Balance Preview">
-        <p>Manage your Omnitrix energy and alien roster wisely. Every decision could mean victory or defeat!</p>
+        <p><strong>Manage your resources</strong> wisely — unlock upgrades, new aliens, and climb the intergalactic leaderboard!</p>
       </div>
     </div>
   </section>
@@ -177,7 +178,7 @@
   <!-- Call To Action -->
   <section id="invite">
     <h2>Ready to Transform?</h2>
-    <p>Don't just watch from the sidelines. Take the Omnitrix into your hands and shape the fate of the Omniverse!</p>
+    <p>Invite Omnicord to your server and unleash the power of the Omnitrix!</p>
     <a href="YOUR_INVITE_LINK" class="btn">Invite Now</a>
     <a href="YOUR_SUPPORT_SERVER_LINK" class="btn">Support Server</a>
   </section>
@@ -185,12 +186,12 @@
   <!-- Team Section -->
   <section id="team">
     <h2>Meet the Creator</h2>
-    <p>Omnicord is crafted with dedication and passion by <strong>Phyniex</strong>. Join us and become a legend!</p>
+    <p>Omnicord is proudly created and maintained by <strong>Phyniex</strong>. An Omnitrix-level brain behind the scenes!</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Omnicord. All rights reserved. Powered by passion and the Omnitrix.</p>
+    <p>&copy; 2025 Omnicord. All rights reserved.</p>
   </footer>
 
 </body>
