@@ -54,7 +54,7 @@
   <table>
     <tr>
       <td align="center" width="200px">
-        <img src="[phenu](WhatsApp%20Image%202025-04-20%20at%2013.24.57_4c0950fb.jpg" width="60" style="border-radius: 50%;"><br>
+        <img src="WhatsApp%20Image%202025-04-20%20at%2013.24.57_4c0950fb.jpg" width="60" style="border-radius: 50%;"><br>
         <strong>Phyniex (Phenu)</strong><br>
         <em>Lead Developer & Founder</em>
       </td>
