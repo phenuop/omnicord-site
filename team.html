@@ -22,6 +22,7 @@
       justify-content: center;
       min-height: 100vh;
       padding: 40px 20px;
+      font-size: 16px;
     }
 
     h1 {
@@ -39,6 +40,7 @@
       justify-content: center;
       gap: 40px;
       flex-wrap: wrap;
+      margin-top: 30px;
     }
 
     .team-member {
@@ -50,6 +52,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 1px solid #333;
+      margin-bottom: 20px;
     }
 
     .team-member:hover {
@@ -103,6 +106,63 @@
       text-align: center;
     }
 
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+        margin-bottom: 30px;
+      }
+
+      .team-container {
+        gap: 30px;
+      }
+
+      .team-member {
+        width: 200px;
+        padding: 20px;
+      }
+
+      .team-member h3 {
+        font-size: 18px;
+      }
+
+      .team-member p {
+        font-size: 12px;
+      }
+
+      .footer {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px;
+      }
+
+      .team-container {
+        gap: 20px;
+        justify-content: space-around;
+      }
+
+      .team-member {
+        width: 180px;
+        padding: 15px;
+      }
+
+      .team-member h3 {
+        font-size: 16px;
+      }
+
+      .team-member p {
+        font-size: 12px;
+      }
+
+      .footer {
+        font-size: 10px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -111,7 +171,7 @@
 
   <div class="team-container">
     <div class="team-member">
-      <img src="https://via.placeholder.com/120" alt="Phyniex"> <!-- Replace with actual image URL -->
+      <img src="WhatsApp%20Image%202025-04-20%20at%2013.24.57_4c0950fb.jpg" alt="Phyniex"> <!-- Replace with actual image URL -->
       <h3>Phyniex</h3>
       <p>Founder & Developer</p>
       <div class="social-links">
@@ -120,7 +180,7 @@
       </div>
     </div>
     <div class="team-member">
-      <img src="https://via.placeholder.com/120" alt="Shone"> <!-- Replace with actual image URL -->
+      <img src="shone.png" alt="Shone"> <!-- Replace with actual image URL -->
       <h3>Shone</h3>
       <p>Lead Designer</p>
       <div class="social-links">
