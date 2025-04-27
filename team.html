@@ -14,18 +14,19 @@
     }
 
     body {
-      background: linear-gradient(to right, #d4b5ff, #e8dbff);
-      min-height: 100vh;
+      background-color: #f9f9f9;
+      color: #333;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: start;
+      justify-content: center;
+      min-height: 100vh;
       padding: 40px 20px;
     }
 
     h1 {
       font-size: 48px;
-      color: #5a48d1;
+      color: #3b3b3b;
       margin-bottom: 30px;
       text-align: center;
     }
@@ -33,23 +34,22 @@
     .team-container {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 40px;
     }
 
     .team-member {
-      background: white;
+      background: #fff;
       border-radius: 15px;
       width: 250px;
       text-align: center;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      padding: 20px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .team-member:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
 
     .team-member img {
@@ -62,12 +62,12 @@
 
     .team-member h3 {
       font-size: 22px;
-      color: #5a48d1;
+      color: #3b3b3b;
       margin-bottom: 10px;
     }
 
     .team-member p {
-      font-size: 16px;
+      font-size: 14px;
       color: #777;
     }
 
@@ -82,7 +82,7 @@
 </head>
 <body>
 
-  <h1>Meet Our Team</h1>
+  <h1>Our Team</h1>
 
   <div class="team-container">
     <div class="team-member">
