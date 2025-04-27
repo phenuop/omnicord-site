@@ -59,7 +59,7 @@
         <em>Lead Developer & Founder</em>
       </td>
       <td align="center" width="200px">
-        <img src="shone.jpg" width="60" style="border-radius: 50%;"><br>
+        <img src="shone.png" width="60" style="border-radius: 50%;"><br>
         <strong>Shone</strong><br>
         <em>Lead Developer & Co-Founder</em>
       </td>
