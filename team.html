@@ -14,8 +14,8 @@
     }
 
     body {
-      background-color: #f5f5f5;
-      color: #333;
+      background-color: #0f0f0f; /* Black background */
+      color: #fff; /* White text for contrast */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -23,11 +23,12 @@
       min-height: 100vh;
       padding: 40px 20px;
       font-size: 16px;
+      background-image: linear-gradient(135deg, #000, #5a48d1); /* Silver highlights */
     }
 
     h1 {
       font-size: 48px;
-      color: #333;
+      color: #fff;
       margin-bottom: 50px;
       text-align: center;
       text-transform: uppercase;
@@ -44,14 +45,14 @@
     }
 
     .team-member {
-      background: #fff;
+      background: #1f1f1f; /* Darker gray with silver */
       border-radius: 15px;
       width: 250px;
       text-align: center;
       padding: 30px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #e0e0e0;
+      border: 1px solid #333;
       margin-bottom: 20px;
     }
 
@@ -66,19 +67,19 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 20px;
-      border: 3px solid #5a48d1;
+      border: 3px solid #5a48d1; /* Silver border */
     }
 
     .team-member h3 {
       font-size: 22px;
-      color: #333;
+      color: #fff;
       margin-bottom: 10px;
       font-weight: 600;
     }
 
     .team-member p {
       font-size: 14px;
-      color: #555;
+      color: #ccc; /* Light gray for subtle contrast */
       margin-bottom: 20px;
     }
 
@@ -89,21 +90,42 @@
     }
 
     .social-links a {
-      color: #5a48d1;
+      color: #5a48d1; /* Silver shade */
       font-size: 18px;
       text-decoration: none;
       transition: color 0.3s ease;
     }
 
     .social-links a:hover {
-      color: #333;
+      color: #fff;
     }
 
     .footer {
       margin-top: 60px;
       font-size: 14px;
-      color: #777;
+      color: #ccc;
       text-align: center;
+    }
+
+    /* "Punitive" design for Flame (betrayer) */
+    .team-member.flame {
+      background: #d32f2f; /* Red background for betrayal */
+      border: 2px solid #fff; /* White border for contrast */
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .team-member.flame img {
+      border: 3px solid #d32f2f; /* Red border */
+      filter: grayscale(100%) contrast(150%) brightness(120%); /* Making his image appear darker */
+    }
+
+    .team-member.flame h3 {
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .team-member.flame p {
+      color: #fff;
     }
 
     /* Responsive Design */
@@ -188,7 +210,7 @@
         <a href="#" target="_blank">Behance</a>
       </div>
     </div>
-    <div class="team-member">
+    <div class="team-member flame">
       <img src="levi.jpeg" alt="Flame"> <!-- Replace with actual image URL -->
       <h3>Flame</h3>
       <p>Marketing & Community</p>
