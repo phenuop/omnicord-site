@@ -3,7 +3,7 @@
 <p align="center" style="font-size: 18px; color: #ffffff;">Transform into aliens & conquer the Omniverse!<br> The ultimate <strong>Ben 10 Discord Bot</strong> with epic transformations & battles!</p>
 
 <p align="center">
-  <img src="https://omnicord.neocities.org/pfp.jpg" alt="Ben 10 Bot Logo" width="200" style="border-radius: 50%;">
+  <img src="https://omnicord.neocities.org/pfp.png" alt="Ben 10 Bot Logo" width="200" style="border-radius: 50%;">
 </p>
 
 ---
