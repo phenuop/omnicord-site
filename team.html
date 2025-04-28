@@ -2,237 +2,267 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Team | Omnicord</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  body {
-    background-color: #ffffff; /* Pure White */
-    color: #1a1a1a; /* Almost Black */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 40px 20px;
-    font-size: 16px;
-  }
-
-  h1 {
-    font-size: 48px;
-    color: #000000; /* Black */
-    margin-bottom: 50px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 700;
-  }
-
-  .team-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-  }
-
-  .team-member {
-    background: linear-gradient(135deg, #e0e0e0, #f5f5f5); /* Light silver gradient */
-    border-radius: 15px;
-    width: 250px;
-    text-align: center;
-    padding: 30px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #bdbdbd;
-    margin-bottom: 20px;
-    position: relative;
-  }
-
-  .team-member:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  }
-
-  .team-member img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid #333; /* Black border */
-  }
-
-  .team-member h3 {
-    font-size: 22px;
-    color: #111; /* Dark text */
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-
-  .team-member p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
-  }
-
-  .team-member .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .social-links a {
-    color: #333; /* Dark gray */
-    font-size: 18px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-
-  .social-links a:hover {
-    color: #000; /* Black on hover */
-  }
-
-  /* Special treatment for Flame (the traitor) */
-  .team-member.flame {
-    background: linear-gradient(135deg, #4b0000, #1a0000); /* Dark blood red to black */
-    color: #ff4d4d; /* Angry Red Text */
-    border: 2px dashed #ff0000;
-    animation: shake 1s infinite alternate;
-  }
-
-  .team-member.flame img {
-    filter: grayscale(100%) blur(1px);
-    border: 3px solid #ff0000;
-  }
-
-  .team-member.flame h3,
-  .team-member.flame p,
-  .team-member.flame .social-links a {
-    color: #ff4d4d;
-  }
-
-  .team-member.flame .social-links a:hover {
-    color: #ffffff;
-  }
-
-  @keyframes shake {
-    0% { transform: translateX(0px); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0px); }
-  }
-
-  .footer {
-    margin-top: 60px;
-    font-size: 14px;
-    color: #777;
-    text-align: center;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    h1 {
-      font-size: 36px;
-      margin-bottom: 30px;
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .team-container {
-      gap: 30px;
-    }
-
-    .team-member {
-      width: 200px;
-      padding: 20px;
-    }
-
-    .team-member h3 {
-      font-size: 18px;
-    }
-
-    .team-member p {
-      font-size: 12px;
-    }
-
-    .footer {
-      font-size: 12px;
-    }
-  }
-
-  @media (max-width: 480px) {
+    /* Body */
     body {
-      padding: 20px;
-    }
-
-    .team-container {
-      gap: 20px;
-      justify-content: space-around;
-    }
-
-    .team-member {
-      width: 180px;
-      padding: 15px;
-    }
-
-    .team-member h3 {
+      background-color: #ffffff; /* White background */
+      color: #1a1a1a; /* Near Black */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
       font-size: 16px;
     }
 
+    /* Heading */
+    h1 {
+      font-size: 48px;
+      color: #000000;
+      margin-bottom: 50px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    /* Team container */
+    .team-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    /* Team member card */
+    .team-member {
+      background: linear-gradient(135deg, #e0e0e0, #f5f5f5); /* Light silver */
+      border-radius: 15px;
+      width: 250px;
+      text-align: center;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #bdbdbd;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    /* Hover effect */
+    .team-member:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Image */
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid #333;
+    }
+
+    /* Name */
+    .team-member h3 {
+      font-size: 22px;
+      color: #111;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    /* Role */
     .team-member p {
-      font-size: 12px;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 20px;
     }
 
+    /* Social Links */
+    .team-member .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social-links a {
+      color: #333;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #000;
+    }
+
+    /* --- FLAME THE TRAITOR --- */
+    .team-member.flame {
+      background: linear-gradient(135deg, #4b0000, #1a0000); /* Dark blood red */
+      color: #ff4d4d;
+      border: 2px dashed #ff0000;
+      animation: shake 1s infinite alternate;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-member.flame img {
+      filter: grayscale(100%) blur(2px);
+      border: 3px solid #ff0000;
+    }
+
+    .team-member.flame h3,
+    .team-member.flame p,
+    .team-member.flame .social-links a {
+      color: #ff4d4d;
+    }
+
+    .team-member.flame .social-links a:hover {
+      color: #ffffff;
+    }
+
+    /* "TRAITOR" Label */
+    .team-member.flame::after {
+      content: "TRAITOR 🚫";
+      position: absolute;
+      top: 10px;
+      left: -30px;
+      background: #ff0000;
+      color: #fff;
+      padding: 5px 40px;
+      transform: rotate(-45deg);
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    }
+
+    /* Flame Shaking */
+    @keyframes shake {
+      0% { transform: translateX(0px); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0px); }
+    }
+
+    /* Footer */
     .footer {
-      font-size: 10px;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #777;
+      text-align: center;
     }
-  }
-</style>
 
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+
+      .team-container {
+        gap: 30px;
+      }
+
+      .team-member {
+        width: 200px;
+        padding: 20px;
+      }
+
+      .team-member h3 {
+        font-size: 18px;
+      }
+
+      .team-member p {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px;
+      }
+
+      .team-container {
+        gap: 20px;
+        justify-content: space-around;
+      }
+
+      .team-member {
+        width: 180px;
+        padding: 15px;
+      }
+
+      .team-member h3 {
+        font-size: 16px;
+      }
+
+      .team-member p {
+        font-size: 12px;
+      }
+
+      .footer {
+        font-size: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <h1>Our Team</h1>
 
   <div class="team-container">
+
+    <!-- Phyniex -->
     <div class="team-member">
-      <img src="WhatsApp%20Image%202025-04-20%20at%2013.24.57_4c0950fb.jpg" alt="Phyniex">
+      <img src="phyniex.jpeg" alt="Phyniex">
       <h3>Phyniex</h3>
-      <p>Founder & Developer</p>
+      <p>Founder & Visionary</p>
       <div class="social-links">
+        <a href="#" target="_blank">Twitter</a>
         <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">GitHub</a>
       </div>
     </div>
+
+    <!-- Shone -->
     <div class="team-member">
-      <img src="shone.png" alt="Shone">
+      <img src="shone.jpeg" alt="Shone">
       <h3>Shone</h3>
-      <p>Lead Designer</p>
+      <p>Tech Lead & Developer</p>
       <div class="social-links">
-        <a href="#" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">Behance</a>
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#" target="_blank">Twitter</a>
       </div>
     </div>
+
+    <!-- Flame (Traitor) -->
     <div class="team-member flame">
-      <img src="shone.png" alt="Flame">
-      <h3>Flame</h3>
-      <p>No More</p>
+      <img src="flame.jpeg" alt="Flame">
+      <h3>Flame (Ex-Partner)</h3>
+      <p>Marketing & Community</p>
       <div class="social-links">
         <a href="#" target="_blank">Twitter</a>
         <a href="#" target="_blank">Instagram</a>
       </div>
     </div>
+
   </div>
 
   <div class="footer">
-    <p>© 2025 Omnicord. All rights reserved.</p>
+    &copy; 2025 Your Team. Built with loyalty and no betrayal. ❤️
   </div>
 
 </body>
