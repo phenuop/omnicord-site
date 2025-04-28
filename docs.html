@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Documentation | Omnicord</title>
+  <title>Documentation | Ben10 Bot</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,105 +14,107 @@
     }
 
     body {
-      background: linear-gradient(to right, #d4b5ff, #e8dbff);
+      background: #fff;
       min-height: 100vh;
       padding: 40px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      color: #333;
+      color: #222;
     }
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     header h1 {
-      font-size: 48px;
-      color: #5a48d1;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      font-size: 44px;
+      color: #333;
+      text-shadow: 2px 2px 5px rgba(192,192,192,0.5);
     }
 
     nav {
-      background: white;
-      padding: 15px 30px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      margin-bottom: 30px;
+      background: #f8f8f8;
+      padding: 12px 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
       display: flex;
-      gap: 20px;
+      gap: 15px;
       flex-wrap: wrap;
       justify-content: center;
     }
 
     nav a {
-      color: #5a48d1;
+      color: #555;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #4b0082;
+      color: #000;
     }
 
     main {
-      width: 90%;
-      max-width: 1000px;
-      background: white;
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      width: 95%;
+      max-width: 950px;
+      background: #fafafa;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
       margin-bottom: 50px;
     }
 
     section {
-      margin-bottom: 50px;
+      margin-bottom: 45px;
     }
 
     section h2 {
-      color: #5a48d1;
-      font-size: 32px;
-      margin-bottom: 15px;
+      color: #111;
+      font-size: 30px;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 5px;
     }
 
     section p {
       font-size: 16px;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
       line-height: 1.7;
-      color: #555;
+      color: #444;
     }
 
     code {
-      background: #f0f0f0;
-      padding: 4px 8px;
-      border-radius: 5px;
+      background: #e0e0e0;
+      padding: 4px 7px;
+      border-radius: 4px;
       font-family: 'Courier New', monospace;
-      font-size: 15px;
-      color: #c7254e;
+      font-size: 14px;
+      color: #000;
     }
 
     pre {
-      background: #1e1e2f;
+      background: #2c2c2c;
       color: #eee;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 18px;
+      border-radius: 8px;
       overflow-x: auto;
-      font-size: 15px;
-      margin-top: 15px;
+      font-size: 14px;
+      margin-top: 12px;
     }
 
     .footer {
       text-align: center;
-      font-size: 14px;
+      font-size: 13px;
       color: #777;
       margin-top: auto;
     }
 
     @media (max-width: 600px) {
       header h1 {
-        font-size: 36px;
+        font-size: 32px;
       }
       nav {
         flex-direction: column;
@@ -121,13 +123,19 @@
       main {
         padding: 20px;
       }
+      section h2 {
+        font-size: 26px;
+      }
+      pre {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Omnicord Documentation</h1>
+  <h1>Ben10 Bot Documentation</h1>
 </header>
 
 <nav>
@@ -141,42 +149,43 @@
 
   <section id="getting-started">
     <h2>Getting Started</h2>
-    <p>Welcome to Omnicord! To begin, simply invite the bot to your server using our <a href="#">invite link</a> and grant the necessary permissions.</p>
-    <p>Example:</p>
+    <p>Welcome Hero! To begin using Ben10 Bot, invite it to your server using our <a href="#">official invite link</a> and grant it the necessary permissions (Manage Roles, Manage Channels, etc.).</p>
+    <p>Example setup flow:</p>
     <pre>
-Invite Omnicord ➔ Authorize ➔ Setup your first command!
+Invite ➔ Authorize ➔ Start unlocking aliens!
     </pre>
   </section>
 
   <section id="commands">
     <h2>Commands</h2>
-    <p>Omnicord offers a wide variety of commands, from moderation to music! Here's how to use one:</p>
-    <p><code>/ban @user [reason]</code> - Bans a user from the server.</p>
-    <p><code>/play [song name]</code> - Plays a song in your voice channel.</p>
+    <p>Ben10 Bot gives you the powers of the Omnitrix! Here are some sample commands:</p>
+    <p><code>/transform [alien]</code> - Transform into your chosen alien!</p>
+    <p><code>/battle [@enemy]</code> - Challenge another player to an alien battle.</p>
+    <p><code>/unlock [alien name]</code> - Unlock new aliens by completing challenges!</p>
   </section>
 
   <section id="api">
     <h2>API</h2>
-    <p>Developers can interact with Omnicord's public API.</p>
-    <p>Example request:</p>
+    <p>Developers can integrate the Ben10 Bot experience into their apps and websites!</p>
+    <p>Example API call:</p>
     <pre>
-GET https://api.omnicord.dev/v1/server/info
-Authorization: Bearer YOUR_API_KEY
+GET https://api.ben10bot.dev/v1/aliens/list
+Authorization: Bearer YOUR_OMNITRIX_KEY
     </pre>
   </section>
 
   <section id="faq">
     <h2>FAQ</h2>
-    <p><strong>Q: How do I reset my settings?</strong></p>
-    <p>A: Simply use the <code>/reset</code> command or visit the dashboard.</p>
-    <p><strong>Q: Is Omnicord open source?</strong></p>
-    <p>A: Currently, Omnicord is closed source to ensure quality control and security.</p>
+    <p><strong>Q: How do I unlock more aliens?</strong></p>
+    <p>A: Complete challenges, gain XP, and unlock new forms through the <code>/unlock</code> command!</p>
+    <p><strong>Q: Is Ben10 Bot officially licensed?</strong></p>
+    <p>A: No, this is a fan-made project made by hardcore Ben10 lovers!</p>
   </section>
 
 </main>
 
 <div class="footer">
-  © 2025 Omnicord. All rights reserved.
+  © 2025 Omnicord. Made with 💚 by Phyniex. All rights reserved.
 </div>
 
 </body>
