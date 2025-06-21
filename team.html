@@ -2,268 +2,313 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Our Team</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omnicord Team</title>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    /* Reset */
+    :root {
+      --black: #121212;
+      --white: #ffffff;
+      --gray: #e0e0e0;
+      --silver: #c0c0c0;
+      --dark-gray: #333333;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
 
-    /* Body */
     body {
-      background-color: #ffffff; /* White background */
-      color: #1a1a1a; /* Near Black */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
       min-height: 100vh;
-      padding: 40px 20px;
-      font-size: 16px;
+      padding: 2rem;
     }
 
-    /* Heading */
-    h1 {
-      font-size: 48px;
-      color: #000000;
-      margin-bottom: 50px;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-
-    /* Team container */
-    .team-container {
+    /* Navigation */
+    nav {
+      background-color: var(--white);
+      padding: 1.5rem 3rem;
       display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 30px;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--gray);
+      margin-bottom: 3rem;
     }
 
-    /* Team member card */
-    .team-member {
-      background: linear-gradient(135deg, #e0e0e0, #f5f5f5); /* Light silver */
-      border-radius: 15px;
-      width: 250px;
-      text-align: center;
-      padding: 30px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #bdbdbd;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    /* Hover effect */
-    .team-member:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Image */
-    .team-member img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 3px solid #333;
-    }
-
-    /* Name */
-    .team-member h3 {
-      font-size: 22px;
-      color: #111;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    /* Role */
-    .team-member p {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    /* Social Links */
-    .team-member .social-links {
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 500;
       display: flex;
-      justify-content: center;
+      align-items: center;
       gap: 10px;
     }
 
-    .social-links a {
-      color: #333;
-      font-size: 18px;
+    nav .logo i {
+      color: var(--black);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: var(--black);
       text-decoration: none;
-      transition: color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .page-header p {
+      color: var(--dark-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Team Grid */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Team Member Card */
+    .team-card {
+      background-color: var(--white);
+      border: 1px solid var(--silver);
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .team-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1.5rem;
+      border: 3px solid var(--black);
+    }
+
+    .team-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-card p {
+      color: var(--dark-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .social-links a {
+      color: var(--black);
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
     }
 
     .social-links a:hover {
-      color: #000;
+      color: var(--dark-gray);
+      transform: translateY(-2px);
     }
 
-    /* --- FLAME THE TRAITOR --- */
-    .team-member.flame {
-      background: linear-gradient(135deg, #4b0000, #1a0000); /* Dark blood red */
-      color: #ff4d4d;
-      border: 2px dashed #ff0000;
-      animation: shake 1s infinite alternate;
-      position: relative;
-      overflow: hidden;
+    /* Traitor Card */
+    .team-card.traitor {
+      background-color: var(--black);
+      border: 1px dashed var(--silver);
+      animation: shake 0.5s infinite alternate;
     }
 
-    .team-member.flame img {
-      filter: grayscale(100%) blur(2px);
-      border: 3px solid #ff0000;
-    }
-
-    .team-member.flame h3,
-    .team-member.flame p,
-    .team-member.flame .social-links a {
-      color: #ff4d4d;
-    }
-
-    .team-member.flame .social-links a:hover {
-      color: #ffffff;
-    }
-
-    /* "TRAITOR" Label */
-    .team-member.flame::after {
-      content: "TRAITOR 🚫";
+    .team-card.traitor::after {
+      content: "TRAITOR";
       position: absolute;
       top: 10px;
-      left: -30px;
+      right: 10px;
       background: #ff0000;
-      color: #fff;
-      padding: 5px 40px;
-      transform: rotate(-45deg);
-      font-weight: 700;
-      font-size: 14px;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+      color: white;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: bold;
+      border-radius: 3px;
     }
 
-    /* Flame Shaking */
+    .team-card.traitor .team-img {
+      filter: grayscale(100%) brightness(0.7);
+      border-color: #ff0000;
+    }
+
+    .team-card.traitor h2,
+    .team-card.traitor p {
+      color: var(--silver);
+    }
+
+    .team-card.traitor .social-links a {
+      color: #ff4d4d;
+    }
+
+    .team-card.traitor .social-links a:hover {
+      color: #ff9999;
+    }
+
     @keyframes shake {
       0% { transform: translateX(0px); }
-      25% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      75% { transform: translateX(-5px); }
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-3px); }
       100% { transform: translateX(0px); }
     }
 
     /* Footer */
-    .footer {
-      margin-top: 60px;
-      font-size: 14px;
-      color: #777;
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 2rem;
       text-align: center;
+      margin-top: 4rem;
     }
 
-    /* Responsive tweaks */
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--silver);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .copyright {
+      color: var(--silver);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 36px;
+      nav {
+        padding: 1rem;
+        flex-direction: column;
       }
-
-      .team-container {
-        gap: 30px;
-      }
-
-      .team-member {
-        width: 200px;
-        padding: 20px;
-      }
-
-      .team-member h3 {
-        font-size: 18px;
-      }
-
-      .team-member p {
-        font-size: 13px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 20px;
-      }
-
-      .team-container {
-        gap: 20px;
-        justify-content: space-around;
-      }
-
-      .team-member {
-        width: 180px;
-        padding: 15px;
-      }
-
-      .team-member h3 {
-        font-size: 16px;
-      }
-
-      .team-member p {
-        font-size: 12px;
-      }
-
-      .footer {
-        font-size: 10px;
+      
+      .team-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
+
 <body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="logo">
+      <i class="fas fa-robot"></i> Omnicord
+    </a>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="features.html"><i class="fas fa-star"></i> Features</a></li>
+      <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+      <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
+    </ul>
+  </nav>
 
-  <h1>Our Team</h1>
-
-  <div class="team-container">
-
-    <!-- Phyniex -->
-    <div class="team-member">
-      <img src="WhatsApp%20Image%202025-04-20%20at%2013.24.57_4c0950fb.jpg" alt="Phyniex">
-      <h3>Phyniex</h3>
-      <p>Founder & Visionary</p>
-      <div class="social-links">
-        <a href="https://github.com/phenuop" target="_blank">Github</a>
-        <a href="#" target="_blank">LinkedIn</a>
-      </div>
+  <!-- Main Content -->
+  <main>
+    <div class="page-header">
+      <h1><i class="fas fa-users"></i> Our Team</h1>
+      <p>The dedicated individuals behind the Omnicord experience</p>
     </div>
 
-    <!-- Shone -->
-    <div class="team-member">
-      <img src="shone.png" alt="Shone">
-      <h3>Shone</h3>
-      <p>Tech Lead & Developer</p>
-      <div class="social-links">
-        <a href="#" target="_blank">GitHub</a>
-        <a href="#" target="_blank">Twitter</a>
+    <div class="team-grid">
+      <!-- Phyniex -->
+      <div class="team-card">
+        <img src="WhatsApp%20Image%202025-04-20%20at%2013.24.57_4c0950fb.jpg" alt="Phyniex" class="team-img">
+        <h2>Phyniex</h2>
+        <p>Founder & Visionary</p>
+        <div class="social-links">
+          <a href="https://github.com/phenuop" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- Shone -->
+      <div class="team-card">
+        <img src="shone.png" alt="Shone" class="team-img">
+        <h2>Shone</h2>
+        <p>Tech Lead & Developer</p>
+        <div class="social-links">
+          <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- Flame (Traitor) -->
+      <div class="team-card traitor">
+        <img src="flame.png" alt="Flame" class="team-img">
+        <h2>Flame</h2>
+        <p>Former Marketing Partner</p>
+        <div class="social-links">
+          <a href="#" target="_blank"><i class="fas fa-ban"></i></a>
+          <a href="#" target="_blank"><i class="fas fa-ban"></i></a>
+        </div>
       </div>
     </div>
+  </main>
 
-    <!-- Flame (Traitor) -->
-    <div class="team-member flame">
-      <img src="flame.png" alt="Flame">
-      <h3>Flame (Ex-Partner)</h3>
-      <p>Marketing & Community</p>
-      <div class="social-links">
-        <a href="#" target="_blank">🚫</a>
-        <a href="#" target="_blank">🚫</a>
-      </div>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="features.html"><i class="fas fa-star"></i> Features</a>
+      <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+      <a href="team.html"><i class="fas fa-users"></i> Team</a>
     </div>
-
-  </div>
-
-  <div class="footer">
-    &copy; 2025 Omnicord. Built with loyalty and no betrayal. ❤️
-  </div>
-
+    <p class="copyright">
+      &copy; 2025 Omnicord. Built with loyalty and integrity. <i class="fas fa-heart"></i>
+    </p>
+  </footer>
 </body>
 </html>
