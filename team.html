@@ -107,7 +107,6 @@
       padding: 2rem;
       text-align: center;
       transition: all 0.3s ease;
-      position: relative;
     }
 
     .team-card:hover {
@@ -151,50 +150,29 @@
       transform: translateY(-2px);
     }
 
-    /* Traitor Card */
-    .team-card.traitor {
-      background-color: var(--black);
-      border: 1px dashed var(--silver);
-      animation: shake 0.5s infinite alternate;
+    /* Integrity Notice */
+    .integrity-notice {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      border-top: 1px solid var(--silver);
+      border-bottom: 1px solid var(--silver);
     }
 
-    .team-card.traitor::after {
-      content: "TRAITOR";
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #ff0000;
-      color: white;
-      padding: 0.2rem 0.5rem;
-      font-size: 0.7rem;
-      font-weight: bold;
-      border-radius: 3px;
+    .integrity-notice h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
-    .team-card.traitor .team-img {
-      filter: grayscale(100%) brightness(0.7);
-      border-color: #ff0000;
-    }
-
-    .team-card.traitor h2,
-    .team-card.traitor p {
-      color: var(--silver);
-    }
-
-    .team-card.traitor .social-links a {
-      color: #ff4d4d;
-    }
-
-    .team-card.traitor .social-links a:hover {
-      color: #ff9999;
-    }
-
-    @keyframes shake {
-      0% { transform: translateX(0px); }
-      25% { transform: translateX(-3px); }
-      50% { transform: translateX(3px); }
-      75% { transform: translateX(-3px); }
-      100% { transform: translateX(0px); }
+    .integrity-notice p {
+      color: var(--dark-gray);
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     /* Footer */
@@ -259,7 +237,7 @@
   <main>
     <div class="page-header">
       <h1><i class="fas fa-users"></i> Our Team</h1>
-      <p>The dedicated individuals behind the Omnicord experience</p>
+      <p>The dedicated creators behind the original Ben 10 Discord experience</p>
     </div>
 
     <div class="team-grid">
@@ -267,7 +245,7 @@
       <div class="team-card">
         <img src="WhatsApp%20Image%202025-04-20%20at%2013.24.57_4c0950fb.jpg" alt="Phyniex" class="team-img">
         <h2>Phyniex</h2>
-        <p>Founder & Visionary</p>
+        <p>Founder & Lead Developer</p>
         <div class="social-links">
           <a href="https://github.com/phenuop" target="_blank"><i class="fab fa-github"></i></a>
           <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -278,22 +256,21 @@
       <div class="team-card">
         <img src="shone.png" alt="Shone" class="team-img">
         <h2>Shone</h2>
-        <p>Tech Lead & Developer</p>
+        <p>Tech Lead & Systems Architect</p>
         <div class="social-links">
           <a href="#" target="_blank"><i class="fab fa-github"></i></a>
           <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
         </div>
       </div>
 
-      <!-- Flame (Traitor) -->
-      <div class="team-card traitor">
-        <img src="flame.png" alt="Flame" class="team-img">
-        <h2>Flame</h2>
-        <p>Former Marketing Partner</p>
-        <div class="social-links">
-          <a href="#" target="_blank"><i class="fas fa-ban"></i></a>
-          <a href="#" target="_blank"><i class="fas fa-ban"></i></a>
-        </div>
+      <!-- Integrity Notice -->
+      <div class="integrity-notice">
+        <h2><i class="fas fa-shield-alt"></i> About Originality</h2>
+        <p>
+          Omnicord is the first-of-its-kind Ben 10 Discord bot created with passion and integrity. 
+          While others may attempt imitations, we remain committed to delivering the authentic experience 
+          through genuine innovation and transparent collaboration.
+        </p>
       </div>
     </div>
   </main>
@@ -307,7 +284,7 @@
       <a href="team.html"><i class="fas fa-users"></i> Team</a>
     </div>
     <p class="copyright">
-      &copy; 2025 Omnicord. Built with loyalty and integrity. <i class="fas fa-heart"></i>
+      &copy; 2025 Omnicord. The original Ben 10 Discord experience. <i class="fas fa-heart"></i>
     </p>
   </footer>
 </body>
