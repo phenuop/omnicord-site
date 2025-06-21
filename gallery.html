@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omnicord Gallery</title>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --black: #121212;
+      --white: #ffffff;
+      --gray: #e0e0e0;
+      --silver: #c0c0c0;
+      --dark-gray: #333333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--white);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav .logo i {
+      color: var(--black);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: var(--black);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Main Content */
+    main {
+      padding: 4rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .gallery-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-header p {
+      color: var(--dark-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Filter Controls */
+    .filter-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.2rem;
+      background: var(--white);
+      border: 1px solid var(--silver);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--silver);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 1.2rem;
+      background: var(--white);
+    }
+
+    .gallery-caption h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gallery-caption p {
+      color: var(--dark-gray);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--silver);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .copyright {
+      color: var(--silver);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+        flex-direction: column;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="logo">
+      <i class="fas fa-robot"></i> Omnicord
+    </a>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-arrow-left"></i> Back</a></li>
+      <li><a href="#transformations"><i class="fas fa-exchange-alt"></i> Transformations</a></li>
+      <li><a href="#battles"><i class="fas fa-fist-raised"></i> Battles</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="gallery-header">
+      <h1><i class="fas fa-images"></i> Omnicord Gallery</h1>
+      <p>Explore the key features of our Ben 10 Discord experience</p>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+      <button class="filter-btn active" data-filter="all">
+        <i class="fas fa-layer-group"></i> All
+      </button>
+      <button class="filter-btn" data-filter="transformations">
+        <i class="fas fa-exchange-alt"></i> Transformations
+      </button>
+      <button class="filter-btn" data-filter="battles">
+        <i class="fas fa-fist-raised"></i> Battles
+      </button>
+      <button class="filter-btn" data-filter="villains">
+        <i class="fas fa-skull"></i> Villains
+      </button>
+      <button class="filter-btn" data-filter="guilds">
+        <i class="fas fa-users"></i> Guilds
+      </button>
+      <button class="filter-btn" data-filter="profile">
+        <i class="fas fa-user"></i> Profile
+      </button>
+      <button class="filter-btn" data-filter="economy">
+        <i class="fas fa-coins"></i> Economy
+      </button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid">
+      <!-- Transformation Items -->
+      <div class="gallery-item" data-category="transformations">
+        <img src="https://omnicord.neocities.org/transform1.jpg" alt="Transformation Screen">
+        <div class="gallery-caption">
+          <h3><i class="fas fa-exchange-alt"></i> Transformation</h3>
+          <p>Select your alien form from the Omnitrix</p>
+        </div>
+      </div>
+
+      <!-- Battle Items -->
+      <div class="gallery-item" data-category="battles">
+        <img src="https://omnicord.neocities.org/battle1.jpg" alt="1v1 Battle">
+        <div class="gallery-caption">
+          <h3><i class="fas fa-fist-raised"></i> 1v1 Battle</h3>
+          <p>Challenge other players to strategic duels</p>
+        </div>
+      </div>
+
+      <!-- Villain Items -->
+      <div class="gallery-item" data-category="villains">
+        <img src="https://omnicord.neocities.org/villain1.jpg" alt="Vilgax Battle">
+        <div class="gallery-caption">
+          <h3><i class="fas fa-skull"></i> Vilgax Encounter</h3>
+          <p>Epic battles against classic villains</p>
+        </div>
+      </div>
+
+      <!-- Guild Items -->
+      <div class="gallery-item" data-category="guilds">
+        <img src="https://omnicord.neocities.org/guild1.jpg" alt="Guild Screen">
+        <div class="gallery-caption">
+          <h3><i class="fas fa-users"></i> Guild System</h3>
+          <p>Join forces with other players</p>
+        </div>
+      </div>
+
+      <!-- Profile Items -->
+      <div class="gallery-item" data-category="profile">
+        <img src="https://omnicord.neocities.org/profile1.jpg" alt="Profile Screen">
+        <div class="gallery-caption">
+          <h3><i class="fas fa-user"></i> Player Profile</h3>
+          <p>Track your progress and achievements</p>
+        </div>
+      </div>
+
+      <!-- Economy Items -->
+      <div class="gallery-item" data-category="economy">
+        <img src="https://omnicord.neocities.org/balance1.jpg" alt="Balance Screen">
+        <div class="gallery-caption">
+          <h3><i class="fas fa-wallet"></i> Balance</h3>
+          <p>Manage your in-game resources</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="economy">
+        <img src="https://omnicord.neocities.org/market1.jpg" alt="Market Screen">
+        <div class="gallery-caption">
+          <h3><i class="fas fa-store"></i> Market</h3>
+          <p>Buy and sell items with other players</p>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="economy">
+        <img src="https://omnicord.neocities.org/auction1.jpg" alt="Auction Screen">
+        <div class="gallery-caption">
+          <h3><i class="fas fa-gavel"></i> Auction</h3>
+          <p>Bid on rare items and upgrades</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="features.html"><i class="fas fa-star"></i> Features</a>
+      <a href="team.html"><i class="fas fa-users"></i> Team</a>
+      <a href="privacy.html"><i class="fas fa-lock"></i> Privacy</a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Omnicord. Ben 10 and all related characters are trademarks of Cartoon Network.
+    </p>
+  </footer>
+
+  <!-- JavaScript for filtering -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          const filterValue = this.getAttribute('data-filter');
+          
+          galleryItems.forEach(item => {
+            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
