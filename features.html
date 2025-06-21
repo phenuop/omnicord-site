@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omnicord Features</title>
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --black: #121212;
+      --white: #ffffff;
+      --gray: #e0e0e0;
+      --silver: #c0c0c0;
+      --dark-gray: #333333;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--white);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--gray);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav .logo i {
+      color: var(--black);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: var(--black);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Main Content */
+    main {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-header p {
+      color: var(--dark-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+    }
+
+    .feature-card {
+      border: 1px solid var(--silver);
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--black);
+    }
+
+    .feature-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .feature-card p {
+      color: var(--dark-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .feature-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--dark-gray);
+    }
+
+    .feature-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Feature Categories */
+    .category-header {
+      font-size: 1.8rem;
+      margin: 4rem 0 2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--silver);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .copyright {
+      color: var(--silver);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 1rem;
+        flex-direction: column;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="logo">
+      <i class="fas fa-robot"></i> Omnicord
+    </a>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="features.html"><i class="fas fa-star"></i> Features</a></li>
+      <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+      <li><a href="team.html"><i class="fas fa-users"></i> Team</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="page-header">
+      <h1><i class="fas fa-star"></i> Omnicord Features</h1>
+      <p>Discover the expansive capabilities of our Ben 10 Discord experience</p>
+    </div>
+
+    <!-- Transformations Category -->
+    <h2 class="category-header"><i class="fas fa-exchange-alt"></i> Transformations</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div>
+        <h2><i class="fas fa-unlock"></i> Fragment Collection</h2>
+        <p>Unlock new aliens by collecting fragments through gameplay. Each alien requires a specific number of fragments to unlock.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-robot"></i> 100+ aliens</span>
+          <span><i class="fas fa-layer-group"></i> Fragment tiers</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+        <h2><i class="fas fa-sync-alt"></i> Instant Transformation</h2>
+        <p>Switch between your unlocked aliens instantly with no cooldowns, allowing for fluid combat strategies.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-tachometer-alt"></i> No delays</span>
+          <span><i class="fas fa-random"></i> Quick switching</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Battle Category -->
+    <h2 class="category-header"><i class="fas fa-fist-raised"></i> Battles</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-user"></i></div>
+        <h2><i class="fas fa-versus"></i> 1v1 Duels</h2>
+        <p>Challenge other players to strategic battles where alien selection and combat timing determine the winner.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-coins"></i> Betting system</span>
+          <span><i class="fas fa-chess"></i> Deep strategy</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-skull"></i></div>
+        <h2><i class="fas fa-ghost"></i> Villain Encounters</h2>
+        <p>Battle against 70+ classic Ben 10 villains, each with unique abilities and combat patterns.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-skull-crossbones"></i> 70+ villains</span>
+          <span><i class="fas fa-plus"></i> More coming</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Category -->
+    <h2 class="category-header"><i class="fas fa-users"></i> Social Systems</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-users"></i></div>
+        <h2><i class="fas fa-shield-alt"></i> Guilds</h2>
+        <p>Form or join guilds to collaborate with other players, share resources, and compete in guild events.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-flag"></i> Custom banners</span>
+          <span><i class="fas fa-trophy"></i> Guild rankings</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-user"></i></div>
+        <h2><i class="fas fa-id-card"></i> Profiles</h2>
+        <p>Detailed player profiles showing your unlocked aliens, battle history, and collection progress.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-trophy"></i> Win/loss records</span>
+          <span><i class="fas fa-robot"></i> Collection %</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Economy Category -->
+    <h2 class="category-header"><i class="fas fa-coins"></i> Economy</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fasfa-wallet"></i></div>
+        <h2><i class="fas fa-money-bill-wave"></i> Betting System</h2>
+        <p>Wager in-game currency on 1v1 battles with other players. Winner takes all from the prize pool.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-coins"></i> Risk/reward</span>
+          <span><i class="fas fa-hand-holding-usd"></i> High stakes</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-store"></i></div>
+        <h2><i class="fas fa-shopping-cart"></i> Marketplace</h2>
+        <p>Buy and sell alien fragments, cosmetic items, and battle upgrades with other players.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-tags"></i> Player-driven</span>
+          <span><i class="fas fa-fire"></i> Rare items</span>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-gavel"></i></div>
+        <h2><i class="fas fa-hammer"></i> Auction House</h2>
+        <p>Bid on rare fragments and exclusive items in timed auctions with players across all servers.</p>
+        <div class="feature-meta">
+          <span><i class="fas fa-clock"></i> 24h auctions</span>
+          <span><i class="fas fa-gem"></i> Exclusive items</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="features.html"><i class="fas fa-star"></i> Features</a>
+      <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+      <a href="team.html"><i class="fas fa-users"></i> Team</a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Omnicord. Ben 10 and all related characters are trademarks of Cartoon Network.
+    </p>
+  </footer>
+</body>
+</html>
