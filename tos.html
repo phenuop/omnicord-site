@@ -4,13 +4,247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Omnicord</title>
-    <meta name="description" content="Read the full Terms of Service for Omnicord. By using our services, you agree to these terms.">
-    <meta name="keywords" content="Omnicord, Terms of Service, Rules, Privacy, Usage">
+    <meta name="description" content="Official Terms of Service for Omnicord. By using our services, you agree to these terms and conditions.">
+    <meta name="keywords" content="Omnicord, Terms of Service, TOS, Legal, Discord Bot">
     <meta name="author" content="Omnicord Team">
     <meta property="og:image" content="https://omnicord.neocities.org/pfp.jpg">
-<meta name="twitter:image" content="https://omnicord.neocities.org/pfp.jpg">
-    <link rel="stylesheet" href="style.css"> 
+    <meta name="twitter:image" content="https://omnicord.neocities.org/pfp.jpg">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="pfp.jpg" type="image/x-icon">
+
+    <style>
+        :root {
+            --primary: #121212; /* Dark text */
+            --secondary: #333333; /* Secondary text */
+            --accent: #555555; /* Borders and accents */
+            --light: #f8f8f8; /* Light background */
+            --white: #ffffff; /* Pure white */
+            --link: #0066cc; /* Link color */
+            --highlight: #f0f0f0; /* Section highlight */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .tos-hero {
+            background-color: var(--light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tos-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tos-hero p {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Main Layout */
+        .tos-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .toc h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.8rem;
+        }
+
+        .toc a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* Content Sections */
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--highlight);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: "#";
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tos-container {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, .toc, footer {
+                display: none;
+            }
+
+            .tos-container {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -27,152 +261,207 @@
 
     <!-- Hero Section -->
     <header class="tos-hero">
-        <h1>Terms of Service</h1>
-        <p>Last Updated: March 2025</p>
+        <h1><i class="fas fa-file-contract"></i> Terms of Service</h1>
+        <p>Last Updated: March 2025 | Effective Immediately</p>
     </header>
 
-    <!-- Table of Contents -->
-    <aside class="toc">
-        <h3>📖 Table of Contents</h3>
-        <ul>
-            <li><a href="#intro">1. Introduction</a></li>
-            <li><a href="#eligibility">2. Eligibility</a></li>
-            <li><a href="#account">3. Account Registration</a></li>
-            <li><a href="#usage">4. Acceptable Use</a></li>
-            <li><a href="#content">5. User-Generated Content</a></li>
-            <li><a href="#privacy">6. Privacy & Data Usage</a></li>
-            <li><a href="#purchases">7. Payments & Refunds</a></li>
-            <li><a href="#termination">8. Account Suspension & Termination</a></li>
-            <li><a href="#third-party">9. Third-Party Links & Services</a></li>
-            <li><a href="#liability">10. Disclaimer & Limitation of Liability</a></li>
-            <li><a href="#copyright">11. Copyright & Intellectual Property</a></li>
-            <li><a href="#changes">12. Changes to Terms</a></li>
-            <li><a href="#governing-law">13. Loss of Items, Data, or Scams</a></li>
-            <li><a href="#contact">14. Contact Us</a></li>
-        </ul>
-    </aside>
-
-    <!-- Main TOS Content -->
-    <main class="tos-container">
-        <section id="intro">
-            <h2>1. Introduction</h2>
-            <p>Welcome to Omnicord! These Terms of Service ("Terms") govern your access to and use of Omnicord's services, including our website, applications, and other related services (collectively referred to as the "Service"). By using Omnicord, you agree to be bound by these Terms.</p>
-        </section>
-
-        <section id="eligibility">
-            <h2>2. Eligibility</h2>
-            <p>You must be at least **13 years old** to use Omnicord. If you are under 18, you must have the consent of a parent or legal guardian. By using our Service, you confirm that you meet these age requirements.</p>
-        </section>
-
-        <section id="account">
-            <h2>3. Account Registration</h2>
-            <p>To use Omnicord, you may be required to create an account. You agree to:</p>
+    <!-- Main Content -->
+    <div class="tos-container">
+        <!-- Table of Contents -->
+        <aside class="toc">
+            <h3><i class="fas fa-bookmark"></i> Contents</h3>
             <ul>
-                <li>Provide accurate and truthful information.</li>
-                <li>Maintain the security of your account.</li>
-                <li>Not share your account with others.</li>
-                <li>Be responsible for all activities on your account.</li>
+                <li><a href="#intro">1. Introduction</a></li>
+                <li><a href="#eligibility">2. Eligibility</a></li>
+                <li><a href="#account">3. Account Registration</a></li>
+                <li><a href="#usage">4. Acceptable Use</a></li>
+                <li><a href="#content">5. User Content</a></li>
+                <li><a href="#privacy">6. Privacy & Data</a></li>
+                <li><a href="#purchases">7. Payments & Refunds</a></li>
+                <li><a href="#termination">8. Account Termination</a></li>
+                <li><a href="#third-party">9. Third-Party Services</a></li>
+                <li><a href="#liability">10. Liability</a></li>
+                <li><a href="#copyright">11. Intellectual Property</a></li>
+                <li><a href="#changes">12. Changes to Terms</a></li>
+                <li><a href="#loss-protection">13. Loss Protection</a></li>
+                <li><a href="#contact">14. Contact Us</a></li>
             </ul>
-        </section>
+        </aside>
 
-        <section id="usage">
-            <h2>4. Acceptable Use</h2>
-            <p>By using Omnicord, you agree **not to:**</p>
-            <ul>
-                <li>Violate any laws or regulations.</li>
-                <li>Harass, threaten, or harm others.</li>
-                <li>Distribute malware, spam, or unauthorized advertisements.</li>
-                <li>Attempt to hack, exploit, or reverse-engineer our systems.</li>
-                <li>Impersonate other users or misrepresent yourself.</li>
-            </ul>
-        </section>
+        <!-- Terms Content -->
+        <main class="tos-content">
+            <section id="intro">
+                <h2>Introduction</h2>
+                <p>Welcome to Omnicord ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of Omnicord's services, including our Discord bot, website, and related services (collectively, the "Service").</p>
+                <p>By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you may not use the Service.</p>
+            </section>
 
-        <section id="content">
-            <h2>5. User-Generated Content</h2>
-            <p>You are responsible for any content you post on Omnicord. We reserve the right to remove content that violates our policies or is deemed inappropriate.</p>
-        </section>
+            <section id="eligibility">
+                <h2>Eligibility</h2>
+                <p>To use Omnicord, you must:</p>
+                <ul>
+                    <li>Be at least <strong>13 years of age</strong></li>
+                    <li>If under 18, have parental/guardian consent</li>
+                    <li>Not be prohibited from receiving our services under applicable laws</li>
+                </ul>
+            </section>
 
-        <section id="privacy">
-            <h2>6. Privacy & Data Usage</h2>
-            <p>We collect and use data as described in our <a href="privacy.html">Privacy Policy</a>. Your privacy is important to us, and we do not sell personal data.</p>
-        </section>
+            <section id="account">
+                <h2>Account Registration</h2>
+                <p>When creating an account, you agree to:</p>
+                <ul>
+                    <li>Provide accurate and complete information</li>
+                    <li>Maintain account security and confidentiality</li>
+                    <li>Not share or transfer your account</li>
+                    <li>Be responsible for all activities under your account</li>
+                </ul>
+                <p>We reserve the right to refuse service or terminate accounts at our discretion.</p>
+            </section>
 
-        <section id="purchases">
-            <h2>7. Payments & Refunds</h2>
-            <p>Some features may require payment. All payments are final.</p>
-            <ul>
-                <li>Refunds are only available in extreme cases with strong proof (e.g., item not received, major service failure).</li>
-                <li>A processing fee (e.g., 10-30%) will be deducted from all approved refunds.</li>
-                <li>Refunds are NOT given for buyer’s remorse or temporary use.</li>
-                <li>If a refund is granted, you cannot repurchase the same item/service for 30 days.</li>
-                <li>Chargebacks will result in a permanent ban from all Omnicord services.</li>
-            </ul>
-        </section>
+            <section id="usage">
+                <h2>Acceptable Use</h2>
+                <p>You agree not to use Omnicord to:</p>
+                <ul>
+                    <li>Violate any laws or regulations</li>
+                    <li>Harm, harass, or discriminate against others</li>
+                    <li>Distribute malware, spam, or unauthorized ads</li>
+                    <li>Reverse-engineer or exploit our systems</li>
+                    <li>Impersonate others or misrepresent affiliations</li>
+                    <li>Engage in fraudulent or deceptive activities</li>
+                </ul>
+                <p>Violations may result in immediate account termination.</p>
+            </section>
 
-        <section id="termination">
-            <h2>8. Account Suspension & Termination</h2>
-            <p>We reserve the right to suspend or terminate accounts that violate our Terms or policies. This includes:</p>
-            <ul>
-                <li>Engaging in illegal activities.</li>
-                <li>Repeated violations of our Acceptable Use Policy.</li>
-                <li>Disrupting the service or other users.</li>
-            </ul>
-        </section>
+            <section id="content">
+                <h2>User-Generated Content</h2>
+                <p>You retain ownership of content you create using Omnicord, but grant us a worldwide license to use, display, and distribute it in connection with the Service.</p>
+                <p>We may remove content that violates these Terms or is otherwise objectionable.</p>
+            </section>
 
-        <section id="third-party">
-            <h2>9. Third-Party Links & Services</h2>
-            <p>Omnicord may contain links to third-party websites. We are not responsible for their content or policies.</p>
-        </section>
+            <section id="privacy">
+                <h2>Privacy & Data Usage</h2>
+                <p>Your privacy is important. Our <a href="privacy.html">Privacy Policy</a> explains how we collect, use, and protect your information.</p>
+                <p>By using Omnicord, you consent to our data practices as described in the Privacy Policy.</p>
+            </section>
 
-        <section id="liability">
-            <h2>10. Disclaimer & Limitation of Liability</h2>
-            <p>Omnicord provides services "as is" and makes no guarantees regarding reliability, security, or performance.</p>
-        </section>
+            <section id="purchases">
+                <h2>Payments & Refunds</h2>
+                <p>For premium features requiring payment:</p>
+                <ul>
+                    <li><strong>All sales are final</strong> unless otherwise stated</li>
+                    <li>Refunds may be considered for service failures with valid proof</li>
+                    <li>Approved refunds may incur a 10-30% processing fee</li>
+                    <li>No refunds for change of mind or temporary use</li>
+                    <li>Chargebacks will result in permanent service bans</li>
+                </ul>
+            </section>
 
-        <section id="copyright">
-            <h2>11. Copyright & Intellectual Property</h2>
-            <p>All Omnicord content is protected under intellectual property laws. Unauthorized use is prohibited.</p>
-        </section>
+            <section id="termination">
+                <h2>Account Suspension & Termination</h2>
+                <p>We may suspend or terminate accounts for:</p>
+                <ul>
+                    <li>Violations of these Terms</li>
+                    <li>Illegal or harmful activities</li>
+                    <li>Payment disputes or chargebacks</li>
+                    <li>Actions that jeopardize service integrity</li>
+                </ul>
+                <p>Terminated accounts lose access to all features and content.</p>
+            </section>
 
-        <section id="changes">
-            <h2>12. Changes to Terms</h2>
-            <p>We may update these Terms at any time. Continued use after changes means acceptance.</p>
-        </section>
+            <section id="third-party">
+                <h2>Third-Party Links & Services</h2>
+                <p>Omnicord may integrate with or link to third-party services. We:</p>
+                <ul>
+                    <li>Are not responsible for third-party content or practices</li>
+                    <li>Do not endorse external services unless explicitly stated</li>
+                    <li>Recommend reviewing third-party terms and policies</li>
+                </ul>
+            </section>
 
-        <section id="governing-law">
-    <h2>13. Loss of Items, Data, or Scams</h2>
-    <p>Omnicord is not responsible for any loss of virtual items, data, or in-game progress. By using our services, you acknowledge that:</p>
-    <ul>
-        <li>If you lose access to any virtual item, currency, or content, <strong>we are not liable</strong> for recovery or reimbursement.</li>
-        <li>If your data is erased due to technical issues, accidental deletion, or any other reason, <strong>it is entirely your responsibility</strong>.</li>
-        <li><strong>We do not offer refunds or compensation</strong> for any losses caused by scams, fraud, or third-party interactions.</li>
-        <li>Always exercise caution when trading, purchasing, or sharing information with others.</li>
-    </ul>
-</section>
+            <section id="liability">
+                <h2>Disclaimer & Limitation of Liability</h2>
+                <p>Omnicord is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted or error-free service</li>
+                    <li>Accuracy of information or content</li>
+                    <li>Results from using the service</li>
+                </ul>
+                <p>To the fullest extent permitted by law, we exclude all liability for damages arising from use of Omnicord.</p>
+            </section>
 
+            <section id="copyright">
+                <h2>Copyright & Intellectual Property</h2>
+                <p>All Omnicord content, including code, designs, and branding, is our exclusive property or licensed to us.</p>
+                <p>Unauthorized use, reproduction, or distribution is prohibited. Ben 10 and related characters are trademarks of Cartoon Network.</p>
+            </section>
 
-        <section id="contact">
-            <h2>14. Contact Us</h2>
-            <p>If you have questions, email us at <a href="mailto:support@omnicord.com">support@omnicord.com</a>.</p>
-        </section>
-    </main>
+            <section id="changes">
+                <h2>Changes to Terms</h2>
+                <p>We may modify these Terms at any time. Changes become effective when posted.</p>
+                <p>Continued use after changes constitutes acceptance. We recommend periodically reviewing the Terms.</p>
+            </section>
+
+            <section id="loss-protection">
+                <h2>Loss of Items & Scam Protection</h2>
+                <p><strong>Important:</strong> Omnicord is not responsible for:</p>
+                <ul>
+                    <li>Lost virtual items, currency, or progress</li>
+                    <li>Data loss from technical issues or user error</li>
+                    <li>Scams or fraudulent transactions between users</li>
+                </ul>
+                <p>You acknowledge that:</p>
+                <ul>
+                    <li>All transactions are at your own risk</li>
+                    <li>We do not mediate user disputes</li>
+                    <li>No refunds or replacements for lost items</li>
+                </ul>
+                <p>Exercise caution when trading or sharing account access.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>For questions about these Terms, contact:</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:support@omnicord.com">support@omnicord.com</a></p>
+                <p><i class="fab fa-discord"></i> Discord: <a href="#">Omnicord Support Server</a></p>
+            </section>
+        </main>
+    </div>
 
     <footer>
-        <p>&copy; 2025 Omnicord. All Rights Reserved.</p>
+        <p>&copy; 2025 Omnicord. All rights reserved. Ben 10 and related characters are trademarks of Cartoon Network.</p>
     </footer>
-<script>
-        // Custom Cursor Movement
-        const smallCursor = document.querySelector('.cursor-small');
-        const bigCursor = document.querySelector('.cursor-big');
 
-        document.addEventListener('mousemove', (e) => {
-            smallCursor.style.left = e.clientX + 'px';
-            smallCursor.style.top = e.clientY + 'px';
+    <script>
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-            setTimeout(() => {
-                bigCursor.style.left = e.clientX + 'px';
-                bigCursor.style.top = e.clientY + 'px';
-            }, 50);
+        // Highlight current section in TOC
+        const sections = document.querySelectorAll('section');
+        const tocLinks = document.querySelectorAll('.toc a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
