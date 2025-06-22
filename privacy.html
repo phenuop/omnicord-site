@@ -4,13 +4,321 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Omnicord</title>
-    <meta name="description" content="Privacy policy for the Omnicord Discord bot. Learn how we handle data, logging, and user privacy.">
-    <meta name="keywords" content="Omnicord, Discord Bot, Privacy Policy, Data Collection">
-    <meta name="author" content="Phyniex">
+    <meta name="description" content="Omnicord's comprehensive privacy policy. Learn how we protect your data in our Discord bot services.">
+    <meta name="keywords" content="Omnicord, Discord Bot, Privacy Policy, Data Protection, GDPR">
+    <meta name="author" content="Omnicord Team">
     <meta property="og:image" content="https://omnicord.neocities.org/pfp.jpg">
-<meta name="twitter:image" content="https://omnicord.neocities.org/pfp.jpg">
-    <link rel="stylesheet" href="style.css"> 
+    <meta name="twitter:image" content="https://omnicord.neocities.org/pfp.jpg">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="pfp.jpg" type="image/x-icon">
+
+    <style>
+        :root {
+            --primary: #121212; /* Dark text */
+            --secondary: #333333; /* Secondary text */
+            --accent: #555555; /* Borders and accents */
+            --light: #f8f8f8; /* Light background */
+            --white: #ffffff; /* Pure white */
+            --link: #0066cc; /* Link color */
+            --highlight: #f0f0f0; /* Section highlight */
+            --warning: #ff6b6b; /* Warning/important text */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .privacy-hero {
+            background-color: var(--light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .privacy-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-hero p {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        .effective-date {
+            background-color: var(--primary);
+            color: var(--white);
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Main Layout */
+        .privacy-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Table of Contents */
+        .toc {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .toc h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toc ul {
+            list-style: none;
+        }
+
+        .toc li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .toc li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .toc a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* Content Sections */
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--highlight);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: "#";
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .warning {
+            background-color: #fff8f8;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning p {
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .data-table th, .data-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--highlight);
+        }
+
+        .data-table th {
+            background-color: var(--light);
+            font-weight: 600;
+        }
+
+        .data-table tr:hover {
+            background-color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .compliance-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .compliance-badge {
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .privacy-container {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .data-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, .toc, footer {
+                display: none;
+            }
+
+            .privacy-container {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -26,115 +334,228 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="tos-hero">
-        <h1>Privacy Policy</h1>
-        <p>Last Updated: March 2025</p>
+    <header class="privacy-hero">
+        <h1><i class="fas fa-shield-alt"></i> Privacy Policy</h1>
+        <p>How we protect and handle your data in Omnicord</p>
+        <div class="effective-date">Effective: March 2025</div>
     </header>
 
-    <!-- Table of Contents -->
-    <aside class="toc">
-        <h3>📖 Table of Contents</h3>
-        <ul>
-            <li><a href="#intro">1. Introduction</a></li>
-            <li><a href="#data-we-collect">2. What Data We Collect</a></li>
-            <li><a href="#how-we-use">3. How We Use Data</a></li>
-            <li><a href="#data-storage">4. Data Storage & Security</a></li>
-            <li><a href="#third-party">5. Third-Party Services</a></li>
-            <li><a href="#opt-out">6. How to Remove Your Data</a></li>
-            <li><a href="#changes">7. Policy Changes</a></li>
-            <li><a href="#contact">8. Contact Us</a></li>
-        </ul>
-    </aside>
-
-    <!-- Main Privacy Content -->
-    <main class="tos-container">
-        <section id="intro">
-            <h2>1. Introduction</h2>
-            <p>Welcome to the privacy policy for Omnicord, a Discord bot. This document explains how we handle your data when you use our bot in a Discord server.</p>
-        </section>
-
-        <section id="data-we-collect">
-            <h2>2. What Data We Collect</h2>
-            <p>Omnicord may collect and process the following data:</p>
+    <!-- Main Content -->
+    <div class="privacy-container">
+        <!-- Table of Contents -->
+        <aside class="toc">
+            <h3><i class="fas fa-bookmark"></i> Contents</h3>
             <ul>
-                <li><strong>Discord User Data:</strong> Username, user ID, and avatar.</li>
-                <li><strong>Message Data:</strong> Only when required for bot features (e.g., moderation logs, custom commands).</li>
-                <li><strong>Server Data:</strong> Server ID, roles, channels (only for bot-related functionality).</li>
-                <li><strong>Interaction Data:</strong> Commands you use and bot responses.</li>
+                <li><a href="#intro">1. Introduction</a></li>
+                <li><a href="#data-collection">2. Data Collection</a></li>
+                <li><a href="#data-use">3. Data Usage</a></li>
+                <li><a href="#data-protection">4. Data Protection</a></li>
+                <li><a href="#data-sharing">5. Data Sharing</a></li>
+                <li><a href="#user-rights">6. Your Rights</a></li>
+                <li><a href="#cookies">7. Cookies & Tracking</a></li>
+                <li><a href="#changes">8. Policy Changes</a></li>
+                <li><a href="#contact">9. Contact Us</a></li>
             </ul>
-            <p>We <strong>DO NOT</strong> collect passwords, private messages, or sensitive personal information.</p>
-        </section>
+        </aside>
 
-        <section id="how-we-use">
-            <h2>3. How We Use Data</h2>
-            <p>We use your data to:</p>
-            <ul>
-                <li>Operate the bot and respond to commands.</li>
-                <li>Improve functionality and bot features.</li>
-                <li>Ensure moderation and enforce server rules (if applicable).</li>
-                <li>Prevent abuse and protect user security.</li>
-            </ul>
-        </section>
+        <!-- Privacy Content -->
+        <main class="privacy-content">
+            <section id="intro">
+                <h2>Introduction</h2>
+                <p>This Privacy Policy explains how Omnicord ("we," "us," or "our") collects, uses, and protects your personal data when you use our Discord bot and related services.</p>
+                <p>By using Omnicord, you consent to the practices described in this policy. If you disagree, please discontinue use.</p>
+                <div class="warning">
+                    <p><i class="fas fa-exclamation-circle"></i> <strong>Important:</strong> Omnicord is not affiliated with Discord Inc. or Cartoon Network. This policy covers only our data practices.</p>
+                </div>
+            </section>
 
-        <section id="data-storage">
-            <h2>4. Data Storage & Security</h2>
-            <p>Omnicord stores minimal user data. Any stored data is:</p>
-            <ul>
-                <li>Kept for as long as necessary to provide services.</li>
-                <li>Stored securely with restricted access.</li>
-                <li>Deleted when no longer needed or upon request.</li>
-            </ul>
-            <p>We do not share or sell any user data.</p>
-        </section>
+            <section id="data-collection">
+                <h2>Data Collection</h2>
+                <p>We collect minimal data necessary to operate Omnicord:</p>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Purpose</th>
+                            <th>Retention Period</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Discord User ID</td>
+                            <td>User identification, feature access</td>
+                            <td>Until account deletion</td>
+                        </tr>
+                        <tr>
+                            <td>Username & Avatar</td>
+                            <td>Display purposes in bot interfaces</td>
+                            <td>Until account deletion</td>
+                        </tr>
+                        <tr>
+                            <td>Server ID & Config</td>
+                            <td>Server-specific bot customization</td>
+                            <td>Until bot removal</td>
+                        </tr>
+                        <tr>
+                            <td>Command Usage</td>
+                            <td>Analytics, abuse prevention</td>
+                            <td>30 days</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-        <section id="third-party">
-            <h2>5. Third-Party Services</h2>
-            <p>Omnicord may interact with third-party services such as:</p>
-            <ul>
-                <li>Discord API (for bot commands and interactions).</li>
-                <li>Logging services (only for moderation features).</li>
-            </ul>
-            <p>We do not share user data with advertisers or external businesses.</p>
-        </section>
+                <p><strong>We do NOT collect:</strong></p>
+                <ul>
+                    <li>Passwords or authentication tokens</li>
+                    <li>Private messages not directed to the bot</li>
+                    <li>Payment information (handled by Discord)</li>
+                    <li>Sensitive personal information</li>
+                </ul>
+            </section>
 
-        <section id="opt-out">
-            <h2>6. How to Remove Your Data</h2>
-            <p>If you wish to remove your data, you can:</p>
-            <ul>
-                <li>Kick or ban the bot from your server.</li>
-                <li>Contact us at <a href="mailto:support@omnicord.com">support@omnicord.com</a> to request data deletion.</li>
-            </ul>
-            <p>We will process deletion requests within a reasonable time.</p>
-        </section>
+            <section id="data-use">
+                <h2>Data Usage</h2>
+                <p>We use collected data exclusively to:</p>
+                <ul>
+                    <li>Provide and improve Omnicord services</li>
+                    <li>Respond to user commands and requests</li>
+                    <li>Maintain security and prevent abuse</li>
+                    <li>Generate anonymous usage statistics</li>
+                </ul>
+                <div class="warning">
+                    <p><i class="fas fa-lock"></i> <strong>No Selling of Data:</strong> We do not and will never sell your data to third parties.</p>
+                </div>
+            </section>
 
-        <section id="changes">
-            <h2>7. Policy Changes</h2>
-            <p>We may update this Privacy Policy. Changes will be posted here with an updated date.</p>
-        </section>
+            <section id="data-protection">
+                <h2>Data Protection</h2>
+                <p>We implement industry-standard measures to protect your data:</p>
+                <ul>
+                    <li>Encryption of sensitive data in transit and at rest</li>
+                    <li>Regular security audits and updates</li>
+                    <li>Limited access to authorized personnel only</li>
+                    <li>Secure server infrastructure</li>
+                </ul>
+                <p>Despite these measures, no system is 100% secure. We cannot guarantee absolute security but commit to promptly addressing any vulnerabilities.</p>
+            </section>
 
-        <section id="contact">
-            <h2>8. Contact Us</h2>
-            <p>For any privacy concerns, contact us at <a href="mailto:support@omnicord.com">support@omnicord.com</a>.</p>
-        </section>
-    </main>
+            <section id="data-sharing">
+                <h2>Data Sharing</h2>
+                <p>We only share data in these limited circumstances:</p>
+                <ul>
+                    <li><strong>Service Providers:</strong> With vendors who assist in operating Omnicord (under strict confidentiality agreements)</li>
+                    <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
+                    <li><strong>Business Transfers:</strong> In case of merger or acquisition (with privacy protections)</li>
+                </ul>
+                <p>We may share aggregated, anonymized data for analytical purposes.</p>
+            </section>
+
+            <section id="user-rights">
+                <h2>Your Rights</h2>
+                <p>You have the following rights regarding your data:</p>
+                <ul>
+                    <li><strong>Access:</strong> Request a copy of your stored data</li>
+                    <li><strong>Correction:</strong> Update inaccurate information</li>
+                    <li><strong>Deletion:</strong> Request removal of your data</li>
+                    <li><strong>Restriction:</strong> Limit how we use your data</li>
+                    <li><strong>Portability:</strong> Receive your data in a machine-readable format</li>
+                    <li><strong>Objection:</strong> Object to certain data processing</li>
+                </ul>
+                <p>To exercise these rights, contact us at <a href="mailto:privacy@omnicord.com">privacy@omnicord.com</a>.</p>
+                <div class="warning">
+                    <p><i class="fas fa-user-slash"></i> <strong>Quick Removal:</strong> To immediately remove most of your data, simply remove Omnicord from your server.</p>
+                </div>
+            </section>
+
+            <section id="cookies">
+                <h2>Cookies & Tracking</h2>
+                <p>Omnicord does not use cookies or tracking technologies on Discord. Our website may use:</p>
+                <ul>
+                    <li><strong>Essential Cookies:</strong> Required for site functionality</li>
+                    <li><strong>Analytics Cookies:</strong> Anonymous usage statistics (opt-out available)</li>
+                </ul>
+                <p>We do not use tracking pixels, fingerprinting, or cross-site tracking.</p>
+            </section>
+
+            <section id="changes">
+                <h2>Policy Changes</h2>
+                <p>We may update this policy as needed. Significant changes will be:</p>
+                <ul>
+                    <li>Posted on our Discord server</li>
+                    <li>Announced via bot notification (if enabled)</li>
+                    <li>Reflected with a new "Last Updated" date</li>
+                </ul>
+                <p>Continued use after changes constitutes acceptance.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>For privacy concerns or data requests:</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:privacy@omnicord.com">privacy@omnicord.com</a></p>
+                <p><i class="fab fa-discord"></i> Discord: <a href="#">Omnicord Support Server</a></p>
+                <p>We aim to respond within 7 business days.</p>
+            </section>
+        </main>
+    </div>
 
     <footer>
-        <p>&copy; 2025 Omnicord. All Rights Reserved.</p>
+        <div class="compliance-badges">
+            <span class="compliance-badge">GDPR Compliant</span>
+            <span class="compliance-badge">Discord ToS Compliant</span>
+            <span class="compliance-badge">No Data Selling</span>
+        </div>
+        <p>&copy; 2025 Omnicord. All rights reserved. Ben 10 and related characters are trademarks of Cartoon Network.</p>
     </footer>
-<script>
-        // Custom Cursor Movement
-        const smallCursor = document.querySelector('.cursor-small');
-        const bigCursor = document.querySelector('.cursor-big');
 
-        document.addEventListener('mousemove', (e) => {
-            smallCursor.style.left = e.clientX + 'px';
-            smallCursor.style.top = e.clientY + 'px';
-
-            setTimeout(() => {
-                bigCursor.style.left = e.clientX + 'px';
-                bigCursor.style.top = e.clientY + 'px';
-            }, 50);
+    <script>
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
+
+        // Highlight current section in TOC
+        const sections = document.querySelectorAll('section');
+        const tocLinks = document.querySelectorAll('.toc a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Print button functionality
+        const printButton = document.createElement('button');
+        printButton.innerHTML = '<i class="fas fa-print"></i> Print Policy';
+        printButton.style.position = 'fixed';
+        printButton.style.bottom = '20px';
+        printButton.style.right = '20px';
+        printButton.style.padding = '10px 15px';
+        printButton.style.background = 'var(--primary)';
+        printButton.style.color = 'white';
+        printButton.style.border = 'none';
+        printButton.style.borderRadius = '4px';
+        printButton.style.cursor = 'pointer';
+        printButton.style.zIndex = '100';
+        printButton.addEventListener('click', () => window.print());
+        document.body.appendChild(printButton);
     </script>
 </body>
 </html>
