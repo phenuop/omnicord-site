@@ -1,290 +1,468 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omnicord Terms of Service</title>
-<style>
-/* CSS Styles */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Omnicord</title>
+    <meta name="description" content="Official Terms of Service for Omnicord. By using our services, you agree to these terms and conditions.">
+    <meta name="keywords" content="Omnicord, Terms of Service, TOS, Legal, Discord Bot">
+    <meta name="author" content="Omnicord Team">
+    <meta property="og:image" content="https://omnicord.neocities.org/pfp.jpg">
+    <meta name="twitter:image" content="https://omnicord.neocities.org/pfp.jpg">
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="pfp.jpg" type="image/x-icon">
 
-.container {
-  width: 90%;
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
+    <style>
+        :root {
+            --primary: #121212; /* Dark text */
+            --secondary: #333333; /* Secondary text */
+            --accent: #555555; /* Borders and accents */
+            --light: #f8f8f8; /* Light background */
+            --white: #ffffff; /* Pure white */
+            --link: #0066cc; /* Link color */
+            --highlight: #f0f0f0; /* Section highlight */
+        }
 
-h1 {
-  text-align: center;
-  color: #007bff;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-p {
-  margin-bottom: 20px;
-  line-height: 1.6;
-  color: #333;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background-color: var(--white);
+        }
 
-.button {
-  display: block;
-  width: 100%;
-  padding: 15px 0;
-  background-color: #007bff;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-.button:hover {
-  background-color: #0056b3;
-}
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
 
-.fun-stuff {
-  text-align: center;
-  margin-top: 30px;
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-.fun-stuff h2 {
-  color: #007bff;
-}
+        nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
 
-.fun-stuff ul {
-  list-style: none;
-  padding: 0;
-}
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
 
-.fun-stuff li {
-  margin-bottom: 10px;
-}
+        /* Hero Section */
+        .tos-hero {
+            background-color: var(--light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
 
-.fun-stuff li a {
-  display: block;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
+        .tos-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
-.fun-stuff li a:hover {
-  background-color: #0056b3;
-}
+        .tos-hero p {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
 
-.gallery-container {
-  margin-top: 30px;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+        /* Main Layout */
+        .tos-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
 
-.gallery-container img {
-  max-width: 150px;
-  max-height: 150px;
-  margin: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        /* Table of Contents */
+        .toc {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+            padding: 1.5rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            height: fit-content;
+        }
 
-.camera-container {
-  position: relative;
-}
+        .toc h3 {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.camera-video {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        .toc ul {
+            list-style: none;
+        }
 
-.camera-switch {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+        .toc li {
+            margin-bottom: 0.8rem;
+        }
 
-.camera-switch:hover {
-  background-color: #0056b3;
-}
-</style>
+        .toc a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .toc a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        /* Content Sections */
+        section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--highlight);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: "#";
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        ul, ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tos-container {
+                grid-template-columns: 1fr;
+            }
+
+            .toc {
+                position: static;
+                margin-bottom: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, .toc, footer {
+                display: none;
+            }
+
+            .tos-container {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+
+            section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Omnicord Terms of Service</h1>
-  <p>Welcome to Omnicord! By using our Discord bot, you agree to comply with and be bound by the following terms and conditions:</p>
-  
-  <h2>1. Acceptance of Terms</h2>
-  <p>By using Omnicord, you agree to be bound by these Terms of Service, all applicable laws, and regulations.</p>
-  
-  <h2>2. Description of Service</h2>
-  <p>Omnicord provides various functionalities for enhancing your Discord server experience.</p>
-  
-  <h2>3. User Conduct</h2>
-  <p>Users are responsible for their actions and content posted through Omnicord. Any misuse or abuse may result in suspension or termination of service.</p>
-  
-  <h2>4. Modifications</h2>
-  <p>Omnicord reserves the right to modify these terms at any time. Users are responsible for regularly reviewing these terms.</p>
-  
-  <h2>5. Contact Us</h2>
-  <p>If you have any questions or concerns about these Terms of Service, please contact us at support@omnicord.com</p>
-  
-  <a href="#" class="button">Agree and Continue</a>
-  
-  <div class="fun-stuff">
-    <h2>Fun Stuff to Do When Bored</h2>
-    <ul>
-      <li><a href="#" onclick="fetchRandomQuiz()">Take a Quiz</a></li>
-      <li><a href="#" onclick="takePicture()">Take a Picture</a></li>
-    </ul>
-  </div>
-  
-  <div class="quiz-container" style="display: none;">
-    <h2>Random Quiz</h2>
-    <div class="quiz-question" id="quizQuestion"></div>
-    <div class="quiz-answer" id="quizAnswers"></div>
-    <button class="quiz-submit" onclick="submitQuiz()">Submit Answer</button>
-  </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Omnicord</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="tos.html" class="active">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-  <div class="camera-container" style="display: none;">
-    <h2>Camera</h2>
-    <video class="camera-video" id="cameraVideo" autoplay playsinline></video>
-    <button class="camera-switch" onclick="toggleCamera()">Switch Camera</button>
-    <button class="button" onclick="captureImage()">Capture Image</button>
-  </div>
+    <!-- Hero Section -->
+    <header class="tos-hero">
+        <h1><i class="fas fa-file-contract"></i> Terms of Service</h1>
+        <p>Last Updated: March 2025 | Effective Immediately</p>
+    </header>
 
-  <div class="gallery-container">
-    <h2>Gallery</h2>
-    <div id="gallery"></div>
-  </div>
-</div>
+    <!-- Main Content -->
+    <div class="tos-container">
+        <!-- Table of Contents -->
+        <aside class="toc">
+            <h3><i class="fas fa-bookmark"></i> Contents</h3>
+            <ul>
+                <li><a href="#intro">1. Introduction</a></li>
+                <li><a href="#eligibility">2. Eligibility</a></li>
+                <li><a href="#account">3. Account Registration</a></li>
+                <li><a href="#usage">4. Acceptable Use</a></li>
+                <li><a href="#content">5. User Content</a></li>
+                <li><a href="#privacy">6. Privacy & Data</a></li>
+                <li><a href="#purchases">7. Payments & Refunds</a></li>
+                <li><a href="#termination">8. Account Termination</a></li>
+                <li><a href="#third-party">9. Third-Party Services</a></li>
+                <li><a href="#liability">10. Liability</a></li>
+                <li><a href="#copyright">11. Intellectual Property</a></li>
+                <li><a href="#changes">12. Changes to Terms</a></li>
+                <li><a href="#loss-protection">13. Loss Protection</a></li>
+                <li><a href="#contact">14. Contact Us</a></li>
+            </ul>
+        </aside>
 
-<script>
-// JavaScript code
-document.querySelector('.button').addEventListener('click', function() {
-  // Redirect to Discord server invite link
-  window.location.href = "YOUR_DISCORD_SERVER_INVITE_LINK_HERE";
-});
+        <!-- Terms Content -->
+        <main class="tos-content">
+            <section id="intro">
+                <h2>Introduction</h2>
+                <p>Welcome to Omnicord ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of Omnicord's services, including our Discord bot, website, and related services (collectively, the "Service").</p>
+                <p>By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you may not use the Service.</p>
+            </section>
 
-function fetchRandomQuiz() {
-  fetch('https://opentdb.com/api.php?amount=1&type=multiple')
-    .then(response => response.json())
-    .then(data => {
-      const quizQuestion = data.results[0].question;
-      const quizAnswers = data.results[0].incorrect_answers;
-      const correctAnswer = data.results[0].correct_answer;
+            <section id="eligibility">
+                <h2>Eligibility</h2>
+                <p>To use Omnicord, you must:</p>
+                <ul>
+                    <li>Be at least <strong>13 years of age</strong></li>
+                    <li>If under 18, have parental/guardian consent</li>
+                    <li>Not be prohibited from receiving our services under applicable laws</li>
+                </ul>
+            </section>
 
-      document.getElementById('quizQuestion').innerHTML = quizQuestion;
-      document.getElementById('quizAnswers').innerHTML = '';
-      quizAnswers.push(correctAnswer);
-      quizAnswers.sort(() => Math.random() - 0.5);
-      quizAnswers.forEach(answer => {
-        const input = document.createElement('input');
-        input.setAttribute('type', 'radio');
-        input.setAttribute('name', 'answer');
-        input.setAttribute('value', answer);
-        const label = document.createElement('label');
-        label.textContent = answer;
-        const br = document.createElement('br');
-        document.getElementById('quizAnswers').appendChild(input);
-        document.getElementById('quizAnswers').appendChild(label);
-        document.getElementById('quizAnswers').appendChild(br);
-      });
+            <section id="account">
+                <h2>Account Registration</h2>
+                <p>When creating an account, you agree to:</p>
+                <ul>
+                    <li>Provide accurate and complete information</li>
+                    <li>Maintain account security and confidentiality</li>
+                    <li>Not share or transfer your account</li>
+                    <li>Be responsible for all activities under your account</li>
+                </ul>
+                <p>We reserve the right to refuse service or terminate accounts at our discretion.</p>
+            </section>
 
-      document.querySelector('.quiz-container').style.display = 'block';
-    })
-    .catch(error => console.log(error));
-}
+            <section id="usage">
+                <h2>Acceptable Use</h2>
+                <p>You agree not to use Omnicord to:</p>
+                <ul>
+                    <li>Violate any laws or regulations</li>
+                    <li>Harm, harass, or discriminate against others</li>
+                    <li>Distribute malware, spam, or unauthorized ads</li>
+                    <li>Reverse-engineer or exploit our systems</li>
+                    <li>Impersonate others or misrepresent affiliations</li>
+                    <li>Engage in fraudulent or deceptive activities</li>
+                </ul>
+                <p>Violations may result in immediate account termination.</p>
+            </section>
 
-function submitQuiz() {
-  const selectedAnswer = document.querySelector('input[name="answer"]:checked').value;
-  const correctAnswer = document.querySelector('input[type="radio"][value="' + correctAnswer + '"]').value;
+            <section id="content">
+                <h2>User-Generated Content</h2>
+                <p>You retain ownership of content you create using Omnicord, but grant us a worldwide license to use, display, and distribute it in connection with the Service.</p>
+                <p>We may remove content that violates these Terms or is otherwise objectionable.</p>
+            </section>
 
-  if (selectedAnswer === correctAnswer) {
-    alert('Correct! You are a quiz master!');
-  } else {
-    alert('Oops! Incorrect answer. Better luck next time!');
-  }
-}
+            <section id="privacy">
+                <h2>Privacy & Data Usage</h2>
+                <p>Your privacy is important. Our <a href="privacy.html">Privacy Policy</a> explains how we collect, use, and protect your information.</p>
+                <p>By using Omnicord, you consent to our data practices as described in the Privacy Policy.</p>
+            </section>
 
-function takePicture() {
-  document.querySelector('.gallery-container').style.display = 'none';
-  document.querySelector('.quiz-container').style.display = 'none';
-  document.querySelector('.camera-container').style.display = 'block';
-  const cameraVideo = document.getElementById('cameraVideo');
+            <section id="purchases">
+                <h2>Payments & Refunds</h2>
+                <p>For premium features requiring payment:</p>
+                <ul>
+                    <li><strong>All sales are final</strong> unless otherwise stated</li>
+                    <li>Refunds may be considered for service failures with valid proof</li>
+                    <li>Approved refunds may incur a 10-30% processing fee</li>
+                    <li>No refunds for change of mind or temporary use</li>
+                    <li>Chargebacks will result in permanent service bans</li>
+                </ul>
+            </section>
 
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(stream => {
-      cameraVideo.srcObject = stream;
-    })
-    .catch(error => console.log(error));
-}
+            <section id="termination">
+                <h2>Account Suspension & Termination</h2>
+                <p>We may suspend or terminate accounts for:</p>
+                <ul>
+                    <li>Violations of these Terms</li>
+                    <li>Illegal or harmful activities</li>
+                    <li>Payment disputes or chargebacks</li>
+                    <li>Actions that jeopardize service integrity</li>
+                </ul>
+                <p>Terminated accounts lose access to all features and content.</p>
+            </section>
 
-function toggleCamera() {
-  const cameraVideo = document.getElementById('cameraVideo');
-  const tracks = cameraVideo.srcObject.getTracks();
-  tracks.forEach(track => track.enabled = !track.enabled);
-}
+            <section id="third-party">
+                <h2>Third-Party Links & Services</h2>
+                <p>Omnicord may integrate with or link to third-party services. We:</p>
+                <ul>
+                    <li>Are not responsible for third-party content or practices</li>
+                    <li>Do not endorse external services unless explicitly stated</li>
+                    <li>Recommend reviewing third-party terms and policies</li>
+                </ul>
+            </section>
 
-function captureImage() {
-  const canvas = document.createElement('canvas');
-  const context = canvas.getContext('2d');
-  const cameraVideo = document.getElementById('cameraVideo');
-  
-  canvas.width = cameraVideo.videoWidth;
-  canvas.height = cameraVideo.videoHeight;
-  context.drawImage(cameraVideo, 0, 0, canvas.width, canvas.height);
-  
-  const imageDataURL = canvas.toDataURL('image/png');
-  saveImageToGallery(imageDataURL);
+            <section id="liability">
+                <h2>Disclaimer & Limitation of Liability</h2>
+                <p>Omnicord is provided "as is" without warranties of any kind. We do not guarantee:</p>
+                <ul>
+                    <li>Uninterrupted or error-free service</li>
+                    <li>Accuracy of information or content</li>
+                    <li>Results from using the service</li>
+                </ul>
+                <p>To the fullest extent permitted by law, we exclude all liability for damages arising from use of Omnicord.</p>
+            </section>
 
-  document.querySelector('.gallery-container').style.display = 'block';
-  document.querySelector('.camera-container').style.display = 'none';
+            <section id="copyright">
+                <h2>Copyright & Intellectual Property</h2>
+                <p>All Omnicord content, including code, designs, and branding, is our exclusive property or licensed to us.</p>
+                <p>Unauthorized use, reproduction, or distribution is prohibited. Ben 10 and related characters are trademarks of Cartoon Network.</p>
+            </section>
 
-  cameraVideo.srcObject.getTracks().forEach(track => track.stop());
-}
+            <section id="changes">
+                <h2>Changes to Terms</h2>
+                <p>We may modify these Terms at any time. Changes become effective when posted.</p>
+                <p>Continued use after changes constitutes acceptance. We recommend periodically reviewing the Terms.</p>
+            </section>
 
-function saveImageToGallery(imageDataURL) {
-  let gallery = JSON.parse(localStorage.getItem('gallery')) || [];
-  gallery.push(imageDataURL);
-  localStorage.setItem('gallery', JSON.stringify(gallery));
-  displayGallery();
-}
+            <section id="loss-protection">
+                <h2>Loss of Items & Scam Protection</h2>
+                <p><strong>Important:</strong> Omnicord is not responsible for:</p>
+                <ul>
+                    <li>Lost virtual items, currency, or progress</li>
+                    <li>Data loss from technical issues or user error</li>
+                    <li>Scams or fraudulent transactions between users</li>
+                </ul>
+                <p>You acknowledge that:</p>
+                <ul>
+                    <li>All transactions are at your own risk</li>
+                    <li>We do not mediate user disputes</li>
+                    <li>No refunds or replacements for lost items</li>
+                </ul>
+                <p>Exercise caution when trading or sharing account access.</p>
+            </section>
 
-function displayGallery() {
-  const galleryContainer = document.getElementById('gallery');
-  galleryContainer.innerHTML = '';
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>For questions about these Terms, contact:</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:support@omnicord.com">support@omnicord.com</a></p>
+                <p><i class="fab fa-discord"></i> Discord: <a href="#">Omnicord Support Server</a></p>
+            </section>
+        </main>
+    </div>
 
-  const galleryImages = JSON.parse(localStorage.getItem('gallery')) || [];
-  galleryImages.forEach(imageDataURL => {
-    const img = document.createElement('img');
-    img.src = imageDataURL;
-    galleryContainer.appendChild(img);
-  });
-}
-</script>
+    <footer>
+        <p>&copy; 2025 Omnicord. All rights reserved. Ben 10 and related characters are trademarks of Cartoon Network.</p>
+    </footer>
 
+    <script>
+        // Smooth scrolling for TOC links
+        document.querySelectorAll('.toc a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight current section in TOC
+        const sections = document.querySelectorAll('section');
+        const tocLinks = document.querySelectorAll('.toc a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
