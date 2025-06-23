@@ -2,166 +2,674 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FAQ | Omnicord</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Frequently asked questions about Omnicord - the ultimate Ben 10 Discord bot">
+  <meta name="keywords" content="Omnicord, FAQ, Discord Bot, Ben 10, Help">
+  
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
+    :root {
+      --black: #121212;
+      --white: #ffffff;
+      --gray: #e0e0e0;
+      --silver: #c0c0c0;
+      --dark-gray: #333333;
+      --primary: #0066cc;
+      --highlight: #f0f0f0;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: linear-gradient(to right, #f5f5f5, #e0e0e0); /* Light Silver Shades */
+      font-family: 'Inter', sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.6;
       min-height: 100vh;
-      padding: 40px 20px;
+      padding: 2rem;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--white);
+      padding: 1.5rem 2rem;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
-      justify-content: start;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      margin-bottom: 2rem;
     }
 
-    h1 {
-      font-size: 48px;
-      color: #000; /* Pure Black */
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo i {
+      color: var(--black);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--secondary);
+      font-weight: 500;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--primary);
+    }
+
+    /* Page Header */
+    .page-header {
       text-align: center;
+      margin-bottom: 3rem;
     }
 
-    .faq-container {
-      width: 100%;
-      max-width: 800px;
-      background: #ffffff; /* White */
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      margin-top: 40px;
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
 
-    .faq-item {
-      border-bottom: 1px solid #ccc; /* Light Gray */
-      padding: 20px 0;
-      cursor: pointer;
+    .page-header p {
+      color: var(--dark-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Search Bar */
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto 3rem;
       position: relative;
-      transition: background-color 0.3s ease;
     }
 
-    .faq-item:last-child {
-      border-bottom: none;
+    .search-container input {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 1px solid var(--gray);
+      border-radius: 50px;
+      font-size: 1rem;
+      padding-left: 3rem;
+      transition: all 0.3s;
+    }
+
+    .search-container input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+
+    .search-container i {
+      position: absolute;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--dark-gray);
+    }
+
+    /* FAQ Container */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* FAQ Category */
+    .faq-category {
+      margin-bottom: 3rem;
+    }
+
+    .faq-category h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--gray);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* FAQ Item */
+    .faq-item {
+      border: 1px solid var(--gray);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s;
     }
 
     .faq-item:hover {
-      background-color: #f0f0f0;
+      border-color: var(--silver);
+    }
+
+    .faq-item.active {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
     }
 
     .question {
+      padding: 1.5rem;
       font-weight: 600;
-      font-size: 20px;
-      color: #000; /* Black */
-      position: relative;
-      padding-right: 30px;
-      transition: color 0.3s ease;
-    }
-
-    .question::after {
-      content: '+';
-      position: absolute;
-      right: 0;
-      top: 0;
-      font-size: 24px;
-      color: #777; /* Dark Silver */
-      transition: transform 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--white);
+      transition: background-color 0.3s;
     }
 
     .faq-item.active .question {
-      color: #333; /* Darker Gray when active */
+      background-color: var(--highlight);
     }
 
-    .faq-item.active .question::after {
-      transform: rotate(45deg);
+    .question-text {
+      flex: 1;
+    }
+
+    .toggle-icon {
+      margin-left: 1rem;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .toggle-icon {
+      transform: rotate(180deg);
     }
 
     .answer {
+      padding: 0 1.5rem;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.4s ease;
-      font-size: 16px;
-      color: #444; /* Mid-dark Gray */
-      margin-top: 10px;
-      padding-left: 10px;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      color: var(--dark-gray);
     }
 
     .faq-item.active .answer {
-      max-height: 300px;
+      max-height: 500px;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background-color: var(--primary);
+      color: var(--white);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 99;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--black);
     }
 
     /* Footer */
-    .footer {
-      margin-top: 50px;
-      font-size: 14px;
-      color: #777; /* Dark Silver */
+    footer {
+      background-color: var(--black);
+      color: var(--white);
       text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
     }
 
-    .footer a {
-      color: #000;
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--silver);
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    .footer a:hover {
-      text-decoration: underline;
+    .copyright {
+      color: var(--silver);
+      font-size: 0.9rem;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 36px;
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
       }
-      .faq-container {
-        padding: 20px;
+
+      nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .faq-category h2 {
+        font-size: 1.3rem;
       }
     }
 
+    /* Print Styles */
+    @media print {
+      nav, .back-to-top, footer {
+        display: none;
+      }
+
+      .faq-item {
+        border: none;
+        page-break-inside: avoid;
+      }
+
+      .faq-item.active .answer {
+        max-height: none;
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <h1>Frequently Asked Questions</h1>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="logo">
+      <i class="fas fa-robot"></i> Omnicord
+    </a>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="features.html"><i class="fas fa-star"></i> Features</a></li>
+      <li><a href="faq.html" class="active"><i class="fas fa-question-circle"></i> FAQ</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+  </nav>
 
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1><i class="fas fa-question-circle"></i> Frequently Asked Questions</h1>
+    <p>Find answers to common questions about Omnicord</p>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <i class="fas fa-search"></i>
+    <input type="text" id="faq-search" placeholder="Search questions...">
+  </div>
+
+  <!-- FAQ Container -->
   <div class="faq-container">
-    <div class="faq-item">
-      <div class="question">What is Omnicord?</div>
-      <div class="answer">Omnicord is an advanced Discord bot designed to manage, moderate, and enhance your server experience with powerful features and sleek designs.</div>
+    <!-- Getting Started Category -->
+    <div class="faq-category">
+      <h2><i class="fas fa-rocket"></i> Getting Started</h2>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">What is Omnicord?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>Omnicord is the ultimate Ben 10 Discord bot that allows you to transform into aliens, battle villains, and compete on leaderboards. It brings the Omniverse experience to your Discord server with unique gameplay mechanics and premium features.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">How do I add Omnicord to my server?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>You can invite Omnicord to your server by:</p>
+          <ol>
+            <li>Clicking the "Invite" button on our website</li>
+            <li>Selecting your server from the dropdown</li>
+            <li>Granting the necessary permissions (we recommend using the default settings)</li>
+            <li>Authorizing the bot to join</li>
+          </ol>
+          <p>After joining, use <code>/help</code> to get started!</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">What permissions does Omnicord need?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>Omnicord requires these permissions to function properly:</p>
+          <ul>
+            <li><strong>Read Messages/View Channels:</strong> To see commands and interactions</li>
+            <li><strong>Send Messages:</strong> To respond to commands</li>
+            <li><strong>Embed Links:</strong> For rich visual responses</li>
+            <li><strong>Attach Files:</strong> For certain game assets</li>
+            <li><strong>Use Slash Commands:</strong> For the command interface</li>
+          </ul>
+          <p>We never request unnecessary permissions like administrator rights.</p>
+        </div>
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="question">Is Omnicord free to use?</div>
-      <div class="answer">Yes! Omnicord is free to use for all servers. We also offer premium features for users who wish to support development.</div>
+
+    <!-- Gameplay Category -->
+    <div class="faq-category">
+      <h2><i class="fas fa-gamepad"></i> Gameplay</h2>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">How do I unlock new aliens?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>You can unlock new aliens by:</p>
+          <ul>
+            <li>Collecting alien fragments through gameplay</li>
+            <li>Completing quests and challenges</li>
+            <li>Participating in special events</li>
+            <li>Trading with other players</li>
+            <li>Purchasing from the in-game market</li>
+          </ul>
+          <p>Each alien requires a specific number of fragments to unlock.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">How do battles work?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>Omnicord features several battle types:</p>
+          <ul>
+            <li><strong>1v1 Duels:</strong> Challenge other players directly</li>
+            <li><strong>Villain Battles:</strong> Fight against AI-controlled villains</li>
+            <li><strong>Guild Wars:</strong> Team battles between guilds</li>
+          </ul>
+          <p>Battles are turn-based with strategic elements. Each alien has unique abilities and strengths. You can bet in-game currency on 1v1 matches.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">What happens if I lose a battle?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>Losing a battle has these consequences:</p>
+          <ul>
+            <li>You may lose any currency you bet</li>
+            <li>Your battle stats will be recorded</li>
+            <li>You'll gain some experience points</li>
+            <li>No items or aliens are permanently lost</li>
+          </ul>
+          <p>You can always challenge the opponent again or practice against villains to improve.</p>
+        </div>
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="question">How can I add Omnicord to my server?</div>
-      <div class="answer">Simply visit our website and click the "Invite" button. You'll be guided through the process to add Omnicord to your Discord server in seconds.</div>
+
+    <!-- Economy Category -->
+    <div class="faq-category">
+      <h2><i class="fas fa-coins"></i> Economy & Items</h2>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">How do I earn in-game currency?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>You can earn currency through:</p>
+          <ul>
+            <li>Winning battles</li>
+            <li>Completing daily quests</li>
+            <li>Selling items in the marketplace</li>
+            <li>Participating in events</li>
+            <li>Winning auctions</li>
+            <li>Guild rewards</li>
+          </ul>
+          <p>Currency is server-specific and cannot be transferred between servers.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">What's the difference between the market and auction?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p><strong>Marketplace:</strong></p>
+          <ul>
+            <li>Fixed prices set by sellers</li>
+            <li>Instant purchases</li>
+            <li>Better for common items</li>
+          </ul>
+          <p><strong>Auction House:</strong></p>
+          <ul>
+            <li>Time-limited bidding</li>
+            <li>Potential for better deals</li>
+            <li>Better for rare items</li>
+            <li>24-hour auction duration</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">What happens if I get scammed in a trade?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>Omnicord does not mediate player trades or provide refunds for scams. However:</p>
+          <ul>
+            <li>You can report scammers to server moderators</li>
+            <li>We recommend using the official marketplace for safer transactions</li>
+            <li>Always double-check trade details before confirming</li>
+          </ul>
+          <p class="warning"><i class="fas fa-exclamation-triangle"></i> Never share your account details or Discord tokens with anyone.</p>
+        </div>
+      </div>
     </div>
-    <div class="faq-item">
-      <div class="question">How do I contact support?</div>
-      <div class="answer">You can reach our support team through our Discord server. Just head to the #support channel and open a ticket.</div>
+
+    <!-- Troubleshooting Category -->
+    <div class="faq-category">
+      <h2><i class="fas fa-tools"></i> Troubleshooting</h2>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">Why can't I see Omnicord's commands?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>If commands aren't appearing, try these solutions:</p>
+          <ol>
+            <li>Ensure Omnicord has the correct permissions (see "What permissions does Omnicord need?")</li>
+            <li>Type <code>/</code> in chat to trigger Discord's command menu</li>
+            <li>Wait 1-2 minutes after adding the bot (commands may take time to register)</li>
+            <li>Check if the bot is online in your server member list</li>
+            <li>Try kicking and re-inviting the bot</li>
+          </ol>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">How do I reset my progress?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>Account resets are permanent and cannot be undone. To reset:</p>
+          <ol>
+            <li>Use the <code>/reset</code> command</li>
+            <li>Confirm your choice</li>
+            <li>Wait 24 hours for the reset to process</li>
+          </ol>
+          <p class="warning"><i class="fas fa-exclamation-triangle"></i> This will delete all your aliens, items, and currency. Proceed with caution.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="question">
+          <div class="question-text">How can I contact support?</div>
+          <div class="toggle-icon"><i class="fas fa-chevron-down"></i></div>
+        </div>
+        <div class="answer">
+          <p>For assistance, please:</p>
+          <ul>
+            <li>Join our <a href="#">Support Server</a> and open a ticket</li>
+            <li>Email <a href="mailto:support@omnicord.com">support@omnicord.com</a></li>
+            <li>Check our <a href="status.html">Status Page</a> for ongoing issues</li>
+          </ul>
+          <p>Include your Discord ID and server information for faster resolution.</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="footer">
-    <p>© 2025 Omnicord. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
   </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="features.html"><i class="fas fa-star"></i> Features</a>
+      <a href="tos.html"><i class="fas fa-file-contract"></i> Terms</a>
+      <a href="privacy.html"><i class="fas fa-lock"></i> Privacy</a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Omnicord. Ben 10 and related characters are trademarks of Cartoon Network.
+    </p>
+  </footer>
 
   <script>
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    faqItems.forEach(item => {
-      item.addEventListener('click', () => {
-        item.classList.toggle('active');
+    // FAQ Toggle Functionality
+    document.querySelectorAll('.question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        faqItem.classList.toggle('active');
+        
+        // Close other items in the same category
+        const category = faqItem.parentElement;
+        category.querySelectorAll('.faq-item').forEach(item => {
+          if (item !== faqItem && item.classList.contains('active')) {
+            item.classList.remove('active');
+          }
+        });
       });
     });
-  </script>
 
+    // Search Functionality
+    const faqSearch = document.getElementById('faq-search');
+    faqSearch.addEventListener('input', () => {
+      const searchTerm = faqSearch.value.toLowerCase();
+      
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const question = item.querySelector('.question-text').textContent.toLowerCase();
+        const answer = item.querySelector('.answer').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+          
+          // Highlight matching text
+          const questionText = item.querySelector('.question-text');
+          const answerText = item.querySelector('.answer');
+          
+          // Remove previous highlights
+          questionText.innerHTML = questionText.textContent;
+          answerText.innerHTML = answerText.textContent;
+          
+          if (searchTerm.length > 2) {
+            highlightText(questionText, searchTerm);
+            highlightText(answerText, searchTerm);
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+
+    function highlightText(element, term) {
+      const text = element.textContent;
+      const regex = new RegExp(term, 'gi');
+      const newText = text.replace(regex, match => `<span style="background-color: yellow">${match}</span>`);
+      element.innerHTML = newText;
+    }
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Print Button
+   /* const printButton = document.createElement('button');
+    printButton.innerHTML = '<i class="fas fa-print"></i> Print FAQ';
+    printButton.style.position = 'fixed';
+    printButton.style.bottom = '20px';
+    printButton.style.left = '20px';
+    printButton.style.padding = '10px 15px';
+    printButton.style.background = 'var(--primary)';
+    printButton.style.color = 'white';
+    printButton.style.border = 'none';
+    printButton.style.borderRadius = '4px';
+    printButton.style.cursor = 'pointer';
+    printButton.style.zIndex = '100';
+    printButton.addEventListener('click', () => window.print());
+    document.body.appendChild(printButton);
+*/
+  </script>
 </body>
 </html>
