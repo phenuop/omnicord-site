@@ -24,6 +24,7 @@
             --white: #ffffff; /* Pure white */
             --link: #0066cc; /* Link color */
             --highlight: #f0f0f0; /* Section highlight */
+            --warning: #ff6b6b; /* Warning/important text */
         }
 
         * {
@@ -93,6 +94,16 @@
             font-size: 1.1rem;
         }
 
+        .effective-date {
+            background-color: var(--primary);
+            color: var(--white);
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
         /* Main Layout */
         .tos-container {
             display: grid;
@@ -127,6 +138,15 @@
 
         .toc li {
             margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .toc li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
         }
 
         .toc a {
@@ -196,6 +216,39 @@
             text-decoration: underline;
         }
 
+        .warning {
+            background-color: #fff8f8;
+            border-left: 4px solid var(--warning);
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .warning p {
+            color: var(--primary);
+            margin-bottom: 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .data-table th, .data-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--highlight);
+        }
+
+        .data-table th {
+            background-color: var(--light);
+            font-weight: 600;
+        }
+
+        .data-table tr:hover {
+            background-color: var(--light);
+        }
+
         /* Footer */
         footer {
             background-color: var(--primary);
@@ -203,6 +256,22 @@
             text-align: center;
             padding: 2rem;
             margin-top: 3rem;
+        }
+
+        .compliance-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .compliance-badge {
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         /* Responsive Design */
@@ -226,6 +295,11 @@
                 gap: 1rem;
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+
+            .data-table {
+                display: block;
+                overflow-x: auto;
             }
         }
 
@@ -262,7 +336,8 @@
     <!-- Hero Section -->
     <header class="tos-hero">
         <h1><i class="fas fa-file-contract"></i> Terms of Service</h1>
-        <p>Last Updated: March 2025 | Effective Immediately</p>
+        <p>By using our services, you agree to these terms and conditions</p>
+        <div class="effective-date">Effective: March 2025</div>
     </header>
 
     <!-- Main Content -->
@@ -294,16 +369,22 @@
                 <h2>Introduction</h2>
                 <p>Welcome to Omnicord ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to and use of Omnicord's services, including our Discord bot, website, and related services (collectively, the "Service").</p>
                 <p>By accessing or using the Service, you agree to be bound by these Terms. If you do not agree, you may not use the Service.</p>
+                <div class="warning">
+                    <p><i class="fas fa-exclamation-circle"></i> <strong>Important:</strong> Omnicord is not affiliated with Discord Inc. or Cartoon Network. These terms govern only our services.</p>
+                </div>
             </section>
 
             <section id="eligibility">
                 <h2>Eligibility</h2>
                 <p>To use Omnicord, you must:</p>
                 <ul>
-                    <li>Be at least <strong>13 years of age</strong></li>
+                    <li>Be at least <strong>13 years of age</strong> (or the minimum age in your jurisdiction)</li>
                     <li>If under 18, have parental/guardian consent</li>
                     <li>Not be prohibited from receiving our services under applicable laws</li>
                 </ul>
+                <div class="warning">
+                    <p><i class="fas fa-user-shield"></i> <strong>Age Verification:</strong> We may request proof of age if there's reasonable doubt about your eligibility.</p>
+                </div>
             </section>
 
             <section id="account">
@@ -329,13 +410,18 @@
                     <li>Impersonate others or misrepresent affiliations</li>
                     <li>Engage in fraudulent or deceptive activities</li>
                 </ul>
-                <p>Violations may result in immediate account termination.</p>
+                <div class="warning">
+                    <p><i class="fas fa-ban"></i> <strong>Zero Tolerance:</strong> Violations may result in immediate account termination without warning.</p>
+                </div>
             </section>
 
             <section id="content">
                 <h2>User-Generated Content</h2>
                 <p>You retain ownership of content you create using Omnicord, but grant us a worldwide license to use, display, and distribute it in connection with the Service.</p>
                 <p>We may remove content that violates these Terms or is otherwise objectionable.</p>
+                <div class="warning">
+                    <p><i class="fas fa-flag"></i> <strong>Content Moderation:</strong> We reserve the right to remove any content without notice if it violates our guidelines.</p>
+                </div>
             </section>
 
             <section id="privacy">
@@ -347,13 +433,37 @@
             <section id="purchases">
                 <h2>Payments & Refunds</h2>
                 <p>For premium features requiring payment:</p>
-                <ul>
-                    <li><strong>All sales are final</strong> unless otherwise stated</li>
-                    <li>Refunds may be considered for service failures with valid proof</li>
-                    <li>Approved refunds may incur a 10-30% processing fee</li>
-                    <li>No refunds for change of mind or temporary use</li>
-                    <li>Chargebacks will result in permanent service bans</li>
-                </ul>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Policy</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Refund Eligibility</strong></td>
+                            <td>Service failures only (with valid proof)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Processing Fees</strong></td>
+                            <td>10-30% for approved refunds</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Chargebacks</strong></td>
+                            <td>Result in permanent service ban</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Subscription Cancellation</strong></td>
+                            <td>No refunds for partial periods</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning">
+                    <p><i class="fas fa-money-bill-wave"></i> <strong>No Exceptions:</strong> All sales are final. No refunds for change of mind or temporary use.</p>
+                </div>
             </section>
 
             <section id="termination">
@@ -366,6 +476,9 @@
                     <li>Actions that jeopardize service integrity</li>
                 </ul>
                 <p>Terminated accounts lose access to all features and content.</p>
+                <div class="warning">
+                    <p><i class="fas fa-gavel"></i> <strong>Appeals Process:</strong> Suspended accounts may appeal via email within 30 days. After this period, all associated data may be permanently deleted.</p>
+                </div>
             </section>
 
             <section id="third-party">
@@ -387,12 +500,18 @@
                     <li>Results from using the service</li>
                 </ul>
                 <p>To the fullest extent permitted by law, we exclude all liability for damages arising from use of Omnicord.</p>
+                <div class="warning">
+                    <p><i class="fas fa-shield-alt"></i> <strong>Your Responsibility:</strong> You use Omnicord at your own risk. We're not liable for any indirect, incidental, or consequential damages.</p>
+                </div>
             </section>
 
             <section id="copyright">
                 <h2>Copyright & Intellectual Property</h2>
                 <p>All Omnicord content, including code, designs, and branding, is our exclusive property or licensed to us.</p>
                 <p>Unauthorized use, reproduction, or distribution is prohibited. Ben 10 and related characters are trademarks of Cartoon Network.</p>
+                <div class="warning">
+                    <p><i class="fas fa-copyright"></i> <strong>Notice:</strong> Any unauthorized use of our intellectual property will result in legal action.</p>
+                </div>
             </section>
 
             <section id="changes">
@@ -415,7 +534,9 @@
                     <li>We do not mediate user disputes</li>
                     <li>No refunds or replacements for lost items</li>
                 </ul>
-                <p>Exercise caution when trading or sharing account access.</p>
+                <div class="warning">
+                    <p><i class="fas fa-exclamation-triangle"></i> <strong>Warning:</strong> Exercise extreme caution when trading or sharing account access. We cannot recover lost items under any circumstances.</p>
+                </div>
             </section>
 
             <section id="contact">
@@ -423,11 +544,17 @@
                 <p>For questions about these Terms, contact:</p>
                 <p><i class="fas fa-envelope"></i> Email: <a href="mailto:support@omnicord.com">support@omnicord.com</a></p>
                 <p><i class="fab fa-discord"></i> Discord: <a href="#">Omnicord Support Server</a></p>
+                <p>We aim to respond to legal inquiries within 7 business days.</p>
             </section>
         </main>
     </div>
 
     <footer>
+        <div class="compliance-badges">
+            <span class="compliance-badge">Discord ToS Compliant</span>
+            <span class="compliance-badge">GDPR Ready</span>
+            <span class="compliance-badge">COPPA Compliant</span>
+        </div>
         <p>&copy; 2025 Omnicord. All rights reserved. Ben 10 and related characters are trademarks of Cartoon Network.</p>
     </footer>
 
@@ -463,6 +590,22 @@
                 }
             });
         });
+
+        // Print button functionality
+        const printButton = document.createElement('button');
+        printButton.innerHTML = '<i class="fas fa-print"></i> Print Terms';
+        printButton.style.position = 'fixed';
+        printButton.style.bottom = '20px';
+        printButton.style.right = '20px';
+        printButton.style.padding = '10px 15px';
+        printButton.style.background = 'var(--primary)';
+        printButton.style.color = 'white';
+        printButton.style.border = 'none';
+        printButton.style.borderRadius = '4px';
+        printButton.style.cursor = 'pointer';
+        printButton.style.zIndex = '100';
+        printButton.addEventListener('click', () => window.print());
+        document.body.appendChild(printButton);
     </script>
 </body>
 </html>
