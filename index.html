@@ -120,62 +120,137 @@
       color: var(--dark-gray);
     }
 
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 8rem 2rem;
-      position: relative;
-    }
+   /* Enhanced Hero Section with Animations */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
 
-    .hero img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin-bottom: 2rem;
-      border: 3px solid var(--black);
-      object-fit: cover;
-    }
+.hero img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  border: 3px solid var(--black);
+  object-fit: cover;
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 
-    h1, h2, h3 {
-      font-weight: 500;
-      letter-spacing: -0.5px;
-      margin-bottom: 1.5rem;
-    }
+h1, h2, h3 {
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+}
 
-    h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
-    }
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  animation: fadeInUp 1s ease-out;
+}
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      position: relative;
-    }
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
 
-    h2:after {
-      content: '';
-      position: absolute;
-      width: 50px;
-      height: 2px;
-      background: var(--black);
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+h2:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background: var(--black);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: lineExpand 0.8s ease-out 0.4s both;
+}
 
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 2.5rem;
-      color: var(--dark-gray);
-    }
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  color: var(--dark-gray);
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
 
+/* Text Rotator Styles */
+.text-rotator {
+  position: relative;
+  display: inline-block;
+  height: 1.5em;
+}
+
+.text-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  animation: textRotate 12s infinite;
+}
+
+.text-item:nth-child(1) { animation-delay: 0s; }
+.text-item:nth-child(2) { animation-delay: 3s; }
+.text-item:nth-child(3) { animation-delay: 6s; }
+.text-item:nth-child(4) { animation-delay: 9s; }
+
+/* Button Animations */
+.hero-buttons {
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.btn {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lineExpand {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 50px;
+    opacity: 1;
+  }
+}
+
+@keyframes textRotate {
+  0%, 20% { opacity: 0; transform: translateY(10px); }
+  5%, 15% { opacity: 1; transform: translateY(0); }
+}
     /* Buttons */
     .btn {
       display: inline-flex;
@@ -521,15 +596,38 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <img src="https://omnicord.neocities.org/pfp.png" alt="Omnicord Logo">
-    <h1>Ben 10 Discord Experience</h1>
-    <p>A minimalist approach to the Omniverse. Clean design, simple interactions, powerful features.</p>
-    <div>
-      <a href="invite.html" class="btn"><i class="fas fa-plus"></i> Invite Bot</a>
-      <a href="features.html" class="btn btn-outline"><i class="fas fa-book"></i> Learn More</a>
+  <div class="hero-content">
+    <div class="logo-wrapper">
+      <img src="https://omnicord.neocities.org/pfp.png" alt="Omnicord Logo" class="hero-logo" loading="eager">
+      <div class="halo"></div>
     </div>
-  </section>
-
+    
+    <h1 class="hero-title">Ben 10 Discord Experience</h1>
+    
+    <div class="hero-description">
+      <p class="animated-text">
+        <span class="text-rotator">
+          <span class="text-item active">A minimalist approach to the Omniverse</span>
+          <span class="text-item">Clean design meets powerful alien tech</span>
+          <span class="text-item">Simple interactions, endless possibilities</span>
+          <span class="text-item">Hero time, anytime</span>
+        </span>
+        <span class="text-cursor">|</span>
+      </p>
+    </div>
+    
+    <div class="hero-buttons">
+      <a href="invite.html" class="btn btn-primary btn-pulse">
+        <i class="fas fa-plus"></i>
+        <span>Invite Bot</span>
+      </a>
+      <a href="features.html" class="btn btn-outline btn-hover-glow">
+        <i class="fas fa-book"></i>
+        <span>Learn More</span>
+      </a>
+    </div>
+  </div>
+</section>
   <!-- Features Section -->
   <section>
     <h2>Core Features</h2>
