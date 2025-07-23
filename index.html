@@ -589,19 +589,57 @@
   </section>
 
   <!-- Gallery Section -->
-  <section>
-    <h2>Gallery</h2>
-    <p>Simple previews of the Omnicord experience.</p>
+  <section class="gallery-section" aria-labelledby="gallery-heading">
+    <header class="section-header">
+        <h2 id="gallery-heading">Omnicord Experience</h2>
+        <p class="section-subtitle">Immerse yourself in these previews of the Omnicord universe</p>
+    </header>
     
     <div class="gallery">
-      <img src="https://omnicord.neocities.org/preview1.jpg" alt="Command Preview">
-      <img src="https://omnicord.neocities.org/preview2.jpg" alt="Battle Preview">
-      <img src="https://omnicord.neocities.org/preview3.jpg" alt="Profile Preview">
-      <img src="https://omnicord.neocities.org/preview4.jpg" alt="Leaderboard Preview">
+        <figure class="gallery-item">
+            <img src="https://omnicord.neocities.org/preview1.jpg" 
+                 alt="Command interface showing character customization options" 
+                 loading="lazy"
+                 width="400"
+                 height="300">
+            <figcaption class="gallery-caption">Command Center</figcaption>
+        </figure>
+        
+        <figure class="gallery-item">
+            <img src="https://omnicord.neocities.org/preview2.jpg" 
+                 alt="Battle scene with special effects and health indicators" 
+                 loading="lazy"
+                 width="400"
+                 height="300">
+            <figcaption class="gallery-caption">Epic Battles</figcaption>
+        </figure>
+        
+        <figure class="gallery-item">
+            <img src="https://omnicord.neocities.org/preview3.jpg" 
+                 alt="Player profile showing achievements and statistics" 
+                 loading="lazy"
+                 width="400"
+                 height="300">
+            <figcaption class="gallery-caption">Player Profile</figcaption>
+        </figure>
+        
+        <figure class="gallery-item">
+            <img src="https://omnicord.neocities.org/preview4.jpg" 
+                 alt="Global leaderboard with player rankings" 
+                 loading="lazy"
+                 width="400"
+                 height="300">
+            <figcaption class="gallery-caption">Global Leaderboard</figcaption>
+        </figure>
     </div>
     
-    <a href="gallery.html" class="btn" style="margin-top: 3rem;"><i class="fas fa-images"></i> View Full Gallery</a>
-  </section>
+    <div class="gallery-cta">
+        <a href="gallery.html" class="btn btn-primary btn-icon">
+            <i class="fas fa-images" aria-hidden="true"></i>
+            <span>Explore Full Gallery</span>
+        </a>
+    </div>
+</section>
 
   <!-- CTA Section -->
   <section style="background-color: var(--black); color: var(--white);">
