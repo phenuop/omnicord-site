@@ -120,7 +120,7 @@
       color: var(--dark-gray);
     }
 
-   /* Enhanced Hero Section with Animations */
+/* Enhanced Hero Section with Single-Line Text Rotator */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -181,13 +181,17 @@ h2:after {
   margin: 0 auto 2.5rem;
   color: var(--dark-gray);
   animation: fadeInUp 1s ease-out 0.4s both;
+  height: 1.5em; /* Fixed height for single line */
+  overflow: hidden;
+  position: relative;
 }
 
-/* Text Rotator Styles */
+/* Fixed Text Rotator */
 .text-rotator {
-  position: relative;
   display: inline-block;
+  position: relative;
   height: 1.5em;
+  width: 100%;
 }
 
 .text-item {
@@ -195,6 +199,7 @@ h2:after {
   top: 0;
   left: 0;
   right: 0;
+  white-space: nowrap;
   opacity: 0;
   animation: textRotate 12s infinite;
 }
@@ -212,6 +217,9 @@ h2:after {
 .btn {
   transition: all 0.3s ease;
   transform: translateY(0);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .btn:hover {
@@ -248,40 +256,12 @@ h2:after {
 }
 
 @keyframes textRotate {
-  0%, 20% { opacity: 0; transform: translateY(10px); }
-  5%, 15% { opacity: 1; transform: translateY(0); }
+  0% { opacity: 0; transform: translateY(10px); }
+  5% { opacity: 1; transform: translateY(0); }
+  20% { opacity: 1; transform: translateY(0); }
+  25% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 0; transform: translateY(-10px); }
 }
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 0.8rem 2rem;
-      background-color: var(--black);
-      color: var(--white);
-      border: 1px solid var(--black);
-      font-size: 1rem;
-      text-decoration: none;
-      margin: 0.5rem;
-      transition: all 0.2s ease;
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      color: var(--black);
-    }
-
-    .btn:hover {
-      background-color: var(--dark-gray);
-      border-color: var(--dark-gray);
-    }
-
-    .btn-outline:hover {
-      background-color: var(--gray);
-      color: var(--black);
-    }
-
     /* Sections */
     section {
       padding: 6rem 2rem;
