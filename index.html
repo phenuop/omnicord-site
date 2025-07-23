@@ -185,6 +185,55 @@ h2:after {
   overflow: hidden;
   position: relative;
 }
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid transparent;
+}
+
+/* Primary Button */
+.btn {
+  background-color: var(--black);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Outline Button */
+.btn-outline {
+  background-color: transparent;
+  color: var(--black);
+  border-color: var(--black);
+}
+
+/* Button Hover States */
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Button Active States */
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 /* Fixed Text Rotator */
 .text-rotator {
