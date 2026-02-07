@@ -16,310 +16,217 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" href="pfp.png" type="image/x-icon">
 
-    <style>
-        :root {
-            --primary: #121212; /* Dark text */
-            --secondary: #333333; /* Secondary text */
-            --accent: #555555; /* Borders and accents */
-            --light: #f8f8f8; /* Light background */
-            --white: #ffffff; /* Pure white */
-            --link: #0066cc; /* Link color */
-            --highlight: #f0f0f0; /* Section highlight */
-            --warning: #ff6b6b; /* Warning/important text */
-        }
+   <style>
+    :root {
+        /* iOS System Palette */
+        --ios-bg: #f2f2f7;
+        --ios-card: #ffffff;
+        --ios-label: #000000;
+        --ios-secondary-label: #8e8e93;
+        --ios-separator: rgba(60, 60, 67, 0.12);
+        --ios-link: #007aff; /* iOS Blue */
+        --ios-warning: #ff3b30; /* iOS Red */
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+    }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--primary);
-            background-color: var(--white);
-        }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+        line-height: 1.5;
+        color: var(--ios-label);
+        background-color: var(--ios-bg);
+    }
 
-        /* Navigation */
-        nav {
-            background-color: var(--white);
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    /* Navigation - Glassmorphism */
+    nav {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 0.5px solid var(--ios-separator);
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
+    .logo {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.5rem;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 500;
-            transition: color 0.2s;
-        }
+    nav a {
+        text-decoration: none;
+        color: var(--ios-label);
+        font-weight: 400;
+        font-size: 0.95rem;
+    }
 
-        nav a:hover, nav a.active {
-            color: var(--primary);
-        }
+    /* Hero - iOS Large Title Style */
+    .tos-hero {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem 2rem 2rem;
+        text-align: left; /* iOS standard is left-aligned titles */
+    }
 
-        /* Hero Section */
-        .tos-hero {
-            background-color: var(--light);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+    .tos-hero h1 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        margin-bottom: 0.5rem;
+    }
 
-        .tos-hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+    .tos-hero p {
+        color: var(--ios-secondary-label);
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
 
-        .tos-hero p {
-            color: var(--secondary);
-            font-size: 1.1rem;
-        }
+    .effective-date {
+        display: inline-block;
+        background-color: rgba(0,0,0,0.05);
+        color: var(--ios-secondary-label);
+        padding: 5px 12px;
+        border-radius: 8px;
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
 
-        .effective-date {
-            background-color: var(--primary);
-            color: var(--white);
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
+    /* Main Layout */
+    .tos-container {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem 5rem;
+    }
 
-        /* Main Layout */
-        .tos-container {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-        }
+    /* Table of Contents - iOS Sidebar List */
+    .toc {
+        position: sticky;
+        top: 100px;
+        align-self: start;
+        background: var(--ios-card);
+        border-radius: 14px;
+        border: 0.5px solid var(--ios-separator);
+        overflow: hidden;
+    }
 
-        /* Table of Contents */
-        .toc {
-            position: sticky;
-            top: 100px;
-            align-self: start;
-            padding: 1.5rem;
-            background-color: var(--light);
-            border-radius: 8px;
-            height: fit-content;
-        }
+    .toc h3 {
+        padding: 16px 16px 8px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--ios-secondary-label);
+    }
 
-        .toc h3 {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .toc ul { list-style: none; }
 
-        .toc ul {
-            list-style: none;
-        }
+    .toc li { border-top: 0.5px solid var(--ios-separator); }
 
-        .toc li {
-            margin-bottom: 0.8rem;
-            position: relative;
-            padding-left: 1rem;
-        }
+    .toc a {
+        display: block;
+        padding: 12px 16px;
+        color: var(--ios-label);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: background 0.2s;
+    }
 
-        .toc li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
+    .toc a:hover { background-color: var(--ios-bg); }
 
-        .toc a {
-            color: var(--secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-            font-size: 0.95rem;
-        }
+    /* Content Card */
+    .content-wrapper {
+        background: var(--ios-card);
+        padding: 3rem;
+        border-radius: 24px;
+        border: 0.5px solid var(--ios-separator);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    }
 
-        .toc a:hover {
-            color: var(--primary);
-            text-decoration: underline;
-        }
+    section {
+        margin-bottom: 4rem;
+    }
 
-        /* Content Sections */
-        section {
-            margin-bottom: 3rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--highlight);
-        }
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: -0.8px;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
 
-        section:last-child {
-            border-bottom: none;
-        }
+    /* iOS Style Bullet Section Markers */
+    h2::before {
+        content: "";
+        width: 4px;
+        height: 24px;
+        background: var(--ios-link);
+        border-radius: 4px;
+    }
 
-        h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+    p, li {
+        color: #1c1c1e;
+        margin-bottom: 1.2rem;
+        font-size: 1.05rem;
+    }
 
-        h2::before {
-            content: "#";
-            color: var(--accent);
-            font-weight: 400;
-        }
+    strong { font-weight: 700; color: var(--ios-label); }
 
-        p {
-            margin-bottom: 1rem;
-            color: var(--secondary);
-        }
+    a { color: var(--ios-link); text-decoration: none; }
 
-        ul, ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
+    /* Warning - iOS Notification Style */
+    .warning {
+        background-color: #fff2f2;
+        border-left: none;
+        border: 0.5px solid rgba(255, 59, 48, 0.2);
+        border-radius: 16px;
+        padding: 1.2rem;
+        margin: 2rem 0;
+    }
 
-        li {
-            margin-bottom: 0.5rem;
-            color: var(--secondary);
-        }
+    .warning p {
+        color: var(--ios-warning);
+        font-weight: 600;
+        margin-bottom: 0;
+    }
 
-        strong {
-            color: var(--primary);
-            font-weight: 600;
-        }
+    /* Footer */
+    footer {
+        background-color: var(--ios-bg);
+        padding: 5rem 2rem;
+        text-align: center;
+        border-top: 0.5px solid var(--ios-separator);
+    }
 
-        a {
-            color: var(--link);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .warning {
-            background-color: #fff8f8;
-            border-left: 4px solid var(--warning);
-            padding: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        .warning p {
-            color: var(--primary);
-            margin-bottom: 0;
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-        }
-
-        .data-table th, .data-table td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid var(--highlight);
-        }
-
-        .data-table th {
-            background-color: var(--light);
-            font-weight: 600;
-        }
-
-        .data-table tr:hover {
-            background-color: var(--light);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        .compliance-badges {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .compliance-badge {
-            background-color: var(--white);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .tos-container {
-                grid-template-columns: 1fr;
-            }
-
-            .toc {
-                position: static;
-                margin-bottom: 2rem;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .data-table {
-                display: block;
-                overflow-x: auto;
-            }
-        }
-
-        /* Print Styles */
-        @media print {
-            nav, .toc, footer {
-                display: none;
-            }
-
-            .tos-container {
-                grid-template-columns: 1fr;
-                padding: 0;
-            }
-
-            section {
-                page-break-inside: avoid;
-            }
-        }
-    </style>
+    /* Responsive Design */
+    @media (max-width: 900px) {
+        .tos-container { grid-template-columns: 1fr; }
+        .toc { position: static; margin-bottom: 2rem; }
+        .content-wrapper { padding: 1.5rem; }
+        .tos-hero h1 { font-size: 2.5rem; }
+    }
+</style>
 </head>
 <body>
 
