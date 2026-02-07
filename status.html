@@ -9,259 +9,238 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --black: #121212;
-      --white: #ffffff;
-      --gray-100: #f5f5f5;
-      --gray-200: #eeeeee;
-      --gray-300: #e0e0e0;
-      --gray-700: #616161;
-      --gray-800: #424242;
-      --online: #00C853;
-      --offline: #FF3547;
-      --degraded: #FF9100;
-      --maintenance: #2962FF;
-      --notice: #FFF9C4;
-      --notice-warning: #FFE0B2;
-      --notice-critical: #FFCDD2;
-      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      /* iOS System Palette */
+      --ios-bg: #f2f2f7; /* iOS System Gray 6 */
+      --ios-secondary-bg: #ffffff;
+      --ios-label: #000000;
+      --ios-secondary-label: #8e8e93;
+      --ios-separator: rgba(60, 60, 67, 0.12);
+      
+      /* iOS Health/Status Colors */
+      --online: #34c759;     /* iOS Green */
+      --offline: #ff3b30;    /* iOS Red */
+      --degraded: #ff9500;   /* iOS Orange */
+      --maintenance: #007aff; /* iOS Blue */
+      
+      /* Notice Backgrounds (Soft Muted Tones) */
+      --notice: #fff9c4;
+      --notice-warning: #ffe0b2;
+      --notice-critical: #ffcdd2;
+      
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--white);
-      color: var(--black);
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+      background-color: var(--ios-bg);
+      color: var(--ios-label);
+      line-height: 1.4;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* Header */
+    /* Header - iOS Large Title Style */
     header {
-      padding: 3rem 2rem;
-      text-align: center;
-      background: linear-gradient(to bottom, var(--white) 0%, var(--gray-100) 100%);
-      border-bottom: 1px solid var(--gray-200);
+      padding: 4rem 2rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: left; /* iOS System headers are usually left-aligned */
     }
 
     header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 0.5rem;
     }
 
     header p {
-      color: var(--gray-700);
-      max-width: 600px;
-      margin: 0 auto;
+      color: var(--ios-secondary-label);
+      font-size: 1.1rem;
+      font-weight: 400;
     }
 
-    /* Notice Board */
+    /* Status Indicator - Glassmorphism Pill */
+    .status-indicator {
+      margin: 1rem auto;
+      max-width: 1000px;
+      padding: 0 2rem;
+      width: 100%;
+    }
+
+    .indicator {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 0.5px solid var(--ios-separator);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .indicator-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 10px;
+      position: relative;
+    }
+
+    /* Pulsing effect for live status */
+    .indicator-dot::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: inherit;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    /* Notice Board - iOS Banner Style */
     .notice-board {
       max-width: 1000px;
-      margin: 2rem auto 0;
+      margin: 1rem auto;
       padding: 0 2rem;
+      width: 100%;
     }
 
     .notice-card {
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-      border-left: 4px solid;
+      border-radius: 16px;
+      padding: 1.25rem;
+      background: var(--ios-secondary-bg);
+      border: 0.5px solid var(--ios-separator);
       display: flex;
       align-items: flex-start;
       gap: 1rem;
       margin-bottom: 1rem;
     }
 
-    .notice-icon {
-      font-size: 1.25rem;
-      margin-top: 2px;
-    }
-
     .notice-content h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
     }
 
     .notice-content p {
-      color: var(--gray-800);
-      font-size: 0.95rem;
+      color: var(--ios-secondary-label);
+      font-size: 0.9rem;
     }
 
-    .notice-meta {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 0.75rem;
-      font-size: 0.85rem;
-      color: var(--gray-700);
-    }
-
-    /* Status Grid */
+    /* Status Grid - Inset Grouped Style */
     .status-grid {
       max-width: 1000px;
-      margin: 2rem auto;
+      margin: 1rem auto 3rem;
       padding: 0 2rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+      gap: 1.5rem;
+      width: 100%;
     }
 
     .status-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.03);
-      border: 1px solid var(--gray-200);
+      background: var(--ios-secondary-bg);
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 0.5px solid var(--ios-separator);
       transition: var(--transition);
-      position: relative;
-      overflow: hidden;
     }
 
-    .status-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-    }
-
-    .status-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
+    .status-card:active {
+      transform: scale(0.97);
+      background-color: #f9f9f9;
     }
 
     .status-header {
       display: flex;
       align-items: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .status-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px; /* Squircle-lite */
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 1.5rem;
-      font-size: 1.25rem;
+      margin-right: 1rem;
+      font-size: 1.1rem;
+      background: var(--ios-bg);
     }
 
     .status-title {
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
     }
 
-    .status-description {
-      color: var(--gray-800);
-      margin-bottom: 1.5rem;
-    }
-
-    .status-meta {
-      display: flex;
-      justify-content: space-between;
-      color: var(--gray-700);
-      font-size: 0.9rem;
-    }
-
-    /* Status Details */
+    /* Status Details - List Rows */
     .status-details {
-      margin-top: 1.5rem;
-      border-top: 1px solid var(--gray-200);
-      padding-top: 1.5rem;
+      margin-top: 1rem;
+      border-top: 0.5px solid var(--ios-separator);
+      padding-top: 1rem;
     }
 
     .detail-item {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
     }
 
     .detail-label {
-      color: var(--gray-700);
+      color: var(--ios-secondary-label);
     }
 
     .detail-value {
-      font-weight: 500;
-    }
-
-    /* Status Indicator */
-    .status-indicator {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 1rem auto;
-      max-width: 1000px;
-      padding: 0 2rem;
-    }
-
-    .indicator {
-      display: flex;
-      align-items: center;
-      padding: 1rem 1.5rem;
-      border-radius: 50px;
-      background: var(--white);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      border: 1px solid var(--gray-200);
-    }
-
-    .indicator-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 0.75rem;
-    }
-
-    .indicator-text {
-      font-weight: 500;
+      font-weight: 600;
     }
 
     /* Footer */
     footer {
       margin-top: auto;
-      padding: 2rem;
+      padding: 4rem 2rem;
       text-align: center;
-      color: var(--gray-700);
-      border-top: 1px solid var(--gray-200);
+      color: var(--ios-secondary-label);
+      font-size: 0.85rem;
     }
 
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 2rem;
       margin-bottom: 1rem;
     }
 
     .footer-links a {
-      color: var(--gray-800);
+      color: var(--ios-secondary-label);
       text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .footer-links a:hover {
-      color: var(--black);
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      
-      .status-grid {
-        grid-template-columns: 1fr;
-      }
+      header { padding: 3rem 1.5rem 1rem; }
+      header h1 { font-size: 2.4rem; }
+      .status-grid { grid-template-columns: 1fr; padding: 0 1.5rem; }
+      .notice-board { padding: 0 1.5rem; }
     }
-  </style>
+</style>
 </head>
 <body>
   <header>
