@@ -52,16 +52,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
-    /* iOS 26 Monochrome Palette */
+    /* iOS Monochrome Palette */
     --ios-bg: #ffffff;
     --ios-secondary-bg: #f2f2f7;
-    --ios-card: rgba(255, 255, 255, 0.72);
+    --ios-card: rgba(255, 255, 255, 0.7);
     --black: #000000;
     --white: #ffffff;
-    --system-gray: #86868b;
-    --border: rgba(0, 0, 0, 0.08);
-    /* iOS v26 Specific: Physics-based easing */
-    --ios-spring: cubic-bezier(0.32, 0.72, 0, 1);
+    --system-gray: #8e8e93;
+    --border: rgba(0, 0, 0, 0.1);
   }
 
   * {
@@ -71,24 +69,23 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
-    letter-spacing: -0.015em;
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
+    /* Official iOS Font Stack */
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
     background-color: var(--ios-bg);
     color: var(--black);
-    line-height: 1.47;
+    line-height: 1.5;
     font-weight: 400;
   }
 
-  /* --- Navigation: Precision Glass --- */
+  /* Navigation - iOS Glassmorphism */
   nav {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    padding: 0 15%;
-    height: 52px;
+    padding: 0.8rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,134 +97,197 @@
   }
 
   nav .logo {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    letter-spacing: -0.03em;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   nav ul {
     list-style: none;
     display: flex;
-    gap: 1.8rem;
+    gap: 1.5rem;
   }
 
   nav ul li a {
     color: var(--black);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    opacity: 0.8;
     transition: opacity 0.2s;
   }
 
-  nav ul li a:hover { opacity: 1; }
+  nav ul li a:active {
+    opacity: 0.3;
+  }
 
-  /* --- Hero Section: Corrected Proportions --- */
+  /* Hero Section */
   .hero {
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 80px 2rem 2rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
   }
 
-  /* Fixed Huge Image Issue */
   .hero img {
-    width: 100px; /* Precise App Icon size */
-    height: 100px;
-    border-radius: 22.5%; /* Official iOS Squircle radius */
+    width: 110px;
+    height: 110px;
+    border-radius: 24px; /* iOS App Icon Squircle */
     margin-bottom: 1.5rem;
     border: 0.5px solid var(--border);
     object-fit: cover;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-    animation: heroSpring 1.2s var(--ios-spring);
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   }
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    letter-spacing: -0.04em;
-    margin-bottom: 0.8rem;
-    animation: fadeInUp 0.8s var(--ios-spring);
+    letter-spacing: -1.5px;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   h2 {
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--system-gray);
-    margin-bottom: 2.5rem;
-    max-width: 600px;
-    animation: fadeInUp 0.8s var(--ios-spring) 0.1s both;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
   }
 
-  /* --- Buttons: iOS Control Center Style --- */
+  .hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    color: var(--system-gray);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+    height: 1.5em;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* iOS Button Styling */
   .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 14px;
-    animation: fadeInUp 0.8s var(--ios-spring) 0.2s both;
+    gap: 12px;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+    width: 100%;
   }
 
   .btn {
     padding: 14px 28px;
-    border-radius: 12px;
+    border-radius: 14px; /* Standard iOS Button Radius */
     font-size: 17px;
     font-weight: 600;
     text-decoration: none;
-    transition: transform 0.2s var(--ios-spring), opacity 0.2s ease;
-    border: none;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    border: none;
   }
 
-  .btn-primary { background: var(--black); color: var(--white); }
-  .btn-outline { background: var(--ios-secondary-bg); color: var(--black); }
+  .btn:active {
+    transform: scale(0.95); /* Physical feedback effect */
+    opacity: 0.8;
+  }
 
-  .btn:active { transform: scale(0.96); opacity: 0.8; }
+  .btn-primary {
+    background-color: var(--black);
+    color: var(--white);
+  }
 
-  /* --- Features: Modern Card Layout --- */
+  .btn-outline {
+    background-color: var(--ios-secondary-bg);
+    color: var(--black);
+  }
+
+  /* Text Rotator */
+  .text-rotator {
+    display: inline-block;
+    position: relative;
+    height: 1.5em;
+    width: 100%;
+  }
+
+  .text-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    opacity: 0;
+    animation: textRotate 12s infinite;
+  }
+
+  .text-item:nth-child(1) { animation-delay: 0s; }
+  .text-item:nth-child(2) { animation-delay: 3s; }
+  .text-item:nth-child(3) { animation-delay: 6s; }
+  .text-item:nth-child(4) { animation-delay: 9s; }
+
+  /* Sections */
+  section {
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .section-gray {
+    background-color: var(--ios-secondary-bg);
+  }
+
+  /* iOS Feature Cards */
   .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
-    padding: 4rem 15%;
-    background: var(--ios-secondary-bg);
+    margin-top: 3rem;
   }
 
   .feature-card {
-    background: var(--ios-card);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 2rem;
+    background-color: var(--white);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 320px;
     border-radius: 20px;
     border: 0.5px solid var(--border);
-    text-align: left;
-    transition: transform 0.3s var(--ios-spring);
+    transition: transform 0.3s ease;
   }
 
-  .feature-card:hover { transform: translateY(-4px); }
+  .feature-card:active {
+    transform: scale(0.98);
+  }
 
   .feature-icon {
-    font-size: 1.8rem;
-    margin-bottom: 1.2rem;
-    display: block;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
   }
 
-  /* --- Gallery: High-End Monochrome --- */
+  /* Monochrome Gallery */
   .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 4rem 15%;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 4rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
   }
 
   .gallery-item {
-    aspect-ratio: 1;
-    border-radius: 16px;
+    position: relative;
     overflow: hidden;
+    border-radius: 18px;
+    aspect-ratio: 4/3;
     background: var(--ios-secondary-bg);
     border: 0.5px solid var(--border);
   }
@@ -237,7 +297,7 @@
     height: 100%;
     object-fit: cover;
     filter: grayscale(100%);
-    transition: all 0.6s var(--ios-spring);
+    transition: all 0.5s ease;
   }
 
   .gallery-item:hover img {
@@ -245,20 +305,61 @@
     transform: scale(1.05);
   }
 
-  /* --- Footer --- */
-  footer {
-    padding: 4rem 15%;
-    background: var(--ios-secondary-bg);
-    border-top: 0.5px solid var(--border);
-    text-align: center;
+  /* Stats Section */
+  .stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+    min-width: 150px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  .stat-label {
     color: var(--system-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* iOS Footer */
+  footer {
+    background-color: var(--ios-secondary-bg);
+    color: var(--black);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    color: var(--system-gray);
+    text-decoration: none;
     font-size: 0.85rem;
   }
 
-  /* --- Animations --- */
-  @keyframes heroSpring {
-    0% { transform: scale(0.5); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+  .footer-links a:hover {
+    color: var(--black);
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 
   @keyframes fadeInUp {
@@ -266,13 +367,21 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* --- Mobile Tweak --- */
+  @keyframes textRotate {
+    0% { opacity: 0; transform: translateY(10px); }
+    5% { opacity: 1; transform: translateY(0); }
+    20% { opacity: 1; transform: translateY(0); }
+    25% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 0; transform: translateY(-10px); }
+  }
+
+  /* Responsive Mobile Tweak */
   @media (max-width: 768px) {
-    nav { padding: 0 1.5rem; }
-    nav ul { display: none; }
-    h1 { font-size: 2.5rem; }
-    .hero-buttons { flex-direction: column; width: 100%; max-width: 280px; }
-    .features, .gallery, footer { padding: 3rem 1.5rem; }
+    nav { padding: 1rem; }
+    nav ul { display: none; } /* Hide menu for clean mobile view */
+    h1 { font-size: 2.2rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn { width: 100%; max-width: 280px; justify-content: center; }
   }
 </style>
 </head>
@@ -477,6 +586,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
