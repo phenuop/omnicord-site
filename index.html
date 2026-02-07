@@ -53,13 +53,15 @@
 
 <style>
   :root {
-    --ios-bg: #ffffff; /* Clean white base */
-    --ios-secondary-bg: #f2f2f7; /* iOS System Gray */
+    /* The "Pure Apple" Palette */
+    --ios-bg: #ffffff; 
+    --ios-secondary-bg: #f2f2f7; 
     --ios-card: rgba(255, 255, 255, 0.7);
     --black: #000000;
     --white: #ffffff;
     --system-gray: #8e8e93;
     --border: rgba(0, 0, 0, 0.1);
+    --transition-subtle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   * {
@@ -67,11 +69,11 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent; /* Removes blue box on mobile tap */
+    -webkit-tap-highlight-color: transparent; 
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
     background-color: var(--ios-bg);
     color: var(--black);
     line-height: 1.4;
@@ -113,10 +115,6 @@
     transition: opacity 0.2s;
   }
 
-  nav ul li a:active {
-    opacity: 0.3; /* iOS touch feedback */
-  }
-
   /* Hero Section */
   .hero {
     min-height: 100vh;
@@ -131,7 +129,7 @@
   .hero img {
     width: 110px;
     height: 110px;
-    border-radius: 24px; /* iOS Squircle */
+    border-radius: 24px; /* iOS Squircle Icon Shape */
     margin-bottom: 1.5rem;
     object-fit: cover;
     border: 0.5px solid var(--border);
@@ -139,28 +137,31 @@
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    letter-spacing: -1.5px;
+    letter-spacing: -2px; /* Tighter letter spacing for that Apple look */
     margin-bottom: 0.5rem;
+    text-align: center;
   }
 
   h2 {
     font-size: 1.5rem;
     font-weight: 500;
     color: var(--system-gray);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    max-width: 600px;
   }
 
-  /* iOS Buttons (Black & White) */
+  /* iOS Buttons */
   .hero-buttons {
     display: flex;
     gap: 12px;
   }
 
   .btn {
-    padding: 14px 28px;
-    border-radius: 14px;
+    padding: 16px 32px;
+    border-radius: 16px;
     font-size: 17px;
     font-weight: 600;
     text-decoration: none;
@@ -180,19 +181,19 @@
     color: var(--black);
   }
 
-  /* iOS Touch Interaction */
+  /* Press Feedback */
   .btn:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
     opacity: 0.8;
   }
 
-  /* iOS Feature Cards */
+  /* Feature Cards (Grouped Style) */
   .feature-card {
     background-color: var(--ios-secondary-bg);
-    border-radius: 20px;
-    padding: 2rem;
+    border-radius: 24px;
+    padding: 2.5rem;
     border: none;
-    transition: transform 0.3s ease;
+    transition: var(--transition-subtle);
   }
 
   .feature-card:active {
@@ -201,37 +202,37 @@
 
   /* Monochrome Gallery */
   .gallery-item {
-    border-radius: 18px;
+    border-radius: 20px;
     background: var(--ios-secondary-bg);
     overflow: hidden;
     border: 0.5px solid var(--border);
   }
 
   .gallery img {
-    filter: grayscale(100%); /* Keeps it Monochrome */
-    transition: filter 0.4s ease;
+    filter: grayscale(100%); 
+    transition: filter 0.5s ease, transform 0.5s ease;
   }
 
   .gallery-item:hover img {
-    filter: grayscale(0%); /* Color on hover for interaction */
+    filter: grayscale(0%);
+    transform: scale(1.05);
   }
 
-  /* Animations */
+  /* System Animations */
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .hero h1, .hero h2, .hero-buttons {
-    animation: fadeInUp 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) both;
+  .hero h1, .hero h2, .hero-buttons, .hero img {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   }
 
-  /* Mobile */
+  /* Mobile Tweaks */
   @media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
-    .hero-buttons { flex-direction: column; width: 100%; max-width: 280px; }
-    nav { padding: 1rem; }
-    nav ul { display: none; } /* Standard iOS mobile nav behavior */
+    h1 { font-size: 2.5rem; letter-spacing: -1px; }
+    .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; }
+    nav ul { display: none; }
   }
 </style>
 </head>
@@ -436,6 +437,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
