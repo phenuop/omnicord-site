@@ -10,7 +10,7 @@
   <!-- Meta Tags -->
   <!-- Primary Meta Tags -->
 <meta name="title" content="Omnicord - The Ultimate Ben10 Discord Bot Experience">
-<meta name="description" content="🚀 Transform your Discord server with Omnicord! The most powerful Ben10-themed bot featuring alien adventures, interactive games, and nostalgic fun. Perfect for fans and communities!">
+<meta name="description" content="Transform your Discord server with Omnicord! The most powerful Ben10-themed bot featuring alien adventures, interactive games, and nostalgic fun. Perfect for fans and communities!">
 <meta name="keywords" content="omnicord, discord bot, ben10, ben 10, alien force, omniverse, plumber badge, omnitrix, discord games, fan bot">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -52,10 +52,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
-    /* iOS Monochrome Palette */
-    --ios-bg: #ffffff;
-    --ios-secondary-bg: #f2f2f7;
-    --ios-card: rgba(255, 255, 255, 0.7);
+    /* Pure Monochrome iOS Palette */
+    --ios-bg: #ffffff; 
+    --ios-secondary-bg: #f2f2f7; 
     --black: #000000;
     --white: #ffffff;
     --system-gray: #8e8e93;
@@ -67,25 +66,22 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    /* Official iOS Font Stack */
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
     background-color: var(--ios-bg);
     color: var(--black);
-    line-height: 1.5;
-    font-weight: 400;
+    line-height: 1.4;
   }
 
-  /* Navigation - iOS Glassmorphism */
+  /* iOS Glass Navigation */
   nav {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    padding: 0.8rem 2rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -97,31 +93,25 @@
   }
 
   nav .logo {
-    font-size: 1.2rem;
     font-weight: 700;
+    font-size: 1.1rem;
     letter-spacing: -0.5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
 
   nav ul {
-    list-style: none;
     display: flex;
     gap: 1.5rem;
+    list-style: none;
   }
 
   nav ul li a {
     color: var(--black);
     text-decoration: none;
     font-size: 0.9rem;
-    font-weight: 400;
     transition: opacity 0.2s;
   }
 
-  nav ul li a:active {
-    opacity: 0.3;
-  }
+  nav ul li a:active { opacity: 0.3; }
 
   /* Hero Section */
   .hero {
@@ -130,75 +120,51 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     padding: 2rem;
-    position: relative;
-    overflow: hidden;
+    background-color: var(--ios-bg);
+    text-align: center;
   }
 
   .hero img {
     width: 110px;
     height: 110px;
-    border-radius: 24px; /* iOS App Icon Squircle */
+    border-radius: 24px; /* Exact iOS Squircle */
     margin-bottom: 1.5rem;
-    border: 0.5px solid var(--border);
     object-fit: cover;
-    animation: float 6s ease-in-out infinite;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 0.5px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    letter-spacing: -1.5px;
+    letter-spacing: -2px;
     margin-bottom: 0.5rem;
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--system-gray);
     margin-bottom: 2rem;
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
   }
 
-  .hero p {
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto 2.5rem;
-    color: var(--system-gray);
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
-    height: 1.5em;
-    overflow: hidden;
-    position: relative;
-  }
-
-  /* iOS Button Styling */
+  /* iOS Buttons (Black & Gray) */
   .hero-buttons {
     display: flex;
-    justify-content: center;
     gap: 12px;
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
-    width: 100%;
   }
 
   .btn {
     padding: 14px 28px;
-    border-radius: 14px; /* Standard iOS Button Radius */
+    border-radius: 14px;
     font-size: 17px;
     font-weight: 600;
     text-decoration: none;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    border: none;
-  }
-
-  .btn:active {
-    transform: scale(0.95); /* Physical feedback effect */
-    opacity: 0.8;
+    justify-content: center;
   }
 
   .btn-primary {
@@ -211,28 +177,10 @@
     color: var(--black);
   }
 
-  /* Text Rotator */
-  .text-rotator {
-    display: inline-block;
-    position: relative;
-    height: 1.5em;
-    width: 100%;
+  .btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
   }
-
-  .text-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    white-space: nowrap;
-    opacity: 0;
-    animation: textRotate 12s infinite;
-  }
-
-  .text-item:nth-child(1) { animation-delay: 0s; }
-  .text-item:nth-child(2) { animation-delay: 3s; }
-  .text-item:nth-child(3) { animation-delay: 6s; }
-  .text-item:nth-child(4) { animation-delay: 9s; }
 
   /* Sections */
   section {
@@ -244,7 +192,7 @@
     background-color: var(--ios-secondary-bg);
   }
 
-  /* iOS Feature Cards */
+  /* Feature Cards - Flat Style */
   .features {
     display: flex;
     flex-wrap: wrap;
@@ -254,42 +202,46 @@
   }
 
   .feature-card {
-    background-color: var(--white);
+    background-color: var(--ios-secondary-bg); /* Match background for that inset look */
     padding: 2.5rem;
     width: 100%;
     max-width: 320px;
-    border-radius: 20px;
-    border: 0.5px solid var(--border);
+    border-radius: 24px;
+    border: none;
     transition: transform 0.3s ease;
+    text-align: left;
   }
 
   .feature-card:active {
     transform: scale(0.98);
   }
 
-  .feature-icon {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: var(--black);
+  .feature-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
   }
 
-  /* Monochrome Gallery */
+  .feature-card p {
+    color: var(--system-gray);
+    font-size: 0.95rem;
+  }
+
+  /* Monochrome Gallery Interaction */
   .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    margin: 4rem auto;
-    max-width: 1200px;
-    padding: 0 1rem;
+    margin: 2rem auto;
+    max-width: 1100px;
   }
 
   .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 18px;
-    aspect-ratio: 4/3;
+    border-radius: 20px;
     background: var(--ios-secondary-bg);
+    overflow: hidden;
     border: 0.5px solid var(--border);
+    aspect-ratio: 16/10;
   }
 
   .gallery img {
@@ -297,7 +249,7 @@
     height: 100%;
     object-fit: cover;
     filter: grayscale(100%);
-    transition: all 0.5s ease;
+    transition: filter 0.5s ease, transform 0.5s ease;
   }
 
   .gallery-item:hover img {
@@ -309,40 +261,36 @@
   .stats {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
-
-  .stat-item {
-    padding: 1.5rem;
-    min-width: 150px;
+    gap: 4rem;
+    padding: 3rem 0;
   }
 
   .stat-number {
-    font-size: 2.2rem;
-    font-weight: 700;
-    letter-spacing: -1px;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
   }
 
   .stat-label {
     color: var(--system-gray);
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
-  /* iOS Footer */
+  /* Footer */
   footer {
-    background-color: var(--ios-secondary-bg);
-    color: var(--black);
     padding: 4rem 2rem;
-    text-align: center;
+    background: var(--ios-bg);
     border-top: 0.5px solid var(--border);
+    text-align: center;
   }
 
   .footer-links {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     margin-bottom: 2rem;
   }
 
@@ -352,36 +300,22 @@
     font-size: 0.85rem;
   }
 
-  .footer-links a:hover {
-    color: var(--black);
-  }
-
-  /* Animations */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-  }
-
+  /* System Animations */
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes textRotate {
-    0% { opacity: 0; transform: translateY(10px); }
-    5% { opacity: 1; transform: translateY(0); }
-    20% { opacity: 1; transform: translateY(0); }
-    25% { opacity: 0; transform: translateY(-10px); }
-    100% { opacity: 0; transform: translateY(-10px); }
+  .hero h1, .hero h2, .hero-buttons, .hero img {
+    animation: fadeInUp 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
   }
 
-  /* Responsive Mobile Tweak */
+  /* Mobile */
   @media (max-width: 768px) {
-    nav { padding: 1rem; }
-    nav ul { display: none; } /* Hide menu for clean mobile view */
-    h1 { font-size: 2.2rem; }
-    .hero-buttons { flex-direction: column; align-items: center; }
-    .btn { width: 100%; max-width: 280px; justify-content: center; }
+    h1 { font-size: 2.5rem; }
+    .hero-buttons { flex-direction: column; width: 100%; max-width: 280px; }
+    nav ul { display: none; }
+    .stats { flex-direction: column; gap: 2rem; }
   }
 </style>
 </head>
@@ -586,6 +520,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
