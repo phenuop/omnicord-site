@@ -12,261 +12,273 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  :root {
-    /* iOS System Palette */
-    --ios-bg: #ffffff;
-    --ios-secondary-bg: #f2f2f7;
-    --ios-label: #000000;
-    --ios-secondary-label: #8e8e93;
-    --ios-tertiary-label: #c7c7cc;
-    --ios-separator: rgba(60, 60, 67, 0.12);
-    --black: #000000;
-    --white: #ffffff;
-    
-    /* Animation Curve */
-    --transition-ios: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+  <style>
+    :root {
+        /* iOS System Palette */
+        --ios-bg: #ffffff;
+        --ios-secondary-bg: #f2f2f7; /* iOS System Gray 6 */
+        --ios-label: #000000;
+        --ios-secondary-label: #8e8e93; /* iOS System Gray */
+        --ios-separator: rgba(60, 60, 67, 0.12); /* Standard hairline divider */
+        --black: #000000;
+        --white: #ffffff;
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
-    background-color: var(--ios-bg);
-    color: var(--ios-label);
-    line-height: 1.5;
-    overflow-x: hidden;
-}
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+        background-color: var(--ios-bg);
+        color: var(--ios-label);
+        line-height: 1.4;
+        min-height: 100vh;
+    }
 
-/* Navigation - Glassmorphism */
-nav {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    padding: 1.2rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 0.5px solid var(--ios-separator);
-}
+    /* Navigation - Glassmorphism Effect */
+    nav {
+        background-color: rgba(255, 255, 255, 0.75);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        padding: 1.2rem 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 0.5px solid var(--ios-separator);
+    }
 
-.logo {
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+    .logo {
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        color: var(--black);
+    }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 1.8rem;
+    }
 
-nav a {
-    text-decoration: none;
-    color: var(--ios-label);
-    font-size: 0.95rem;
-    font-weight: 400;
-    transition: opacity 0.2s;
-}
+    nav a {
+        text-decoration: none;
+        color: var(--ios-label);
+        font-size: 0.95rem;
+        font-weight: 400;
+        transition: opacity 0.2s;
+    }
 
-nav a:active {
-    opacity: 0.3;
-}
+    nav a:active {
+        opacity: 0.3; /* Haptic tap simulation */
+    }
 
-/* Page Header - iOS Large Title */
-.page-header {
-    text-align: left;
-    max-width: 800px;
-    margin: 4rem auto 2rem;
-    padding: 0 2rem;
-}
+    /* Page Header - iOS Large Title Style */
+    .page-header {
+        text-align: left;
+        max-width: 800px;
+        margin: 4rem auto 2.5rem;
+        padding: 0 1.5rem;
+    }
 
-.page-header h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    letter-spacing: -1.5px;
-    margin-bottom: 0.5rem;
-}
+    .page-header h1 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        margin-bottom: 0.5rem;
+        color: var(--black);
+    }
 
-.page-header p {
-    color: var(--ios-secondary-label);
-    font-size: 1.2rem;
-    font-weight: 400;
-}
+    .page-header p {
+        color: var(--ios-secondary-label);
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
 
-/* Search Bar - Settings Style */
-.search-container {
-    max-width: 800px;
-    margin: 0 auto 3.5rem;
-    padding: 0 2rem;
-    position: relative;
-}
+    /* Search Bar - System Spotlight Style */
+    .search-container {
+        max-width: 800px;
+        margin: 0 auto 3.5rem;
+        padding: 0 1.5rem;
+        position: relative;
+    }
 
-.search-container input {
-    width: 100%;
-    padding: 12px 12px 12px 42px;
-    background-color: var(--ios-secondary-bg);
-    border: none;
-    border-radius: 12px;
-    font-size: 17px;
-    color: var(--ios-label);
-    transition: var(--transition-ios);
-}
+    .search-container input {
+        width: 100%;
+        padding: 0.8rem 1rem 0.8rem 2.8rem;
+        background-color: var(--ios-secondary-bg);
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        color: var(--black);
+        transition: var(--transition);
+    }
 
-.search-container input:focus {
-    outline: none;
-    background-color: #e5e5ea;
-}
+    .search-container input::placeholder {
+        color: var(--ios-secondary-label);
+    }
 
-.search-container i {
-    position: absolute;
-    left: 34px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--ios-secondary-label);
-    font-size: 16px;
-}
+    .search-container input:focus {
+        outline: none;
+        background-color: #e5e5ea;
+    }
 
-/* FAQ Layout */
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto 6rem;
-    padding: 0 2rem;
-}
+    .search-container i {
+        position: absolute;
+        left: 2.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--ios-secondary-label);
+        font-size: 1rem;
+    }
 
-.faq-category {
-    margin-bottom: 3.5rem;
-}
+    /* FAQ Layout */
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto 6rem;
+        padding: 0 1.5rem;
+    }
 
-.faq-category h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    letter-spacing: -0.5px;
-}
+    .faq-category h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--black);
+        letter-spacing: -0.5px;
+    }
 
-/* FAQ Item - iOS Table Cell */
-.faq-item {
-    border-bottom: 0.5px solid var(--ios-separator);
-    transition: var(--transition-ios);
-}
+    /* FAQ Item - iOS Table Cell Style */
+    .faq-item {
+        border-bottom: 0.5px solid var(--ios-separator);
+        transition: var(--transition);
+    }
 
-.faq-item:first-child {
-    border-top: 0.5px solid var(--ios-separator);
-}
+    /* Removes the border from the last item in a group */
+    .faq-item:last-child {
+        border-bottom: none;
+    }
 
-.question {
-    padding: 1.2rem 0;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    .question {
+        padding: 1.2rem 0;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: transparent;
+    }
 
-.question:active {
-    background-color: var(--ios-secondary-bg);
-}
+    .question:active {
+        opacity: 0.5; /* Tap feedback */
+    }
 
-.question-text {
-    font-size: 17px;
-    font-weight: 500;
-    padding-right: 1rem;
-}
+    .question-text {
+        flex: 1;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
 
-.toggle-icon {
-    color: var(--ios-tertiary-label);
-    font-size: 12px;
-    transition: transform 0.3s ease;
-}
+    .toggle-icon {
+        color: var(--ios-tertiary-label);
+        font-size: 0.8rem;
+        transition: transform 0.3s ease;
+    }
 
-.faq-item.active .toggle-icon {
-    transform: rotate(180deg);
-}
+    .faq-item.active .toggle-icon {
+        transform: rotate(180deg);
+    }
 
-.answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    color: var(--ios-secondary-label);
-    font-size: 16px;
-}
+    .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        color: var(--ios-secondary-label);
+        font-size: 1.05rem;
+    }
 
-.faq-item.active .answer {
-    max-height: 500px;
-    padding-bottom: 1.5rem;
-}
+    .faq-item.active .answer {
+        max-height: 800px;
+        padding-bottom: 1.5rem;
+    }
 
-/* Back to Top - Floating Button */
-.back-to-top {
-    position: fixed;
-    bottom: 2.5rem;
-    right: 2.5rem;
-    background-color: var(--black);
-    color: var(--white);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition-ios);
-    z-index: 99;
-    cursor: pointer;
-    border: none;
-}
+    /* Back to Top - iOS Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 2.5rem;
+        right: 2.5rem;
+        background-color: var(--black);
+        color: var(--white);
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 100;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        border: none;
+    }
 
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
 
-/* Footer */
-footer {
-    background-color: var(--ios-secondary-bg);
-    color: var(--black);
-    padding: 5rem 2rem;
-    text-align: center;
-    border-top: 0.5px solid var(--ios-separator);
-}
+    .back-to-top:active {
+        transform: scale(0.92);
+    }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    margin-bottom: 2rem;
-}
+    /* Footer */
+    footer {
+        background-color: var(--ios-secondary-bg);
+        color: var(--ios-label);
+        padding: 5rem 1.5rem;
+        text-align: center;
+        border-top: 0.5px solid var(--ios-separator);
+    }
 
-.footer-links a {
-    color: var(--ios-secondary-label);
-    text-decoration: none;
-    font-size: 0.9rem;
-}
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-bottom: 2rem;
+    }
 
-.copyright {
-    color: var(--ios-secondary-label);
-    font-size: 0.85rem;
-}
+    .footer-links a {
+        color: var(--ios-secondary-label);
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .page-header h1 { font-size: 2.5rem; }
-    .page-header { margin-top: 2rem; }
-    nav ul { display: none; }
-}
+    .copyright {
+        color: var(--ios-tertiary-label);
+        font-size: 0.85rem;
+    }
+
+    /* Mobile Responsive Tweaks */
+    @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 2.5rem;
+        }
+        nav {
+            padding: 1rem 1.5rem;
+        }
+        nav ul {
+            display: none;
+        }
+    }
+</style>
 </head>
 <body>
 
