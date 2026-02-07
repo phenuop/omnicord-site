@@ -14,341 +14,287 @@
   
   <style>
     :root {
-      --black: #000000;
-      --white: #ffffff;
-      --gray-100: #f5f5f5;
-      --gray-200: #eeeeee;
-      --gray-300: #e0e0e0;
-      --gray-700: #616161;
-      --gray-800: #424242;
-      --gray-900: #212121;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        /* iOS Monochrome System Colors */
+        --ios-bg: #ffffff;
+        --ios-secondary-bg: #f2f2f7;
+        --ios-label: #000000;
+        --ios-secondary-label: #8e8e93;
+        --ios-tertiary-label: #aeaeb2;
+        --ios-separator: rgba(60, 60, 67, 0.12);
+        --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--white);
-      color: var(--black);
-      line-height: 1.6;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+        background-color: var(--ios-bg);
+        color: var(--ios-label);
+        line-height: 1.5;
     }
 
-    /* Navigation */
+    /* Navigation - Glassmorphism */
     nav {
-      background-color: var(--white);
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        padding: 1.2rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 0.5px solid var(--ios-separator);
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--black);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo i {
-      color: var(--black);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
     }
 
     nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
+        display: flex;
+        list-style: none;
+        gap: 2rem;
     }
 
     nav a {
-      text-decoration: none;
-      color: var(--gray-800);
-      font-weight: 500;
-      transition: var(--transition);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+        text-decoration: none;
+        color: var(--ios-label);
+        font-size: 0.95rem;
+        font-weight: 400;
+        transition: opacity 0.2s;
     }
 
-    nav a:hover, nav a.active {
-      color: var(--black);
-      font-weight: 600;
+    nav a:active {
+        opacity: 0.3; /* Haptic simulation */
     }
 
     /* Page Header */
     .page-header {
-      text-align: center;
-      padding: 4rem 2rem;
-      background-color: var(--gray-100);
-      margin-bottom: 3rem;
+        text-align: left;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 2rem 2rem;
     }
 
     .page-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        margin-bottom: 0.5rem;
     }
 
     .page-header p {
-      color: var(--gray-800);
-      max-width: 600px;
-      margin: 0 auto;
+        color: var(--ios-secondary-label);
+        font-size: 1.2rem;
+        font-weight: 400;
     }
 
-    /* Contact Container */
+    /* Contact Cards Container */
     .contact-container {
-      max-width: 1200px;
-      margin: 0 auto 4rem;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto 4rem;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
     }
 
-    /* Contact Card */
+    /* Contact Card - iOS Style */
     .contact-card {
-      background: var(--white);
-      border-radius: 8px;
-      padding: 2rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      border: 1px solid var(--gray-200);
-      transition: var(--transition);
-      text-align: center;
+        background: var(--ios-secondary-bg);
+        border-radius: 20px;
+        padding: 2.5rem;
+        transition: var(--transition-spring);
+        border: 0.5px solid var(--ios-separator);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
     }
 
-    .contact-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      border-color: var(--gray-300);
+    .contact-card:active {
+        transform: scale(0.97);
     }
 
     .contact-icon {
-      font-size: 2.5rem;
-      color: var(--black);
-      margin-bottom: 1.5rem;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        background: var(--ios-bg);
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px; /* Squircle */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
     .contact-card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        margin-bottom: 0.5rem;
     }
 
     .contact-card p {
-      color: var(--gray-800);
-      margin-bottom: 1.5rem;
+        color: var(--ios-secondary-label);
+        margin-bottom: 2rem;
+        font-size: 1rem;
     }
 
     .contact-link {
-      display: inline-flex;
-      align-items: center;
-      color: var(--black);
-      font-weight: 500;
-      text-decoration: none;
-      transition: var(--transition);
-      border-bottom: 1px solid transparent;
-      padding-bottom: 2px;
-    }
-
-    .contact-link i {
-      margin-left: 8px;
-      transition: var(--transition);
+        margin-top: auto;
+        padding: 12px 24px;
+        background: var(--ios-bg);
+        color: var(--ios-label);
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 12px;
+        border: 0.5px solid var(--ios-separator);
+        transition: var(--transition-spring);
     }
 
     .contact-link:hover {
-      border-bottom: 1px solid var(--black);
+        background: var(--ios-label);
+        color: var(--ios-bg);
     }
 
-    .contact-link:hover i {
-      transform: translateX(3px);
-    }
-
-    /* Google Form Container */
+    /* Google Form Container - iOS Card style */
     .google-form-container {
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      padding: 0 2rem;
+        max-width: 900px;
+        margin: 0 auto 6rem;
+        padding: 0 2rem;
     }
 
     .form-header {
-      background: var(--white);
-      border-radius: 8px 8px 0 0;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      border: 1px solid var(--gray-200);
-      border-bottom: none;
+        margin-bottom: 2rem;
+        text-align: center;
     }
 
     .form-header h2 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .form-header h2 i {
-      color: var(--black);
-    }
-
-    .form-header p {
-      color: var(--gray-800);
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.8px;
     }
 
     .google-form-embed {
-      background: var(--white);
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      border: 1px solid var(--gray-200);
-      border-top: none;
-      height: 1200px; /* Adjust based on your form height */
-      width: 100%;
+        background: var(--ios-secondary-bg);
+        border-radius: 28px;
+        border: 0.5px solid var(--ios-separator);
+        overflow: hidden;
+        height: 1000px;
+        width: 100%;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.04);
     }
 
     .google-form-embed iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+        width: 100%;
+        height: 100%;
+        border: none;
+        /* iOS-like scroll behavior */
+        -webkit-overflow-scrolling: touch;
     }
 
-    /* FAQ Preview */
+    /* FAQ Section */
     .faq-preview {
-      max-width: 800px;
-      margin: 0 auto 4rem;
-      padding: 0 2rem;
+        max-width: 900px;
+        margin: 0 auto 6rem;
+        padding: 0 2rem;
     }
 
     .faq-preview h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .faq-preview h2 i {
-      color: var(--black);
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
     }
 
     .faq-preview ul {
-      list-style: none;
+        list-style: none;
     }
 
     .faq-preview li {
-      margin-bottom: 0.8rem;
+        border-bottom: 0.5px solid var(--ios-separator);
+        padding: 1.5rem 0;
     }
 
     .faq-preview a {
-      color: var(--black);
-      text-decoration: none;
-      transition: var(--transition);
-      display: inline-block;
-      border-bottom: 1px solid transparent;
+        color: var(--ios-label);
+        text-decoration: none;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .faq-preview a:hover {
-      border-bottom: 1px solid var(--black);
+    .faq-preview a::after {
+        content: "→";
+        color: var(--ios-tertiary-label);
+        font-size: 1.2rem;
     }
 
     /* Footer */
     footer {
-      background-color: var(--black);
-      color: var(--white);
-      padding: 3rem 2rem;
-      text-align: center;
+        background-color: var(--ios-secondary-bg);
+        color: var(--ios-label);
+        padding: 5rem 2rem;
+        text-align: center;
+        border-top: 0.5px solid var(--ios-separator);
     }
 
     .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 2.5rem;
     }
 
     .footer-links a {
-      color: var(--gray-300);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: var(--transition);
+        color: var(--ios-secondary-label);
+        text-decoration: none;
+        font-size: 0.9rem;
     }
 
-    .footer-links a:hover {
-      color: var(--white);
-    }
-
-    .copyright {
-      color: var(--gray-300);
-      font-size: 0.9rem;
-    }
-
-    /* Back to Top Button */
+    /* Back to Top - iOS Floating Button */
     .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background-color: var(--black);
-      color: var(--white);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition);
-      z-index: 99;
+        position: fixed;
+        bottom: 2.5rem;
+        right: 2.5rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        color: var(--ios-label);
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        border: 0.5px solid var(--ios-separator);
+        opacity: 0;
+        transition: var(--transition-spring);
     }
 
     .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
+        opacity: 1;
     }
 
-    .back-to-top:hover {
-      transform: translateY(-3px);
-    }
-
-    /* Responsive Design */
     @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-      }
-
-      nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .page-header h1 {
-        font-size: 2rem;
-      }
-
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .google-form-embed {
-        height: 1500px; /* More height for mobile */
-      }
+        .page-header h1 { font-size: 2.5rem; }
+        .page-header { text-align: center; }
+        .contact-card { align-items: center; text-align: center; }
+        nav ul { display: none; } /* Mobile simplicity */
     }
-  </style>
+</style>
 </head>
 <body>
 
@@ -379,7 +325,7 @@
       </div>
       <h2>Discord Support</h2>
       <p>Join our official support server for real-time assistance from our team and community experts.</p>
-      <a href="https://discord.gg/omnicord" class="contact-link" target="_blank">
+      <a href="https://discord.gg/jBkdxhVDNS" class="contact-link" target="_blank">
         Join Support Server
         <i class="fas fa-arrow-right"></i>
       </a>
@@ -391,7 +337,7 @@
       </div>
       <h2>Email Support</h2>
       <p>For detailed inquiries or business-related questions, email our support team directly.</p>
-      <a href="mailto:support@omnicord.com" class="contact-link">
+      <a href="mailto:support@omnicord.site" class="contact-link">
         htlpdesk.omnicord@gmail.com
         <i class="fas fa-arrow-right"></i>
       </a>
@@ -472,4 +418,5 @@
   </script>
 </body>
 </html>
+
 
