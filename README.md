@@ -32,7 +32,7 @@ Meet the minds behind the DNA sequence.
 <table>
   <tr>
     <td align="center" width="250">
-      <img src="WhatsApp%20Image%202025-04-20%20at%2013.24.57_4c0950fb.jpg" width="60" style="border-radius: 20px;"><br>
+      <img src="phnu.jpg" width="60" style="border-radius: 20px;"><br>
       <b>Phyniex (Phenu)</b><br>
       <font color="#8e8e93">Founder & Lead Dev</font>
     </td>
