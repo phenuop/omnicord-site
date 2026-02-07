@@ -52,15 +52,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
-    /* iOS Monochrome Palette */
+    /* iOS 26 Monochrome Palette */
     --ios-bg: #ffffff;
     --ios-secondary-bg: #f2f2f7;
-    --ios-card: rgba(255, 255, 255, 0.75);
+    --ios-card: rgba(255, 255, 255, 0.72);
     --black: #000000;
     --white: #ffffff;
-    --system-gray: #8e8e93;
-    --border: rgba(0, 0, 0, 0.1);
-    --ios-blur: blur(20px) saturate(180%);
+    --system-gray: #86868b;
+    --border: rgba(0, 0, 0, 0.08);
+    /* iOS v26 Specific: Physics-based easing */
+    --ios-spring: cubic-bezier(0.32, 0.72, 0, 1);
   }
 
   * {
@@ -69,22 +70,25 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
+    letter-spacing: -0.015em;
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
     background-color: var(--ios-bg);
     color: var(--black);
-    line-height: 1.5;
+    line-height: 1.47;
     font-weight: 400;
   }
 
-  /* --- Navigation --- */
+  /* --- Navigation: Precision Glass --- */
   nav {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: var(--ios-blur);
-    -webkit-backdrop-filter: var(--ios-blur);
-    padding: 0.8rem 10%;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    padding: 0 15%;
+    height: 52px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,61 +100,57 @@
   }
 
   nav .logo {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    letter-spacing: -0.5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    letter-spacing: -0.03em;
   }
 
   nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.8rem;
   }
 
   nav ul li a {
     color: var(--black);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: opacity 0.2s ease;
+    font-size: 0.85rem;
+    font-weight: 400;
+    opacity: 0.8;
+    transition: opacity 0.2s;
   }
 
-  nav ul li a:hover { opacity: 0.6; }
+  nav ul li a:hover { opacity: 1; }
 
-  /* --- Hero Section --- */
+  /* --- Hero Section: Corrected Proportions --- */
   .hero {
-    min-height: 100vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 2rem;
-    background: radial-gradient(circle at center, #ffffff 0%, #f2f2f7 100%);
+    padding: 80px 2rem 2rem;
   }
 
-  .hero-omnitrix {
-    width: 120px;
-    height: 120px;
-    background: var(--black);
-    border-radius: 28px; /* Classic iOS App Icon Shape */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    animation: float 6s ease-in-out infinite;
+  /* Fixed Huge Image Issue */
+  .hero img {
+    width: 100px; /* Precise App Icon size */
+    height: 100px;
+    border-radius: 22.5%; /* Official iOS Squircle radius */
+    margin-bottom: 1.5rem;
+    border: 0.5px solid var(--border);
+    object-fit: cover;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    animation: heroSpring 1.2s var(--ios-spring);
   }
 
   h1 {
     font-size: 3.5rem;
     font-weight: 800;
-    letter-spacing: -1.5px;
-    margin-bottom: 0.5rem;
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    letter-spacing: -0.04em;
+    margin-bottom: 0.8rem;
+    animation: fadeInUp 0.8s var(--ios-spring);
   }
 
   h2 {
@@ -158,76 +158,107 @@
     font-weight: 500;
     color: var(--system-gray);
     margin-bottom: 2.5rem;
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
+    max-width: 600px;
+    animation: fadeInUp 0.8s var(--ios-spring) 0.1s both;
   }
 
-  /* --- iOS Buttons --- */
+  /* --- Buttons: iOS Control Center Style --- */
   .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+    gap: 14px;
+    animation: fadeInUp 0.8s var(--ios-spring) 0.2s both;
   }
 
   .btn {
-    padding: 14px 32px;
-    border-radius: 14px;
+    padding: 14px 28px;
+    border-radius: 12px;
     font-size: 17px;
     font-weight: 600;
     text-decoration: none;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+    transition: transform 0.2s var(--ios-spring), opacity 0.2s ease;
     border: none;
-    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  .btn-primary {
-    background-color: var(--black);
-    color: var(--white);
-  }
+  .btn-primary { background: var(--black); color: var(--white); }
+  .btn-outline { background: var(--ios-secondary-bg); color: var(--black); }
 
-  .btn-outline {
-    background-color: var(--ios-secondary-bg);
-    color: var(--black);
-  }
+  .btn:active { transform: scale(0.96); opacity: 0.8; }
 
-  .btn:active {
-    transform: scale(0.96);
-  }
-
-  /* --- Feature Cards (Glassmorphism) --- */
-  .features-container {
-    padding: 5rem 10%;
-    background-color: var(--ios-secondary-bg);
+  /* --- Features: Modern Card Layout --- */
+  .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 4rem 15%;
+    background: var(--ios-secondary-bg);
   }
 
   .feature-card {
     background: var(--ios-card);
-    backdrop-filter: var(--ios-blur);
-    -webkit-backdrop-filter: var(--ios-blur);
-    padding: 2.5rem;
-    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 2rem;
+    border-radius: 20px;
     border: 0.5px solid var(--border);
-    transition: transform 0.3s ease;
     text-align: left;
+    transition: transform 0.3s var(--ios-spring);
   }
 
-  .feature-card:hover {
-    transform: translateY(-5px);
-  }
+  .feature-card:hover { transform: translateY(-4px); }
 
   .feature-icon {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
     display: block;
   }
 
+  /* --- Gallery: High-End Monochrome --- */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 4rem 15%;
+  }
+
+  .gallery-item {
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--ios-secondary-bg);
+    border: 0.5px solid var(--border);
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: all 0.6s var(--ios-spring);
+  }
+
+  .gallery-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  /* --- Footer --- */
+  footer {
+    padding: 4rem 15%;
+    background: var(--ios-secondary-bg);
+    border-top: 0.5px solid var(--border);
+    text-align: center;
+    color: var(--system-gray);
+    font-size: 0.85rem;
+  }
+
   /* --- Animations --- */
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+  @keyframes heroSpring {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
   }
 
   @keyframes fadeInUp {
@@ -235,12 +266,13 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* --- Responsive --- */
+  /* --- Mobile Tweak --- */
   @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
     nav ul { display: none; }
     h1 { font-size: 2.5rem; }
-    .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; }
-    .btn { width: 100%; text-align: center; }
+    .hero-buttons { flex-direction: column; width: 100%; max-width: 280px; }
+    .features, .gallery, footer { padding: 3rem 1.5rem; }
   }
 </style>
 </head>
@@ -445,6 +477,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
