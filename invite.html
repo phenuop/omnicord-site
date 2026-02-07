@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite | Omnicord</title>
+    <style>
+        :root {
+            --ios-bg: #f2f2f7;
+            --ios-card: rgba(255, 255, 255, 0.8);
+            --ios-text: #000000;
+            --ios-accent: #000000;
+            --ios-switch-bg: #e9e9ea;
+            --ios-switch-on: #000000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "system-ui", sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--ios-bg);
+            color: var(--ios-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .ios-container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 15px;
+            color: #8e8e93;
+            margin-top: 4px;
+        }
+
+        .ios-list {
+            background: var(--ios-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .ios-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 0.5px solid rgba(0,0,0,0.1);
+        }
+
+        .ios-item:last-child { border-bottom: none; }
+
+        .ios-item span {
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .ios-switch {
+            position: relative;
+            display: inline-block;
+            width: 51px;
+            height: 31px;
+        }
+
+        .ios-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--ios-switch-bg);
+            transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 27px;
+            width: 27px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 50%;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+
+        input:checked + .slider {
+            background-color: var(--ios-switch-on);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        .footer-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ios-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-main {
+            background-color: var(--ios-accent);
+            color: white;
+        }
+
+        .btn-sub {
+            background-color: transparent;
+            color: var(--ios-accent);
+        }
+
+        .ios-btn:active {
+            opacity: 0.6;
+        }
+
+        #url-preview {
+            font-size: 11px;
+            color: #8e8e93;
+            text-align: center;
+            word-break: break-all;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ios-container">
+    <header>
+        <h1>Invite</h1>
+        <p>Omnicord Bot Permissions</p>
+    </header>
+
+    <div class="ios-list">
+        <label class="ios-item">
+            <span>Send Messages</span>
+            <div class="ios-switch">
+                <input type="checkbox" class="perm" value="2048" checked>
+                <span class="slider"></span>
+            </div>
+        </label>
+        <label class="ios-item">
+            <span>Embed Links</span>
+            <div class="ios-switch">
+                <input type="checkbox" class="perm" value="16384" checked>
+                <span class="slider"></span>
+            </div>
+        </label>
+        <label class="ios-item">
+            <span>Attach Files</span>
+            <div class="ios-switch">
+                <input type="checkbox" class="perm" value="32768" checked>
+                <span class="slider"></span>
+            </div>
+        </label>
+        <label class="ios-item">
+            <span>External Emojis</span>
+            <div class="ios-switch">
+                <input type="checkbox" class="perm" value="262144" checked>
+                <span class="slider"></span>
+            </div>
+        </label>
+        <label class="ios-item">
+            <span>Message History</span>
+            <div class="ios-switch">
+                <input type="checkbox" class="perm" value="65536" checked>
+                <span class="slider"></span>
+            </div>
+        </label>
+        <label class="ios-item">
+            <span style="color: #ff3b30;">Administrator</span>
+            <div class="ios-switch">
+                <input type="checkbox" class="perm" value="8">
+                <span class="slider"></span>
+            </div>
+        </label>
+    </div>
+
+    <div id="url-preview"></div>
+
+    <div class="footer-actions">
+        <a href="#" id="invite-btn" class="ios-btn btn-main" target="_blank">Invite Bot</a>
+        <button class="ios-btn btn-sub" onclick="copy()">Copy Link</button>
+    </div>
+</div>
+
+<script>
+    const CID = '1350356919604351057';
+    const cbs = document.querySelectorAll('.perm');
+    const preview = document.getElementById('url-preview');
+    const btn = document.getElementById('invite-btn');
+
+    function update() {
+        let p = 0;
+        cbs.forEach(c => { if(c.checked) p += parseInt(c.value); });
+        const url = `https://discord.com/api/oauth2/authorize?client_id=${CID}&permissions=${p}&scope=bot%20applications.commands`;
+        preview.innerText = url;
+        btn.href = url;
+    }
+
+    function copy() {
+        navigator.clipboard.writeText(preview.innerText);
+    }
+
+    cbs.forEach(c => c.addEventListener('change', update));
+    update();
+</script>
+
+</body>
+</html>
