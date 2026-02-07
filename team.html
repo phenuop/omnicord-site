@@ -12,212 +12,216 @@
 
   <style>
     :root {
-      --black: #121212;
-      --white: #ffffff;
-      --gray: #e0e0e0;
-      --silver: #c0c0c0;
-      --dark-gray: #333333;
+        /* iOS System Palette */
+        --ios-bg: #ffffff;
+        --ios-secondary-bg: #f2f2f7; /* iOS System Gray 6 */
+        --ios-label: #000000;
+        --ios-secondary-label: #8e8e93; /* iOS System Gray */
+        --ios-separator: rgba(60, 60, 67, 0.12);
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--white);
-      color: var(--black);
-      line-height: 1.6;
-      min-height: 100vh;
-      padding: 2rem;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+        background-color: var(--ios-bg);
+        color: var(--ios-label);
+        line-height: 1.4;
     }
 
-    /* Navigation */
+    /* Navigation - Glassmorphism */
     nav {
-      background-color: var(--white);
-      padding: 1.5rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--gray);
-      margin-bottom: 3rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        padding: 1.2rem 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 0.5px solid var(--ios-separator);
+        margin-bottom: 0;
     }
 
     nav .logo {
-      font-size: 1.5rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    nav .logo i {
-      color: var(--black);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
     }
 
     nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
+        list-style: none;
+        display: flex;
+        gap: 2rem;
     }
 
     nav ul li a {
-      color: var(--black);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+        color: var(--ios-label);
+        text-decoration: none;
+        font-size: 0.95rem;
     }
 
-    /* Page Header */
+    /* Page Header - iOS Large Title */
     .page-header {
-      text-align: center;
-      margin-bottom: 4rem;
+        max-width: 1200px;
+        margin: 4rem auto 3rem;
+        padding: 0 2rem;
+        text-align: left; /* iOS standard alignment */
     }
 
     .page-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 500;
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        margin-bottom: 0.5rem;
     }
 
     .page-header p {
-      color: var(--dark-gray);
-      max-width: 600px;
-      margin: 0 auto;
+        color: var(--ios-secondary-label);
+        font-size: 1.2rem;
+        max-width: 600px;
     }
 
     /* Team Grid */
     .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
     }
 
-    /* Team Member Card */
+    /* Team Member Card - iOS Contact Style */
     .team-card {
-      background-color: var(--white);
-      border: 1px solid var(--silver);
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease;
+        background-color: var(--ios-secondary-bg);
+        border-radius: 28px; /* High-end iOS curve */
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        transition: var(--transition);
+        border: 0.5px solid var(--ios-separator);
     }
 
     .team-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        transform: scale(1.02);
+        background-color: #f8f8fa;
+    }
+
+    .team-card:active {
+        transform: scale(0.97); /* Haptic feedback */
     }
 
     .team-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 1.5rem;
-      border: 3px solid var(--black);
+        width: 120px;
+        height: 120px;
+        border-radius: 24px; /* Squircle avatar */
+        object-fit: cover;
+        margin: 0 auto 1.5rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        border: 0.5px solid var(--ios-separator);
     }
 
     .team-card h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        margin-bottom: 0.2rem;
     }
 
     .team-card p {
-      color: var(--dark-gray);
-      margin-bottom: 1.5rem;
+        color: var(--ios-secondary-label);
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
     }
 
     .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 1.2rem;
     }
 
     .social-links a {
-      color: var(--black);
-      font-size: 1.2rem;
-      transition: all 0.2s ease;
+        color: var(--ios-label);
+        font-size: 1.3rem;
+        opacity: 0.8;
+        transition: opacity 0.2s;
     }
 
     .social-links a:hover {
-      color: var(--dark-gray);
-      transform: translateY(-2px);
+        opacity: 0.4;
     }
 
-    /* Integrity Notice */
+    /* Integrity Notice - iOS Inset Grouped Section */
     .integrity-notice {
-      grid-column: 1 / -1;
-      text-align: center;
-      margin-top: 3rem;
-      padding: 2rem;
-      border-top: 1px solid var(--silver);
-      border-bottom: 1px solid var(--silver);
+        grid-column: 1 / -1;
+        text-align: center;
+        margin: 4rem 2rem;
+        padding: 3rem 2rem;
+        background: var(--ios-secondary-bg);
+        border-radius: 30px;
+        border: 0.5px solid var(--ios-separator);
     }
 
     .integrity-notice h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+        font-size: 1.8rem;
+        font-weight: 800;
+        letter-spacing: -0.8px;
+        margin-bottom: 1rem;
     }
 
     .integrity-notice p {
-      color: var(--dark-gray);
-      max-width: 700px;
-      margin: 0 auto;
+        color: var(--ios-secondary-label);
+        max-width: 700px;
+        margin: 0 auto;
+        font-size: 1.1rem;
     }
 
     /* Footer */
     footer {
-      background: var(--black);
-      color: var(--white);
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-top: 4rem;
+        background: var(--ios-secondary-bg);
+        color: var(--ios-label);
+        padding: 5rem 2rem;
+        text-align: center;
+        margin-top: 6rem;
+        border-top: 0.5px solid var(--ios-separator);
     }
 
     .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-bottom: 2.5rem;
     }
 
     .footer-links a {
-      color: var(--silver);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+        color: var(--ios-secondary-label);
+        text-decoration: none;
+        font-size: 0.9rem;
     }
 
     .copyright {
-      color: var(--silver);
-      font-size: 0.9rem;
+        color: var(--ios-secondary-label);
+        font-size: 0.85rem;
+        opacity: 0.7;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      nav {
-        padding: 1rem;
-        flex-direction: column;
-      }
-      
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
+        .page-header h1 { font-size: 2.5rem; }
+        nav { padding: 1rem 1.5rem; }
+        nav ul { display: none; }
+        .team-grid { padding: 0 1.5rem; }
     }
-  </style>
+</style>
 </head>
 
 <body>
@@ -290,4 +294,5 @@
   </footer>
 </body>
 </html>
+
 
