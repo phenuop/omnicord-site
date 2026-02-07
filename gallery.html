@@ -12,200 +12,231 @@
 
   <style>
     :root {
-      --black: #121212;
-      --white: #ffffff;
-      --gray: #e0e0e0;
-      --silver: #c0c0c0;
-      --dark-gray: #333333;
+        /* iOS System Palette */
+        --ios-bg: #ffffff;
+        --ios-secondary-bg: #f2f2f7;
+        --ios-label: #000000;
+        --ios-secondary-label: #8e8e93;
+        --ios-separator: rgba(60, 60, 67, 0.12);
+        --black: #000000;
+        --white: #ffffff;
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--white);
-      color: var(--black);
-      line-height: 1.6;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+        background-color: var(--ios-bg);
+        color: var(--ios-label);
+        line-height: 1.4;
     }
 
-    /* Navigation */
+    /* Navigation - Glassmorphism */
     nav {
-      background-color: var(--white);
-      padding: 1.5rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 1px solid var(--gray);
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        padding: 1.2rem 2.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 0.5px solid var(--ios-separator);
     }
 
     nav .logo {
-      font-size: 1.5rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    nav .logo i {
-      color: var(--black);
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
+        list-style: none;
+        display: flex;
+        gap: 2rem;
     }
 
     nav ul li a {
-      color: var(--black);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+        color: var(--ios-label);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: opacity 0.2s;
+    }
+
+    nav ul li a:active {
+        opacity: 0.3;
     }
 
     /* Main Content */
     main {
-      padding: 4rem 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
+        padding: 4rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .gallery-header {
-      text-align: center;
-      margin-bottom: 3rem;
+        text-align: left; /* iOS standard is left-aligned titles */
+        margin-bottom: 3rem;
     }
 
     .gallery-header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+        font-size: 3.2rem;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        margin-bottom: 0.5rem;
     }
 
     .gallery-header p {
-      color: var(--dark-gray);
-      max-width: 600px;
-      margin: 0 auto;
+        color: var(--ios-secondary-label);
+        font-size: 1.2rem;
+        max-width: 700px;
     }
 
-    /* Filter Controls */
+    /* Filter Controls - iOS Pill Style */
     .filter-controls {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 2.5rem;
+        flex-wrap: wrap;
     }
 
     .filter-btn {
-      padding: 0.6rem 1.2rem;
-      background: var(--white);
-      border: 1px solid var(--silver);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+        padding: 0.5rem 1.2rem;
+        background: var(--ios-secondary-bg);
+        border: none;
+        border-radius: 20px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--ios-label);
+        cursor: pointer;
+        transition: var(--transition);
     }
 
-    .filter-btn:hover, .filter-btn.active {
-      background: var(--black);
-      color: var(--white);
-      border-color: var(--black);
+    .filter-btn:hover {
+        background: #e5e5ea;
+    }
+
+    .filter-btn.active {
+        background: var(--black);
+        color: var(--white);
+    }
+
+    .filter-btn:active {
+        transform: scale(0.95);
     }
 
     /* Gallery Grid */
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
     }
 
+    /* Gallery Item - Card Style */
     .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--silver);
-      transition: all 0.3s ease;
+        position: relative;
+        background: var(--ios-bg);
+        border-radius: 24px; /* iOS Squircle corner */
+        overflow: hidden;
+        transition: var(--transition);
+        border: 0.5px solid var(--ios-separator);
     }
 
     .gallery-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     }
 
     .gallery-item img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      display: block;
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.05);
     }
 
     .gallery-caption {
-      padding: 1.2rem;
-      background: var(--white);
+        padding: 1.5rem;
+        background: var(--ios-bg);
     }
 
     .gallery-caption h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+        letter-spacing: -0.3px;
     }
 
     .gallery-caption p {
-      color: var(--dark-gray);
-      font-size: 0.9rem;
+        color: var(--ios-secondary-label);
+        font-size: 1rem;
+        font-weight: 400;
     }
 
     /* Footer */
     footer {
-      background: var(--black);
-      color: var(--white);
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-top: 4rem;
+        background: var(--ios-secondary-bg);
+        color: var(--ios-label);
+        padding: 5rem 2rem;
+        text-align: center;
+        margin-top: 6rem;
+        border-top: 0.5px solid var(--ios-separator);
     }
 
     .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-bottom: 2rem;
     }
 
     .footer-links a {
-      color: var(--silver);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+        color: var(--ios-secondary-label);
+        text-decoration: none;
+        font-size: 0.9rem;
     }
 
     .copyright {
-      color: var(--silver);
-      font-size: 0.9rem;
+        color: var(--ios-secondary-label);
+        font-size: 0.85rem;
+        opacity: 0.8;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      nav {
-        padding: 1rem;
-        flex-direction: column;
-      }
-      
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
+        .page-header h1 {
+            font-size: 2.5rem;
+        }
+        
+        nav {
+            padding: 1rem 1.5rem;
+        }
+
+        nav ul {
+            display: none;
+        }
+
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+        }
     }
-  </style>
+</style>
 </head>
 
 <body>
