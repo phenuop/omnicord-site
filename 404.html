@@ -5,79 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 Not Found</title>
     <style>
-        /* Reset */
+        :root {
+            --ios-bg: #ffffff;
+            --ios-secondary: #f2f2f7;
+            --black: #000000;
+            --system-gray: #8e8e93;
+            --border: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset & iOS Feel */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Body */
         body {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #e8dbff, #b39ddb); /* Soft gradient */
-            color: #333;
-            text-align: center;
-            animation: fadeIn 0.6s ease-in-out;
+            background-color: var(--ios-bg);
+            color: var(--black);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+            overflow: hidden;
         }
 
         /* Container */
         .container {
             max-width: 400px;
-            padding: 20px;
+            padding: 2rem;
+            text-align: center;
+            animation: ios-spring 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        /* 404 Text */
+        /* 404 Text - Thick Apple Display style */
         h1 {
-            font-size: 100px;
-            font-weight: bold;
-            color: #6a0dad;
+            font-size: 110px;
+            font-weight: 800;
+            letter-spacing: -5px;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(180deg, #000 0%, #8e8e93 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Subtext */
+        /* Message */
         p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: #444;
+            font-size: 19px;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.4px;
         }
 
-        /* Home Button */
+        /* iOS Home Button */
         .home-button {
             display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 16px 32px;
+            font-size: 17px;
+            font-weight: 600;
             color: white;
-            background: #6a0dad;
-            border-radius: 5px;
+            background: var(--black);
+            border-radius: 14px; /* iOS Squircle */
             text-decoration: none;
-            transition: 0.3s;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .home-button:hover {
-            background: #5b0bbf;
+        /* Touch Feedback */
+        .home-button:active {
+            transform: scale(0.95);
+            opacity: 0.8;
         }
 
-        /* Fade-in animation */
-        @keyframes fadeIn {
+        /* Subtle Background Decoration (Glass circles) */
+        .bg-blur {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--ios-secondary);
+            filter: blur(80px);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        /* Keyframes */
+        @keyframes ios-spring {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: scale(0.9) translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1) translateY(0);
             }
         }
     </style>
 </head>
 <body>
+    <div class="bg-blur"></div>
     <div class="container">
         <h1>404</h1>
-        <p>The page you're looking for doesn't exist.</p>
+        <p>Something went wrong.<br>This page doesn't exist.</p>
         <a href="/" class="home-button">Go Home</a>
     </div>
 </body>
