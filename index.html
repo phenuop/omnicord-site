@@ -52,15 +52,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
-    /* iOS 26 "Physical Monochrome" Palette */
+    /* iOS Monochrome Palette */
     --ios-bg: #ffffff;
     --ios-secondary-bg: #f2f2f7;
-    --ios-card-glass: rgba(255, 255, 255, 0.65);
+    --ios-card: rgba(255, 255, 255, 0.75);
     --black: #000000;
     --white: #ffffff;
-    --system-gray: #86868b; /* Apple's specific text gray */
-    --border-hairline: rgba(0, 0, 0, 0.08);
-    --sf-easing: cubic-bezier(0.32, 0.72, 0, 1); /* iOS Spring easing */
+    --system-gray: #8e8e93;
+    --border: rgba(0, 0, 0, 0.1);
+    --ios-blur: blur(20px) saturate(180%);
   }
 
   * {
@@ -68,23 +68,23 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    letter-spacing: -0.011em; /* Tight tracking for SF Pro */
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
     background-color: var(--ios-bg);
     color: var(--black);
-    line-height: 1.45;
-    overflow-x: hidden;
+    line-height: 1.5;
+    font-weight: 400;
   }
 
-  /* --- NAVIGATION: ULTRA-GLASSMorphism --- */
+  /* --- Navigation --- */
   nav {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: saturate(200%) blur(25px);
-    -webkit-backdrop-filter: saturate(200%) blur(25px);
-    padding: 1rem 12%;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: var(--ios-blur);
+    -webkit-backdrop-filter: var(--ios-blur);
+    padding: 0.8rem 10%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -92,34 +92,35 @@
     top: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 0.5px solid var(--border-hairline);
+    border-bottom: 0.5px solid var(--border);
   }
 
   nav .logo {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    letter-spacing: -0.04em;
-    text-transform: lowercase; /* Minimalist Ben10 branding */
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   nav ul {
     list-style: none;
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
   nav ul li a {
     color: var(--black);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    opacity: 0.8;
-    transition: opacity 0.3s var(--sf-easing);
+    transition: opacity 0.2s ease;
   }
 
-  nav ul li a:hover { opacity: 1; }
+  nav ul li a:hover { opacity: 0.6; }
 
-  /* --- HERO SECTION --- */
+  /* --- Hero Section --- */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -127,61 +128,54 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 2rem;
+    padding: 2rem;
+    background: radial-gradient(circle at center, #ffffff 0%, #f2f2f7 100%);
   }
 
-  /* The Omnitrix App Icon (Squircle) */
-  .hero-icon {
+  .hero-omnitrix {
     width: 120px;
     height: 120px;
     background: var(--black);
-    /* iOS Squircle Shape approximation */
-    clip-path: path('M0,40 C0,13.3 13.3,0 40,0 L80,0 C106.7,0 120,13.3 120,40 L120,80 C120,106.7 106.7,120 80,120 L40,120 C13.3,120 0,106.7 0,80 Z');
+    border-radius: 28px; /* Classic iOS App Icon Shape */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 2rem;
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-    animation: float 5s ease-in-out infinite;
-  }
-
-  .hero-icon svg {
-    width: 60px;
-    fill: var(--white);
+    animation: float 6s ease-in-out infinite;
   }
 
   h1 {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    letter-spacing: -0.05em;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s var(--sf-easing);
+    letter-spacing: -1.5px;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 500;
     color: var(--system-gray);
-    max-width: 600px;
-    margin-bottom: 3rem;
-    animation: fadeInUp 1s var(--sf-easing) 0.1s both;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
   }
 
-  /* --- BUTTONS: iOS 26 Bold Style --- */
+  /* --- iOS Buttons --- */
   .hero-buttons {
     display: flex;
-    gap: 16px;
-    animation: fadeInUp 1s var(--sf-easing) 0.2s both;
+    justify-content: center;
+    gap: 12px;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
   }
 
   .btn {
-    padding: 16px 32px;
-    border-radius: 18px;
+    padding: 14px 32px;
+    border-radius: 14px;
     font-size: 17px;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s var(--sf-easing);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
     border: none;
     cursor: pointer;
   }
@@ -191,84 +185,62 @@
     color: var(--white);
   }
 
-  .btn-primary:hover {
-    background-color: #333;
-    transform: scale(1.02);
-  }
-
-  .btn-secondary {
+  .btn-outline {
     background-color: var(--ios-secondary-bg);
     color: var(--black);
-  }
-
-  .btn-secondary:hover {
-    background-color: #e5e5ea;
-    transform: scale(1.02);
   }
 
   .btn:active {
     transform: scale(0.96);
   }
 
-  /* --- FEATURE CARDS --- */
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 4rem 12%;
+  /* --- Feature Cards (Glassmorphism) --- */
+  .features-container {
+    padding: 5rem 10%;
     background-color: var(--ios-secondary-bg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
   }
 
-  .card {
-    background: var(--ios-card-glass);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+  .feature-card {
+    background: var(--ios-card);
+    backdrop-filter: var(--ios-blur);
+    -webkit-backdrop-filter: var(--ios-blur);
     padding: 2.5rem;
-    border-radius: 28px;
-    border: 0.5px solid var(--border-hairline);
-    transition: transform 0.4s var(--sf-easing);
+    border-radius: 24px;
+    border: 0.5px solid var(--border);
+    transition: transform 0.3s ease;
+    text-align: left;
   }
 
-  .card:hover {
+  .feature-card:hover {
     transform: translateY(-5px);
   }
 
-  .card h3 {
-    font-size: 1.4rem;
+  .feature-icon {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
-    font-weight: 700;
+    display: block;
   }
 
-  .card p {
-    color: var(--system-gray);
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  /* --- ANIMATIONS --- */
+  /* --- Animations --- */
   @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(2deg); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px) scale(0.98); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  /* --- MOBILE ADAPTATION --- */
-  @media (max-width: 900px) {
-    h1 { font-size: 2.8rem; }
-    .features-grid { 
-      grid-template-columns: 1fr;
-      padding: 4rem 1.5rem;
-    }
-    .hero-buttons {
-      flex-direction: column;
-      width: 100%;
-      max-width: 300px;
-    }
-    .btn { text-align: center; }
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    h1 { font-size: 2.5rem; }
+    .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; }
+    .btn { width: 100%; text-align: center; }
   }
 </style>
 </head>
@@ -473,6 +445,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
