@@ -92,7 +92,7 @@
 <h2 align="center" style="color: #00ff99;">💬 Need Help?</h2>
 
 <p align="center">
-  📩 Contact us on <a href="mailto:helpdesk@gmail.com" style="color: #00ff99;">support@omnicord.com</a>
+  📩 Contact us on <a href="mailtosupport@omnicord.site" style="color: #00ff99;">support@omnicord.site</a>
 </p>
 
 <p align="center">Visit Our Website <a href="https://omnicord.neocities.org" style="color: #123687;">Omnicord.com
