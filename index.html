@@ -50,45 +50,42 @@
   
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
   :root {
+    /* iOS Monochrome Palette */
+    --ios-bg: #ffffff;
+    --ios-secondary-bg: #f2f2f7;
+    --ios-card: rgba(255, 255, 255, 0.7);
     --black: #000000;
     --white: #ffffff;
-    /* iOS Specific Palette */
-    --ios-bg: #f2f2f7; 
-    --ios-card: rgba(255, 255, 255, 0.8);
-    --ios-text: #000000;
-    --ios-secondary-text: #8e8e93;
-    --gray: #e5e5ea;
-    --silver: #d1d1d6;
-    --dark-gray: #3a3a3c;
-    --accent-green: #00b300; /* Ben 10 Green */
+    --system-gray: #8e8e93;
+    --border: rgba(0, 0, 0, 0.1);
   }
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Apple Smooth Scrolling */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    /* iOS System Font Stack */
+    /* Official iOS Font Stack */
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
     background-color: var(--ios-bg);
-    color: var(--ios-text);
+    color: var(--black);
     line-height: 1.5;
+    font-weight: 400;
   }
 
-  /* iOS Glassmorphism Navigation */
+  /* Navigation - iOS Glassmorphism */
   nav {
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    padding: 0.8rem 3rem;
+    padding: 0.8rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,25 +93,34 @@
     top: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0.5px solid var(--border);
   }
 
   nav .logo {
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
   }
 
   nav ul li a {
-    color: var(--ios-text);
+    color: var(--black);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 400;
     transition: opacity 0.2s;
   }
 
-  nav ul li a:hover {
-    opacity: 0.6;
+  nav ul li a:active {
+    opacity: 0.3;
   }
 
   /* Hero Section */
@@ -126,52 +132,73 @@
     align-items: center;
     text-align: center;
     padding: 2rem;
+    position: relative;
+    overflow: hidden;
   }
 
   .hero img {
-    width: 120px;
-    height: 120px;
-    border-radius: 28px; /* iOS Squircle-like shape */
+    width: 110px;
+    height: 110px;
+    border-radius: 24px; /* iOS App Icon Squircle */
     margin-bottom: 1.5rem;
+    border: 0.5px solid var(--border);
     object-fit: cover;
     animation: float 6s ease-in-out infinite;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   }
 
   h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 800;
     letter-spacing: -1.5px;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   h2 {
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--ios-secondary-text);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--system-gray);
+    margin-bottom: 2rem;
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
   }
 
-  /* iOS Style Buttons */
+  .hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    color: var(--system-gray);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+    height: 1.5em;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* iOS Button Styling */
   .hero-buttons {
     display: flex;
+    justify-content: center;
     gap: 12px;
-    margin-top: 2rem;
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+    width: 100%;
   }
 
   .btn {
-    padding: 12px 24px;
-    border-radius: 12px; /* Standard iOS button radius */
+    padding: 14px 28px;
+    border-radius: 14px; /* Standard iOS Button Radius */
     font-size: 17px;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 8px;
     border: none;
+  }
+
+  .btn:active {
+    transform: scale(0.95); /* Physical feedback effect */
+    opacity: 0.8;
   }
 
   .btn-primary {
@@ -180,72 +207,181 @@
   }
 
   .btn-outline {
-    background-color: var(--ios-card);
+    background-color: var(--ios-secondary-bg);
     color: var(--black);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0,0,0,0.05);
-  }
-
-  .btn:active {
-    transform: scale(0.96); /* iOS press effect */
-    opacity: 0.8;
-  }
-
-  /* iOS Feature Cards */
-  .feature-card {
-    background-color: var(--ios-card);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 2.5rem;
-    border-radius: 20px;
-    border: 0.5px solid rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-5px);
-  }
-
-  /* Gallery iOS Style */
-  .gallery-item {
-    border-radius: 20px;
-    overflow: hidden;
-    background: var(--ios-card);
-    border: 0.5px solid rgba(0,0,0,0.05);
   }
 
   /* Text Rotator */
   .text-rotator {
+    display: inline-block;
+    position: relative;
     height: 1.5em;
-    font-weight: 500;
-    color: var(--accent-green);
+    width: 100%;
   }
 
-  /* Keyframes */
+  .text-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    white-space: nowrap;
+    opacity: 0;
+    animation: textRotate 12s infinite;
+  }
+
+  .text-item:nth-child(1) { animation-delay: 0s; }
+  .text-item:nth-child(2) { animation-delay: 3s; }
+  .text-item:nth-child(3) { animation-delay: 6s; }
+  .text-item:nth-child(4) { animation-delay: 9s; }
+
+  /* Sections */
+  section {
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .section-gray {
+    background-color: var(--ios-secondary-bg);
+  }
+
+  /* iOS Feature Cards */
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .feature-card {
+    background-color: var(--white);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:active {
+    transform: scale(0.98);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+  }
+
+  /* Monochrome Gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 4rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    aspect-ratio: 4/3;
+    background: var(--ios-secondary-bg);
+    border: 0.5px solid var(--border);
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+  }
+
+  .gallery-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  /* Stats Section */
+  .stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+    min-width: 150px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  .stat-label {
+    color: var(--system-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* iOS Footer */
+  footer {
+    background-color: var(--ios-secondary-bg);
+    color: var(--black);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    color: var(--system-gray);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--black);
+  }
+
+  /* Animations */
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes textRotate {
-    0% { opacity: 0; transform: translateY(5px); }
+    0% { opacity: 0; transform: translateY(10px); }
     5% { opacity: 1; transform: translateY(0); }
     20% { opacity: 1; transform: translateY(0); }
-    25% { opacity: 0; transform: translateY(-5px); }
-    100% { opacity: 0; transform: translateY(-5px); }
+    25% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 0; transform: translateY(-10px); }
   }
 
-  /* Mobile Adjustments */
+  /* Responsive Mobile Tweak */
   @media (max-width: 768px) {
     nav { padding: 1rem; }
-    h1 { font-size: 2.4rem; }
-    .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; }
-    .btn { justify-content: center; }
+    nav ul { display: none; } /* Hide menu for clean mobile view */
+    h1 { font-size: 2.2rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn { width: 100%; max-width: 280px; justify-content: center; }
   }
 </style>
 </head>
@@ -450,6 +586,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
