@@ -52,8 +52,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
   :root {
+    /* iOS Monochrome Palette */
     --ios-bg: #ffffff;
     --ios-secondary-bg: #f2f2f7;
+    --ios-card: rgba(255, 255, 255, 0.7);
     --black: #000000;
     --white: #ffffff;
     --system-gray: #8e8e93;
@@ -65,89 +67,165 @@
     padding: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", sans-serif;
+    /* Official iOS Font Stack */
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
     background-color: var(--ios-bg);
     color: var(--black);
-    line-height: 1.4;
+    line-height: 1.5;
+    font-weight: 400;
   }
 
-  /* --- HERO APP CARD --- */
+  /* Navigation - iOS Glassmorphism */
+  nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  nav .logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  nav ul li a {
+    color: var(--black);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: opacity 0.2s;
+  }
+
+  nav ul li a:active {
+    opacity: 0.3;
+  }
+
+  /* Hero Section */
   .hero {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 2rem;
-  }
-
-  .app-card {
-    background: var(--ios-bg);
-    border: 0.5px solid var(--border);
-    border-radius: 38px;
-    padding: 3rem;
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-    max-width: 900px;
-    width: 100%;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    margin-bottom: 3rem;
-  }
-
-  .app-icon {
-    width: 160px;
-    height: 160px;
-    border-radius: 35px; /* iOS Squircle */
-    object-fit: cover;
-    border: 0.5px solid var(--border);
-    flex-shrink: 0;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-  }
-
-  .app-info {
-    text-align: left;
-    flex-grow: 1;
+    position: relative;
     overflow: hidden;
+  }
+
+  .hero img {
+    width: 110px;
+    height: 110px;
+    border-radius: 24px; /* iOS App Icon Squircle */
+    margin-bottom: 1.5rem;
+    border: 0.5px solid var(--border);
+    object-fit: cover;
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   }
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    letter-spacing: -2px;
-    margin-bottom: 0.2rem;
+    letter-spacing: -1.5px;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
     color: var(--system-gray);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.1s both;
   }
 
-  /* --- TEXT ROTATOR (Hero Description) --- */
-  .rotator-container {
-    height: 1.6em;
-    position: relative;
+  .hero p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    color: var(--system-gray);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s both;
+    height: 1.5em;
     overflow: hidden;
+    position: relative;
+  }
+
+  /* iOS Button Styling */
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+    width: 100%;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    border-radius: 14px; /* Standard iOS Button Radius */
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+  }
+
+  .btn:active {
+    transform: scale(0.95); /* Physical feedback effect */
+    opacity: 0.8;
+  }
+
+  .btn-primary {
+    background-color: var(--black);
+    color: var(--white);
+  }
+
+  .btn-outline {
+    background-color: var(--ios-secondary-bg);
+    color: var(--black);
+  }
+
+  /* Text Rotator */
+  .text-rotator {
+    display: inline-block;
+    position: relative;
+    height: 1.5em;
+    width: 100%;
   }
 
   .text-item {
     position: absolute;
     top: 0;
     left: 0;
-    color: var(--black);
-    font-size: 1.2rem;
-    font-weight: 400;
+    right: 0;
     white-space: nowrap;
     opacity: 0;
-    transform: translateY(15px);
     animation: textRotate 12s infinite;
   }
 
@@ -156,52 +234,154 @@
   .text-item:nth-child(3) { animation-delay: 6s; }
   .text-item:nth-child(4) { animation-delay: 9s; }
 
-  /* --- BUTTONS --- */
-  .hero-buttons {
+  /* Sections */
+  section {
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .section-gray {
+    background-color: var(--ios-secondary-bg);
+  }
+
+  /* iOS Feature Cards */
+  .features {
     display: flex;
-    gap: 12px;
-    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s both;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
   }
 
-  .btn {
-    padding: 14px 32px;
-    border-radius: 16px;
-    font-size: 17px;
-    font-weight: 600;
+  .feature-card {
+    background-color: var(--white);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 20px;
+    border: 0.5px solid var(--border);
+    transition: transform 0.3s ease;
+  }
+
+  .feature-card:active {
+    transform: scale(0.98);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+  }
+
+  /* Monochrome Gallery */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 4rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    aspect-ratio: 4/3;
+    background: var(--ios-secondary-bg);
+    border: 0.5px solid var(--border);
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+  }
+
+  .gallery-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  /* Stats Section */
+  .stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .stat-item {
+    padding: 1.5rem;
+    min-width: 150px;
+  }
+
+  .stat-number {
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  .stat-label {
+    color: var(--system-gray);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* iOS Footer */
+  footer {
+    background-color: var(--ios-secondary-bg);
+    color: var(--black);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-links a {
+    color: var(--system-gray);
     text-decoration: none;
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+    font-size: 0.85rem;
   }
 
-  .btn-primary { background: var(--black); color: var(--white); }
-  .btn-outline { background: var(--ios-secondary-bg); color: var(--black); }
-  .btn:active { transform: scale(0.96); opacity: 0.8; }
+  .footer-links a:hover {
+    color: var(--black);
+  }
 
-  /* --- ANIMATIONS --- */
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes textRotate {
-    0% { opacity: 0; transform: translateY(15px); }
+    0% { opacity: 0; transform: translateY(10px); }
     5% { opacity: 1; transform: translateY(0); }
     20% { opacity: 1; transform: translateY(0); }
-    25% { opacity: 0; transform: translateY(-15px); }
-    100% { opacity: 0; }
+    25% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 0; transform: translateY(-10px); }
   }
 
-  /* --- MOBILE ADAPTATION --- */
+  /* Responsive Mobile Tweak */
   @media (max-width: 768px) {
-    .app-card {
-      flex-direction: column;
-      text-align: center;
-      padding: 2rem;
-      border-radius: 28px;
-    }
-    .app-info { text-align: center; }
-    .app-icon { width: 120px; height: 120px; }
-    h1 { font-size: 2.5rem; }
-    .hero-buttons { flex-direction: column; width: 100%; max-width: 280px; }
+    nav { padding: 1rem; }
+    nav ul { display: none; } /* Hide menu for clean mobile view */
+    h1 { font-size: 2.2rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn { width: 100%; max-width: 280px; justify-content: center; }
   }
 </style>
 </head>
@@ -406,6 +586,7 @@
   </footer>
 </body>
 </html>
+
 
 
 
