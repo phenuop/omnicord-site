@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omnicord — Gallery</title>
+  <link rel="icon" href="/pfp.png">
+  <meta name="description" content="Omnicord visual showcase — transformations, battles, guilds, economy.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --off-white: #f5f5f3;
+      --gray-100: #e8e8e4;
+      --gray-300: #c4c4be;
+      --gray-500: #8a8a82;
+      --gray-700: #3d3d38;
+      --border: rgba(0,0,0,0.09);
+      --border-strong: rgba(0,0,0,0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 3rem;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    .nav-logo-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--black);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .btn-sm {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      background: var(--black);
+      color: white;
+      transition: 0.2s;
+    }
+
+    /* Hero */
+    .gallery-hero {
+      padding: 120px 6rem 40px;
+      background: var(--white);
+    }
+
+    .gallery-hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 1.5rem;
+      padding: 6px 14px;
+      border: 0.5px solid var(--border-strong);
+      border-radius: 100px;
+      background: var(--white);
+    }
+
+    .hero-eyebrow span {
+      width: 6px;
+      height: 6px;
+      background: var(--black);
+      border-radius: 50%;
+    }
+
+    .gallery-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .gallery-hero p {
+      color: var(--gray-500);
+      font-size: 1rem;
+      max-width: 500px;
+    }
+
+    /* Filter */
+    .filter-section {
+      padding: 0 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .filter-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      border-bottom: 0.5px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 0.5px solid var(--border);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--gray-500);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--black);
+      color: var(--black);
+    }
+
+    .filter-btn.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    /* SLIDESHOW CONTAINER */
+    .slideshow-container {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 6rem;
+    }
+
+    .main-slide {
+      background: var(--off-white);
+      border-radius: 32px;
+      overflow: hidden;
+      border: 0.5px solid var(--border);
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+    }
+
+    .slide-image {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      background: #1a1a1a;
+    }
+
+    .slide-caption {
+      padding: 1.5rem 2rem;
+      background: var(--white);
+      border-top: 0.5px solid var(--border);
+    }
+
+    .slide-caption h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .slide-caption p {
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+
+    /* Navigation arrows */
+    .slide-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .nav-arrow {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: 60px;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1.2rem;
+    }
+
+    .nav-arrow:hover {
+      background: var(--black);
+      color: white;
+      border-color: var(--black);
+    }
+
+    /* Thumbnails strip */
+    .thumbnails {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+      scrollbar-width: thin;
+    }
+
+    .thumbnail {
+      flex-shrink: 0;
+      width: 100px;
+      height: 70px;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+      opacity: 0.7;
+    }
+
+    .thumbnail.active {
+      border-color: var(--black);
+      opacity: 1;
+      transform: scale(0.98);
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .thumbnail:hover {
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 4rem 6rem;
+      margin-top: 4rem;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-brand {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+    }
+
+    .footer-brand small {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.35);
+      margin-top: 4px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .footer-socials a {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.3);
+      transition: color 0.2s;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+      .gallery-hero { padding: 100px 2rem 30px; }
+      .filter-section { padding: 0 2rem; }
+      .slideshow-container { padding: 0 2rem; }
+      .slide-image { height: 280px; }
+      .thumbnail { width: 70px; height: 50px; }
+      footer { padding: 3rem 2rem; }
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-nav { flex-wrap: wrap; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      Omnicord
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+    <a href="invite.html" class="btn-sm">Invite</a>
+  </nav>
+
+  <div class="gallery-hero">
+    <div class="gallery-hero-content reveal">
+      <div class="hero-eyebrow"><span></span> Visual Tour</div>
+      <h1>Gallery.</h1>
+      <p>Browse through key moments — transformations, duels, villains, and economy features.</p>
+    </div>
+  </div>
+
+  <div class="filter-section reveal">
+    <div class="filter-controls" id="filterControls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="transformations">Transformations</button>
+      <button class="filter-btn" data-filter="battles">Battles</button>
+      <button class="filter-btn" data-filter="villains">Villains</button>
+      <button class="filter-btn" data-filter="guilds">Guilds</button>
+      <button class="filter-btn" data-filter="profile">Profile</button>
+      <button class="filter-btn" data-filter="economy">Economy</button>
+    </div>
+  </div>
+
+  <!-- SLIDESHOW SECTION -->
+  <div class="slideshow-container reveal" id="slideshowContainer">
+    <div class="main-slide">
+      <img class="slide-image" id="mainSlideImage" src="" alt="Slide">
+      <div class="slide-caption">
+        <h3 id="slideTitle"></h3>
+        <p id="slideDesc"></p>
+      </div>
+    </div>
+    <div class="slide-nav">
+      <div class="nav-arrow" id="prevBtn"><i class="fas fa-chevron-left"></i></div>
+      <div class="nav-arrow" id="nextBtn"><i class="fas fa-chevron-right"></i></div>
+    </div>
+    <div class="thumbnails" id="thumbnailsList"></div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        Omnicord
+        <small>Ben 10 · Discord Bot · Est. 2025</small>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="invite.html">Invite Bot</a></li>
+            <li><a href="https://top.gg/bot/1350356919604351057">Top.gg</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Omnicord. Ben 10 and related characters are trademarks of Cartoon Network.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Gallery dataset — high quality visuals with descriptive captions
+    const fullGallery = [
+      { id: 1, title: "Omnitrix Selection", desc: "Choose your alien form from the iconic dial.", category: "transformations", img: "https://placehold.co/900x500/0a0a0a/ffffff?text=Omnitrix+Selection" },
+      { id: 2, title: "Heatblast — Fire Transformation", desc: "Unleash pyrokinesis with zero cooldown.", category: "transformations", img: "https://placehold.co/900x500/e85d04/ffffff?text=Heatblast+Transformation" },
+      { id: 3, title: "1v1 Duel Arena", desc: "Turn-based combat with ELO ranking and betting.", category: "battles", img: "https://placehold.co/900x500/0a0a0a/ffffff?text=1v1+Duel+Arena" },
+      { id: 4, title: "Vilgax — Final Boss", desc: "Face the conqueror in an epic raid battle.", category: "villains", img: "https://placehold.co/900x500/5a2a2a/ffffff?text=Vilgax+Boss+Fight" },
+      { id: 5, title: "Plumbers Guild HQ", desc: "Create or join guilds, share resources, climb ranks.", category: "guilds", img: "https://placehold.co/900x500/2a4a5a/ffffff?text=Plumbers+Guild" },
+      { id: 6, title: "Player Profile Dashboard", desc: "Track your alien collection and battle stats.", category: "profile", img: "https://placehold.co/900x500/3a3a3a/ffffff?text=Player+Profile" },
+      { id: 7, title: "Marketplace & Trading", desc: "List fragments, set prices, trade with others.", category: "economy", img: "https://placehold.co/900x500/1a4a2a/ffffff?text=Marketplace" },
+      { id: 8, title: "Live Auction House", desc: "Bid on mythic fragments in real-time auctions.", category: "economy", img: "https://placehold.co/900x500/6a2a2a/ffffff?text=Auction+House" },
+      { id: 9, title: "Four Arms — Brawl Mode", desc: "Heavy hitter with massive damage output.", category: "transformations", img: "https://placehold.co/900x500/444444/ffffff?text=Four+Arms" },
+      { id: 10, title: "Kevin 11 Encounter", desc: "Osmosian villain with copy abilities.", category: "villains", img: "https://placehold.co/900x500/4a4a2a/ffffff?text=Kevin+11" },
+      { id: 11, title: "Guild Wars Event", desc: "Compete against other guilds for exclusive rewards.", category: "guilds", img: "https://placehold.co/900x500/2a3a4a/ffffff?text=Guild+Wars" },
+      { id: 12, title: "Economy Dashboard", desc: "Track price trends and manage your balance.", category: "economy", img: "https://placehold.co/900x500/0a2a3a/ffffff?text=Balance+Overview" }
+    ];
+
+    let currentFilter = "all";
+    let filteredItems = [...fullGallery];
+    let currentIndex = 0;
+
+    // DOM elements
+    const mainImage = document.getElementById("mainSlideImage");
+    const slideTitle = document.getElementById("slideTitle");
+    const slideDesc = document.getElementById("slideDesc");
+    const thumbnailsContainer = document.getElementById("thumbnailsList");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function filterGallery() {
+      filteredItems = fullGallery.filter(item => currentFilter === "all" || item.category === currentFilter);
+      if (filteredItems.length === 0) {
+        // fallback
+        filteredItems = [{ title: "No items", desc: "Try another filter", category: "all", img: "https://placehold.co/900x500/cccccc/333333?text=No+Content" }];
+      }
+      // reset index if out of bounds
+      if (currentIndex >= filteredItems.length) currentIndex = 0;
+      renderSlide();
+      renderThumbnails();
+    }
+
+    function renderSlide() {
+      if (!filteredItems.length) return;
+      const item = filteredItems[currentIndex];
+      mainImage.src = item.img;
+      mainImage.alt = item.title;
+      slideTitle.innerHTML = `<i class="fas ${getIcon(item.category)}"></i> ${item.title}`;
+      slideDesc.textContent = item.desc;
+    }
+
+    function getIcon(cat) {
+      const map = {
+        transformations: "fa-exchange-alt",
+        battles: "fa-fist-raised",
+        villains: "fa-skull",
+        guilds: "fa-users",
+        profile: "fa-user",
+        economy: "fa-coins"
+      };
+      return map[cat] || "fa-image";
+    }
+
+    function renderThumbnails() {
+      thumbnailsContainer.innerHTML = "";
+      filteredItems.forEach((item, idx) => {
+        const thumb = document.createElement("div");
+        thumb.className = `thumbnail ${idx === currentIndex ? "active" : ""}`;
+        const img = document.createElement("img");
+        img.src = item.img;
+        img.alt = item.title;
+        thumb.appendChild(img);
+        thumb.addEventListener("click", () => {
+          currentIndex = idx;
+          renderSlide();
+          updateThumbnailActive();
+        });
+        thumbnailsContainer.appendChild(thumb);
+      });
+    }
+
+    function updateThumbnailActive() {
+      const thumbs = document.querySelectorAll(".thumbnail");
+      thumbs.forEach((thumb, idx) => {
+        if (idx === currentIndex) thumb.classList.add("active");
+        else thumb.classList.remove("active");
+      });
+    }
+
+    function nextSlide() {
+      if (filteredItems.length === 0) return;
+      currentIndex = (currentIndex + 1) % filteredItems.length;
+      renderSlide();
+      updateThumbnailActive();
+    }
+
+    function prevSlide() {
+      if (filteredItems.length === 0) return;
+      currentIndex = (currentIndex - 1 + filteredItems.length) % filteredItems.length;
+      renderSlide();
+      updateThumbnailActive();
+    }
+
+    // keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") prevSlide();
+      if (e.key === "ArrowRight") nextSlide();
+    });
+
+    // filter buttons
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.getAttribute("data-filter");
+        currentIndex = 0;
+        filterGallery();
+      });
+    });
+
+    prevBtn.addEventListener("click", prevSlide);
+    nextBtn.addEventListener("click", nextSlide);
+
+    // scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => obs.observe(r));
+
+    // initial load
+    filterGallery();
+  </script>
+</body>
+</html>
