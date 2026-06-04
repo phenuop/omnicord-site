@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omnicord — Ben 10 Discord Bot</title>
+  <link rel="icon" href="/pfp.png">
+  <meta name="description" content="Transform your Discord server with Omnicord! The most powerful Ben10-themed bot featuring alien adventures, interactive games, and nostalgic fun.">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://omnicord.neocities.org/">
+  <meta property="og:title" content="Omnicord — Ultimate Ben10 Discord Bot">
+  <meta property="og:description" content="Unleash the power of the Omnitrix in your Discord server.">
+  <meta property="og:image" content="https://omnicord.neocities.org/back.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --off-white: #f5f5f3;
+      --gray-100: #e8e8e4;
+      --gray-300: #c4c4be;
+      --gray-500: #8a8a82;
+      --gray-700: #3d3d38;
+      --border: rgba(0,0,0,0.09);
+      --border-strong: rgba(0,0,0,0.18);
+    }
+
+    *, *::before, *::after {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 3rem;
+      height: 64px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    .nav-logo-dot {
+      width: 8px; height: 8px;
+      background: var(--black);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2.5rem;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    /* ─── HERO ────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 6rem 80px;
+      gap: 4rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 50%;
+      height: 100%;
+      background: var(--off-white);
+      z-index: 0;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 2rem;
+      padding: 6px 14px;
+      border: 0.5px solid var(--border-strong);
+      border-radius: 100px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-eyebrow span {
+      width: 6px; height: 6px;
+      background: var(--black);
+      border-radius: 50%;
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3.2rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--gray-300);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--gray-500);
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 8px;
+      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--gray-700);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--black);
+      border: 0.5px solid var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background: var(--off-white);
+      transform: translateY(-1px);
+    }
+
+    .hero-right {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-visual {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
+    .hero-img-frame {
+      width: 180px;
+      height: 180px;
+      border-radius: 32px;
+      overflow: hidden;
+      border: 0.5px solid var(--border-strong);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.12);
+      animation: floatHero 8s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      margin-top: 70px;
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-stat-card {
+      position: absolute;
+      background: var(--white);
+      border: 0.5px solid var(--border-strong);
+      border-radius: 14px;
+      padding: 14px 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    }
+
+    .hero-stat-card:nth-child(2) {
+      top: 10px; left: 0;
+      animation: floatHero 8s 1s ease-in-out infinite;
+    }
+
+    .hero-stat-card:nth-child(3) {
+      bottom: 30px; right: 0;
+      animation: floatHero 8s 2s ease-in-out infinite;
+    }
+
+    .hero-stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      display: block;
+    }
+
+    .hero-stat-lbl {
+      font-size: 0.72rem;
+      color: var(--gray-500);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    /* ─── MARQUEE ─────────────────────────────────── */
+    .marquee-wrap {
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      padding: 16px 0;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 20s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white);
+      padding: 0 2.5rem;
+      white-space: nowrap;
+      opacity: 0.6;
+    }
+
+    .marquee-item.accent { opacity: 1; }
+    .marquee-sep {
+      color: var(--gray-500);
+      padding: 0;
+    }
+
+    /* ─── FEATURES SECTION ────────────────────────── */
+    .section-features {
+      padding: 120px 6rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 5rem;
+      padding-bottom: 3rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      max-width: 280px;
+      text-align: right;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 0.5px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .feature-item {
+      padding: 3rem 2.5rem;
+      border-right: 0.5px solid var(--border);
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-item:last-child { border-right: none; }
+
+    .feature-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--off-white);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .feature-item:hover::after { opacity: 1; }
+
+    .feature-item > * { position: relative; z-index: 1; }
+
+    .feature-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--gray-300);
+      margin-bottom: 2rem;
+    }
+
+    .feature-icon-box {
+      width: 48px;
+      height: 48px;
+      background: var(--black);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+      font-size: 1.1rem;
+    }
+
+    .feature-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-desc {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── STATS SECTION ───────────────────────────── */
+    .section-stats {
+      padding: 100px 6rem;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 0.5px solid rgba(255,255,255,0.12);
+    }
+
+    .stat-col {
+      padding: 3.5rem 2rem 2rem;
+      border-right: 0.5px solid rgba(255,255,255,0.12);
+    }
+
+    .stat-col:last-child { border-right: none; }
+
+    .stat-col a { text-decoration: none; }
+
+    .stat-big {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-lbl {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .stats-topgg img {
+      filter: invert(1);
+      opacity: 0.7;
+      max-width: 180px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── GALLERY SECTION ─────────────────────────── */
+    .section-gallery {
+      padding: 120px 6rem;
+      background: var(--off-white);
+    }
+
+    .gallery-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: end;
+      margin-bottom: 5rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+
+    .gallery-card {
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--gray-100);
+      position: relative;
+      aspect-ratio: 1;
+    }
+
+    .gallery-card:nth-child(1) {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(40%);
+      transition: filter 0.4s, transform 0.5s;
+    }
+
+    .gallery-card:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.03);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 16px; left: 16px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      padding: 5px 10px;
+      border-radius: 100px;
+    }
+
+    /* ─── CTA SECTION ─────────────────────────────── */
+    .section-cta {
+      padding: 160px 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg-text {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(6rem, 16vw, 14rem);
+      font-weight: 800;
+      color: var(--gray-100);
+      letter-spacing: -0.04em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      z-index: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .section-cta > *:not(.cta-bg-text) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray-500);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-sub {
+      font-size: 1rem;
+      color: var(--gray-500);
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 4rem 6rem;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
+      border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-brand {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .footer-brand small {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.01em;
+      margin-top: 4px;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+      font-weight: 300;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .footer-socials a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.3);
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+
+    .footer-socials a:hover { color: var(--white); }
+
+    /* ─── ANIMATIONS ──────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatHero {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── MOBILE ──────────────────────────────────── */
+    @media (max-width: 900px) {
+      nav { padding: 0 1.5rem; }
+      .nav-links { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 100px 2rem 60px;
+        text-align: center;
+      }
+      .hero::before { display: none; }
+      .hero-sub { max-width: 100%; }
+      .hero-actions { justify-content: center; flex-wrap: wrap; }
+      .hero-right { display: none; }
+
+      .section-features, .section-gallery, .section-stats, .section-cta, footer { padding-left: 2rem; padding-right: 2rem; }
+
+      .features-grid { grid-template-columns: 1fr; }
+      .feature-item { border-right: none; border-bottom: 0.5px solid var(--border); }
+
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+
+      .gallery-intro { grid-template-columns: 1fr; gap: 2rem; }
+      .gallery-grid { grid-template-columns: repeat(2,1fr); }
+      .gallery-card:nth-child(1) { grid-column: span 2; }
+
+      .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .section-desc { text-align: left; }
+
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-nav { gap: 2rem; flex-wrap: wrap; }
+      .footer-bottom { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      Omnicord
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+    <a href="invite.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.8rem;">
+      <i class="fas fa-plus"></i> Invite
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span></span>
+        Ben 10 Discord Bot
+      </div>
+      <h1 class="hero-title">
+        It's Hero<br>Time,<br><em>Anytime.</em>
+      </h1>
+      <p class="hero-sub">
+        The most refined Ben 10 experience on Discord — clean commands, powerful aliens, and a community that never sleeps.
+      </p>
+      <div class="hero-actions">
+        <a href="invite.html" class="btn btn-primary">
+          <i class="fas fa-plus"></i> Invite Omnicord
+        </a>
+        <a href="features.html" class="btn btn-secondary">
+          Explore Features
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-visual">
+        <div class="hero-stat-card">
+          <span class="hero-stat-num">100+</span>
+          <span class="hero-stat-lbl">Aliens</span>
+        </div>
+
+        <div class="hero-img-frame">
+          <img src="https://omnicord.neocities.org/pfp.png" alt="Omnicord">
+        </div>
+
+        <div class="hero-stat-card">
+          <span class="hero-stat-num">Active</span>
+          <span class="hero-stat-lbl">24 / 7</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item accent">Omnicord</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Alien Force</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Omnitrix</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item accent">Hero Time</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Discord Bot</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Omniverse</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item accent">Ben 10</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Plumber Badge</span>
+      <span class="marquee-sep">·</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item accent">Omnicord</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Alien Force</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Omnitrix</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item accent">Hero Time</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Discord Bot</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Omniverse</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item accent">Ben 10</span>
+      <span class="marquee-sep">·</span>
+      <span class="marquee-item">Plumber Badge</span>
+      <span class="marquee-sep">·</span>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="section-features">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-label">What we offer</p>
+        <h2 class="section-title">Built for fans.<br>Designed for everyone.</h2>
+      </div>
+      <p class="section-desc">Every feature stripped to its essence — nothing bloated, nothing missing.</p>
+    </div>
+
+    <div class="features-grid reveal">
+      <div class="feature-item">
+        <p class="feature-num">01</p>
+        <div class="feature-icon-box">
+          <i class="fas fa-exchange-alt"></i>
+        </div>
+        <h3 class="feature-name">Transformations</h3>
+        <p class="feature-desc">Switch between 100+ aliens with clean commands. No clutter — just instantaneous transformation with real lore.</p>
+      </div>
+
+      <div class="feature-item">
+        <p class="feature-num">02</p>
+        <div class="feature-icon-box">
+          <i class="fas fa-fist-raised"></i>
+        </div>
+        <h3 class="feature-name">Battles</h3>
+        <p class="feature-desc">Strategic combat system built for depth. Face villains, earn XP, and prove who's the real hero of your server.</p>
+      </div>
+
+      <div class="feature-item">
+        <p class="feature-num">03</p>
+        <div class="feature-icon-box">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h3 class="feature-name">Leaderboards</h3>
+        <p class="feature-desc">Global and server-level rankings that show who's truly mastered the Omnitrix. Compete, climb, and conquer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section-stats">
+    <p class="section-label" style="color:rgba(255,255,255,0.3);margin-bottom:3rem;" class="reveal">By the numbers</p>
+    <div class="stats-grid">
+      <div class="stat-col reveal">
+        <div class="stats-topgg">
+          <a href="https://top.gg/bot/1350356919604351057">
+            <img src="https://top.gg/api/widget/servers/1350356919604351057.svg?noavatar=true" alt="Server count">
+          </a>
+        </div>
+        <span class="stat-lbl">Servers</span>
+      </div>
+
+      <div class="stat-col reveal">
+        <div class="stats-topgg">
+          <a href="https://top.gg/bot/1350356919604351057">
+            <img src="https://top.gg/api/widget/upvotes/1350356919604351057.svg?noavatar=true" alt="Upvotes">
+          </a>
+        </div>
+        <span class="stat-lbl">Upvotes on Top.gg</span>
+      </div>
+
+      <div class="stat-col reveal">
+        <span class="stat-big">100+</span>
+        <span class="stat-lbl">Alien Forms</span>
+      </div>
+
+      <div class="stat-col reveal">
+        <div class="stats-topgg">
+          <a href="https://top.gg/bot/1350356919604351057">
+            <img src="https://top.gg/api/widget/owner/1350356919604351057.svg?noavatar=true" alt="Owner">
+          </a>
+        </div>
+        <span class="stat-lbl">Created by</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section-gallery">
+    <div class="gallery-intro reveal">
+      <div>
+        <p class="section-label">Gallery</p>
+        <h2 class="section-title">See it in action.</h2>
+      </div>
+      <div>
+        <p style="font-size:0.9rem;color:var(--gray-500);line-height:1.7;font-weight:300;">
+          From command center to battle arenas — a look inside the Omnicord experience, crafted for every kind of Ben 10 fan.
+        </p>
+        <a href="gallery.html" class="btn btn-secondary" style="margin-top:1.5rem;display:inline-flex;">
+          Full Gallery <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-card">
+        <img src="https://omnicord.neocities.org/preview1.jpg" alt="Command Center" loading="lazy">
+        <span class="gallery-caption">Command Center</span>
+      </div>
+      <div class="gallery-card">
+        <img src="https://omnicord.neocities.org/preview2.jpg" alt="Epic Battles" loading="lazy">
+        <span class="gallery-caption">Epic Battles</span>
+      </div>
+      <div class="gallery-card">
+        <img src="https://omnicord.neocities.org/preview3.jpg" alt="Player Profile" loading="lazy">
+        <span class="gallery-caption">Player Profile</span>
+      </div>
+      <div class="gallery-card">
+        <img src="https://omnicord.neocities.org/preview4.jpg" alt="Leaderboard" loading="lazy">
+        <span class="gallery-caption">Leaderboard</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta">
+    <div class="cta-bg-text" aria-hidden="true">OMNICORD</div>
+    <p class="cta-label reveal">Ready to begin?</p>
+    <h2 class="cta-title reveal">Join thousands of<br>servers worldwide.</h2>
+    <p class="cta-sub reveal">One invite. Infinite transformations.</p>
+    <div class="reveal">
+      <a href="invite.html" class="btn btn-primary" style="font-size:1rem;padding:16px 32px;">
+        <i class="fas fa-rocket"></i> Get Started
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        Omnicord
+        <small>Ben 10 · Discord Bot · Est. 2025</small>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="invite.html">Invite Bot</a></li>
+            <li><a href="https://top.gg/bot/1350356919604351057">Top.gg</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Omnicord. Ben 10 and related characters are trademarks of Cartoon Network.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(r => io.observe(r));
+  </script>
+</body>
+</html>
