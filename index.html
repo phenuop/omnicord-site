@@ -2,1063 +2,534 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omnicord - Ben 10 Discord Bot</title>
- <link rel="icon" href="/pfp.png">
-  <meta name="google-site-verification" content="5rNhOKmukajMxRSRbAMnZxn9EguZ2IVxoNJBJkKZzds" />   
-
-  <!-- Meta Tags -->
-  <!-- Primary Meta Tags -->
-<meta name="title" content="Omnicord - The Ultimate Ben10 Discord Bot Experience">
-<meta name="description" content="Transform your Discord server with Omnicord! The most powerful Ben10-themed bot featuring alien adventures, interactive games, and nostalgic fun. Perfect for fans and communities!">
-<meta name="keywords" content="omnicord, discord bot, ben10, ben 10, alien force, omniverse, plumber badge, omnitrix, discord games, fan bot">
-<meta name="robots" content="index, follow">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="language" content="English">
-<meta name="revisit-after" content="2 days">
-<meta name="author" content="Phyniex">
-<meta name="theme-color" content="#00b300">
-
-<!-- Open Graph / Facebook Meta Tags -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://omnicord.site/">
-<meta property="og:title" content="Omnicord - Ultimate Ben10 Discord Bot">
-<meta property="og:description" content="Unleash the power of the Omnitrix in your Discord server! Play as your favorite aliens, battle foes, and experience Ben10 like never before. Invite now!">
-<meta property="og:image" content="https://omnicord.neocities.org/back.jpg">
-<meta property="og:image:alt" content="Omnicord Ben10 Discord Bot Banner">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@Omnicord">
-<meta name="twitter:creator" content="@Phyniex">
-<meta name="twitter:title" content="Omnicord - Ben10 Bot for Discord">
-<meta name="twitter:description" content="The most authentic Ben10 experience on Discord! Transform into aliens, complete missions, and compete with friends. It's hero time!">
-<meta name="twitter:image" content="https://omnicord.neocities.org/back.jpg">
-<meta name="twitter:image:alt" content="Omnicord featuring Ben10's Omnitrix interface">
-<meta name="twitter:domain" content="omnicord.site">
-
-<!-- Additional Enhancements -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="apple-mobile-web-app-title" content="Omnicord">
-<meta name="application-name" content="Omnicord">
-<meta name="msapplication-TileColor" content="#00b300">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <style>
-    :root {
-      --black: #0a0a0a;
-      --white: #ffffff;
-      --off-white: #f5f5f3;
-      --gray-100: #e8e8e4;
-      --gray-300: #c4c4be;
-      --gray-500: #8a8a82;
-      --gray-700: #3d3d38;
-      --border: rgba(0,0,0,0.09);
-      --border-strong: rgba(0,0,0,0.18);
-    }
-
-    *, *::before, *::after {
-      margin: 0; padding: 0;
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', -apple-system, sans-serif;
-      background: var(--white);
-      color: var(--black);
-      overflow-x: hidden;
-    }
-
-    /* ─── NAV ─────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 3rem;
-      height: 64px;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.15rem;
-      letter-spacing: -0.02em;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--black);
-    }
-
-    .nav-logo-dot {
-      width: 8px; height: 8px;
-      background: var(--black);
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2.5rem;
-    }
-
-    .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--black); }
-
-    /* ─── HERO ────────────────────────────────────── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 120px 6rem 80px;
-      gap: 4rem;
-      position: relative;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0;
-      width: 50%;
-      height: 100%;
-      background: var(--off-white);
-      z-index: 0;
-    }
-
-    .hero-left {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      margin-bottom: 2rem;
-      padding: 6px 14px;
-      border: 0.5px solid var(--border-strong);
-      border-radius: 100px;
-      animation: fadeUp 0.6s ease both;
-    }
-
-    .hero-eyebrow span {
-      width: 6px; height: 6px;
-      background: var(--black);
-      border-radius: 50%;
-    }
-
-    .hero-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(3.2rem, 6vw, 5rem);
-      font-weight: 800;
-      line-height: 1.0;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-
-    .hero-title em {
-      font-style: normal;
-      color: var(--gray-300);
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--gray-500);
-      max-width: 380px;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-
-    .btn {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 24px;
-      border-radius: 8px;
-      transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      letter-spacing: 0.01em;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background: var(--gray-700);
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--black);
-      border: 0.5px solid var(--border-strong);
-    }
-
-    .btn-secondary:hover {
-      background: var(--off-white);
-      transform: translateY(-1px);
-    }
-
-    .hero-right {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-visual {
-      position: relative;
-      width: 320px;
-      height: 320px;
-    }
-
-    .hero-img-frame {
-      width: 180px;
-      height: 180px;
-      border-radius: 32px;
-      overflow: hidden;
-      border: 0.5px solid var(--border-strong);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.12);
-      animation: floatHero 8s ease-in-out infinite;
-      position: relative;
-      z-index: 2;
-      margin: 0 auto;
-      margin-top: 70px;
-    }
-
-    .hero-img-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-stat-card {
-      position: absolute;
-      background: var(--white);
-      border: 0.5px solid var(--border-strong);
-      border-radius: 14px;
-      padding: 14px 18px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    }
-
-    .hero-stat-card:nth-child(2) {
-      top: 10px; left: 0;
-      animation: floatHero 8s 1s ease-in-out infinite;
-    }
-
-    .hero-stat-card:nth-child(3) {
-      bottom: 30px; right: 0;
-      animation: floatHero 8s 2s ease-in-out infinite;
-    }
-
-    .hero-stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      display: block;
-    }
-
-    .hero-stat-lbl {
-      font-size: 0.72rem;
-      color: var(--gray-500);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      display: block;
-    }
-
-    /* ─── MARQUEE ─────────────────────────────────── */
-    .marquee-wrap {
-      border-top: 0.5px solid var(--border);
-      border-bottom: 0.5px solid var(--border);
-      padding: 16px 0;
-      overflow: hidden;
-      background: var(--black);
-    }
-
-    .marquee-track {
-      display: flex;
-      gap: 0;
-      animation: marquee 20s linear infinite;
-      width: max-content;
-    }
-
-    .marquee-item {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--white);
-      padding: 0 2.5rem;
-      white-space: nowrap;
-      opacity: 0.6;
-    }
-
-    .marquee-item.accent { opacity: 1; }
-    .marquee-sep {
-      color: var(--gray-500);
-      padding: 0;
-    }
-
-    /* ─── FEATURES SECTION ────────────────────────── */
-    .section-features {
-      padding: 120px 6rem;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 5rem;
-      padding-bottom: 3rem;
-      border-bottom: 0.5px solid var(--border);
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-
-    .section-desc {
-      font-size: 0.9rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-      max-width: 280px;
-      text-align: right;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 0.5px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .feature-item {
-      padding: 3rem 2.5rem;
-      border-right: 0.5px solid var(--border);
-      transition: background 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-item:last-child { border-right: none; }
-
-    .feature-item::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--off-white);
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-
-    .feature-item:hover::after { opacity: 1; }
-
-    .feature-item > * { position: relative; z-index: 1; }
-
-    .feature-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      color: var(--gray-300);
-      margin-bottom: 2rem;
-    }
-
-    .feature-icon-box {
-      width: 48px;
-      height: 48px;
-      background: var(--black);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      color: var(--white);
-      font-size: 1.1rem;
-    }
-
-    .feature-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.75rem;
-    }
-
-    .feature-desc {
-      font-size: 0.875rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* ─── STATS SECTION ───────────────────────────── */
-    .section-stats {
-      padding: 100px 6rem;
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 0.5px solid rgba(255,255,255,0.12);
-    }
-
-    .stat-col {
-      padding: 3.5rem 2rem 2rem;
-      border-right: 0.5px solid rgba(255,255,255,0.12);
-    }
-
-    .stat-col:last-child { border-right: none; }
-
-    .stat-col a { text-decoration: none; }
-
-    .stat-big {
-      font-family: 'Syne', sans-serif;
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      color: var(--white);
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-lbl {
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-    }
-
-    .stats-topgg img {
-      filter: invert(1);
-      opacity: 0.7;
-      max-width: 180px;
-      margin-bottom: 0.5rem;
-    }
-
-    /* ─── GALLERY SECTION ─────────────────────────── */
-    .section-gallery {
-      padding: 120px 6rem;
-      background: var(--off-white);
-    }
-
-    .gallery-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: end;
-      margin-bottom: 5rem;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: auto auto;
-      gap: 16px;
-    }
-
-    .gallery-card {
-      border-radius: 16px;
-      overflow: hidden;
-      background: var(--gray-100);
-      position: relative;
-      aspect-ratio: 1;
-    }
-
-    .gallery-card:nth-child(1) {
-      grid-column: span 2;
-      grid-row: span 2;
-      aspect-ratio: auto;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      filter: grayscale(40%);
-      transition: filter 0.4s, transform 0.5s;
-    }
-
-    .gallery-card:hover img {
-      filter: grayscale(0%);
-      transform: scale(1.03);
-    }
-
-    .gallery-caption {
-      position: absolute;
-      bottom: 16px; left: 16px;
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: white;
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(8px);
-      padding: 5px 10px;
-      border-radius: 100px;
-    }
-
-    /* ─── CTA SECTION ─────────────────────────────── */
-    .section-cta {
-      padding: 160px 6rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-bg-text {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(6rem, 16vw, 14rem);
-      font-weight: 800;
-      color: var(--gray-100);
-      letter-spacing: -0.04em;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-      z-index: 0;
-      user-select: none;
-      pointer-events: none;
-    }
-
-    .section-cta > *:not(.cta-bg-text) {
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-label {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gray-500);
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-sub {
-      font-size: 1rem;
-      color: var(--gray-500);
-      font-weight: 300;
-      margin-bottom: 2.5rem;
-    }
-
-    /* ─── FOOTER ──────────────────────────────────── */
-    footer {
-      background: var(--black);
-      color: var(--white);
-      padding: 4rem 6rem;
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding-bottom: 3rem;
-      margin-bottom: 3rem;
-      border-bottom: 0.5px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-brand {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-    }
-
-    .footer-brand small {
-      display: block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.35);
-      letter-spacing: 0.01em;
-      margin-top: 4px;
-    }
-
-    .footer-nav {
-      display: flex;
-      gap: 3rem;
-    }
-
-    .footer-col h4 {
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      margin-bottom: 1.2rem;
-    }
-
-    .footer-col ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
-
-    .footer-col a {
-      text-decoration: none;
-      color: rgba(255,255,255,0.55);
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover { color: var(--white); }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer-copy {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.25);
-      font-weight: 300;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 1.2rem;
-    }
-
-    .footer-socials a {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.3);
-      transition: color 0.2s;
-      text-decoration: none;
-    }
-
-    .footer-socials a:hover { color: var(--white); }
-
-    /* ─── ANIMATIONS ──────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes floatHero {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-12px); }
-    }
-
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    /* Scroll reveal */
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ─── MOBILE ──────────────────────────────────── */
-    @media (max-width: 900px) {
-      nav { padding: 0 1.5rem; }
-      .nav-links { display: none; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 100px 2rem 60px;
-        text-align: center;
-      }
-      .hero::before { display: none; }
-      .hero-sub { max-width: 100%; }
-      .hero-actions { justify-content: center; flex-wrap: wrap; }
-      .hero-right { display: none; }
-
-      .section-features, .section-gallery, .section-stats, .section-cta, footer { padding-left: 2rem; padding-right: 2rem; }
-
-      .features-grid { grid-template-columns: 1fr; }
-      .feature-item { border-right: none; border-bottom: 0.5px solid var(--border); }
-
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-
-      .gallery-intro { grid-template-columns: 1fr; gap: 2rem; }
-      .gallery-grid { grid-template-columns: repeat(2,1fr); }
-      .gallery-card:nth-child(1) { grid-column: span 2; }
-
-      .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-      .section-desc { text-align: left; }
-
-      .footer-top { flex-direction: column; gap: 2rem; }
-      .footer-nav { gap: 2rem; flex-wrap: wrap; }
-      .footer-bottom { flex-direction: column; gap: 1rem; }
-    }
-  </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnicord — The Best Ben 10 Discord Bot</title>
+    <link rel="icon" href="https://omnicord.neocities.org/pfp.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{background:#141416;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#888;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.6}
+        a{text-decoration:none;color:inherit}
+        .g{color:#1db940}
+        .db{color:#5865F2;font-weight:600}
+        nav{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;background:rgba(20,20,22,0.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.03);transition:border-color .3s}
+        nav.scrolled{border-bottom-color:rgba(29,185,64,0.06)}
+        .nav-logo{font-size:14px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#1db940}
+        .nav-right{display:flex;align-items:center;gap:24px}
+        .nav-right a{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#444;transition:color .2s}
+        .nav-right a:hover{color:#aaa}
+        .nav-cta{background:#1db940!important;color:#141416!important;padding:7px 18px;border-radius:3px;font-weight:700!important;transition:all .2s}
+        .nav-cta:hover{background:#24cc4c!important;box-shadow:0 0 20px rgba(29,185,64,0.15)}
+        
+        /* HERO - Video only in hero section */
+        .hero{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;padding:120px 24px 60px;max-width:100%;margin:0;position:relative;overflow:hidden}
+        .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.25;transition:opacity .6s ease;pointer-events:none;z-index:0}
+        .hero-video.playing{opacity:0.25}
+        .hero-video-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(20,20,22,0.92) 0%,rgba(20,20,22,0.75) 50%,rgba(20,20,22,0.9) 100%);z-index:1;pointer-events:none}
+        .hero-video-toggle{position:absolute;bottom:100px;left:24px;z-index:10;display:flex;align-items:center;gap:8px;opacity:.3;transition:opacity .3s}
+        .hero-video-toggle:hover{opacity:.7}
+        .hero-video-toggle button{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);color:#555;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:6px 12px;border-radius:3px;cursor:pointer;font-family:inherit;transition:all .2s;display:flex;align-items:center;gap:6px}
+        .hero-video-toggle button:hover{background:rgba(255,255,255,0.1);color:#888}
+        .hero-video-toggle .vid-dot{width:6px;height:6px;border-radius:50%;background:#1db940;box-shadow:0 0 6px rgba(29,185,64,0.4);animation:vidPulse 2s ease-in-out infinite}
+        @keyframes vidPulse{0%,100%{opacity:.4}50%{opacity:1}}
+        .hero-content{position:relative;z-index:2;max-width:640px;padding-left:0}
+        .hero-logo{width:80px;height:80px;object-fit:cover;margin-bottom:20px;display:block}
+        .hero h1{font-size:clamp(32px,6vw,52px);font-weight:900;color:#fff;line-height:1.08;letter-spacing:-.03em}
+        .hero h1 .green{color:#1db940}
+        .hero h1 .dim{color:#444;font-weight:400}
+        .hero-sub{margin-top:24px;font-size:16px;color:#4a4a4a;max-width:460px;line-height:1.7}
+        .hero-actions{margin-top:40px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+        .btn-primary{background:#1db940;color:#141416;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:14px 32px;border-radius:3px;border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:inherit}
+        .btn-primary:hover{background:#24cc4c;box-shadow:0 0 30px rgba(29,185,64,0.2);transform:translateY(-1px)}
+        .btn-ghost{background:transparent;color:#555;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:14px 32px;border-radius:3px;border:1px solid rgba(255,255,255,0.05);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:inherit}
+        .btn-ghost:hover{border-color:rgba(255,255,255,0.12);color:#888}
+        .hero-stats{margin-top:60px;display:flex;gap:48px}
+        .hero-stat{text-align:left}
+        .hero-stat-num{font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em}
+        .hero-stat-num .green{color:#1db940}
+        .hero-stat-label{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#3a3a3a;margin-top:2px}
+        .scroll-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.2;z-index:2}
+        .scroll-hint span{font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:#555}
+        .scroll-line{width:1px;height:28px;background:linear-gradient(to bottom,#1db940,transparent)}
+        
+        /* BANNER STRIP */
+        .banner-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;max-width:100%;height:220px;overflow:hidden;position:relative;z-index:2}
+        .banner-strip img{width:100%;height:100%;object-fit:cover;filter:brightness(0.35) saturate(0.6);transition:all .8s cubic-bezier(.16,1,.3,1)}
+        .banner-strip img:hover{filter:brightness(0.5) saturate(0.8);transform:scale(1.04)}
+        
+        /* BANNER SINGLE */
+        .banner-single{width:100%;height:280px;overflow:hidden;position:relative}
+        .banner-single img{width:100%;height:100%;object-fit:cover;filter:brightness(0.5) saturate(0.6);transition:all .6s cubic-bezier(.16,1,.3,1)}
+        .banner-single img:hover{filter:brightness(0.75) saturate(0.8);transform:scale(1.03)}
+        .banner-overlay{position:absolute;bottom:0;left:0;right:0;padding:32px;background:linear-gradient(to top,#141416 0%,transparent 100%)}
+        .banner-overlay p{font-size:11px;color:#3a3a3a;letter-spacing:.15em;text-transform:uppercase;font-weight:600}
+        
+        section{padding:80px 24px}
+        .section-inner{max-width:520px;margin:0 auto}
+        .section-tag{font-size:9px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#1db940;opacity:.4;margin-bottom:16px}
+        .section-title{font-size:clamp(22px,4vw,30px);font-weight:700;color:#fff;line-height:1.12;letter-spacing:-.02em;margin-bottom:12px}
+        .section-desc{font-size:14px;color:#4a4a4a;line-height:1.7;margin-bottom:40px}
+        .divider{width:24px;height:1px;background:rgba(29,185,64,0.12);margin:0 auto}
+        .features-list{display:flex;flex-direction:column;gap:0;position:relative;padding-left:32px}
+        .features-list::before{content:'';position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:repeating-linear-gradient(to bottom,rgba(29,185,64,0.6) 0px,rgba(29,185,64,0.6) 2px,transparent 2px,transparent 10px);box-shadow:0 0 8px rgba(29,185,64,0.15),0 0 20px rgba(29,185,64,0.05)}
+        .feature-item{position:relative;padding:22px 0 22px 24px}
+        .feature-item::before{content:'';position:absolute;left:-28px;top:28px;width:9px;height:9px;border-radius:50%;background:#1db940;box-shadow:0 0 12px rgba(29,185,64,0.6),0 0 24px rgba(29,185,64,0.2)}
+        .feature-name{font-size:16px;font-weight:700;color:#fff;margin-bottom:5px}
+        .feature-desc{font-size:13px;color:#4a4a4a;line-height:1.7}
+        .embeds-container{display:flex;flex-direction:column;gap:36px}
+        .embed-label{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#2a2a2a;margin-bottom:-20px}
+        .embed-group{margin-bottom:8px}
+        .embed-group-desc{font-size:12px;color:#3a3a3a;line-height:1.6;margin-bottom:16px;padding-left:1px}
+        .embed-narrow{max-width:420px;margin-left:auto;margin-right:auto}
+        .d-wrapper{background:#141416;border-radius:4px;padding:10px 10px 8px;border:1px solid rgba(255,255,255,0.04);width:100%}
+        .d-reply{color:#666;font-size:12px;display:flex;align-items:center;gap:5px;margin-bottom:3px;padding-left:44px;position:relative}
+        .d-reply::before{content:'';position:absolute;left:16px;top:50%;width:22px;height:18px;border-left:2px solid #333;border-bottom:2px solid #333;border-bottom-left-radius:5px;transform:translateY(-60%)}
+        .d-reply img{width:14px;height:14px;border-radius:50%;object-fit:cover;flex-shrink:0}
+        .d-reply .ru{color:#888;opacity:.6;font-weight:500;font-size:12px}
+        .d-reply .rc{cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px}
+        .d-reply .rc:hover{color:#999}
+        .d-head{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+        .d-head img{width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0}
+        .d-head .un{color:#ccc;font-weight:600;font-size:13px}
+        .d-head .bt{background:#5865F2;color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase;display:inline-flex;align-items:center;gap:2px;line-height:1;height:15px}
+        .d-head .bt svg{width:9px;height:9px;fill:#fff}
+        .d-head .ts{color:#444;font-size:11px;margin-left:auto}
+        .d-body{border-left:3px solid #3ba55c;padding-left:10px;margin-top:3px;border-radius:0 3px 3px 0}
+        .d-body .d-title{color:#ccc;font-weight:600;font-size:14px;margin-top:6px;margin-bottom:3px}
+        .d-body .d-title img{width:16px;height:16px;vertical-align:middle}
+        .d-body .d-desc{color:#888;font-size:12px;line-height:1.45;margin-top:6px}
+        .d-body .d-desc code{background:#1a1a1c;padding:1px 4px;border-radius:2px;font-size:11px;color:#999}
+        .d-body .d-desc blockquote{border-left:3px solid #2a2a2c;padding-left:10px;margin:4px 0}
+        .d-body .d-desc strong{color:#bbb}
+        .d-body .d-desc a{color:#00aff4}
+        .d-body .d-desc a:hover{text-decoration:underline}
+        .d-body .d-desc img{vertical-align:middle}
+        .d-fields{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin-top:6px}
+        .d-fields .ft{color:#bbb;font-weight:600;font-size:11px}
+        .d-fields .fv{color:#888;font-size:11px;line-height:1.5}
+        .d-fields .fv img{width:14px;height:14px;vertical-align:middle}
+        .d-footer{color:#3a3a3a;font-size:10px;margin-top:6px;display:flex;align-items:center;gap:5px;padding-top:6px;border-top:1px solid rgba(255,255,255,0.03)}
+        .d-footer img{width:14px;height:14px;border-radius:50%;object-fit:cover;flex-shrink:0}
+        .d-thumb-wrap{display:flex;gap:12px;margin-top:6px}
+        .d-thumb-wrap .d-thumb-content{flex:1}
+        .d-thumb-wrap .d-thumb-content .d-fields{margin-top:0}
+        .d-thumb-wrap .d-thumb{flex-shrink:0;width:56px;height:56px;border-radius:3px;object-fit:cover}
+        .d-body .d-img{margin-top:6px;border-radius:3px;max-width:100%;display:block}
+        .d-select-wrap{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding-top:6px;border-top:1px solid rgba(255,255,255,0.03)}
+        .d-select{background:#1a1a1c;border-radius:3px;display:inline-flex;align-items:center;justify-content:space-between;padding:5px 8px;min-width:200px;cursor:pointer;border:1px solid transparent;transition:border-color .2s;position:relative;flex:1;max-width:240px}
+        .d-select:hover{border-color:rgba(255,255,255,0.08)}
+        .d-select .ds-ph{color:#555;font-size:12px}
+        .d-select .ds-icon{color:#555;display:flex;align-items:center}
+        .d-select .ds-icon svg{width:14px;height:14px;fill:currentColor}
+        .d-select .ds-opts{display:none;position:absolute;top:100%;left:0;right:0;background:#1a1a1c;border-radius:3px;border:1px solid rgba(255,255,255,0.05);padding:3px 0;z-index:10;box-shadow:0 8px 20px rgba(0,0,0,0.4);margin-top:2px}
+        .d-select .ds-opts .ds-opt{padding:5px 10px;color:#888;font-size:12px;cursor:pointer;transition:background .15s}
+        .d-select .ds-opts .ds-opt:hover{background:rgba(255,255,255,0.04)}
+        .d-select.open .ds-opts{display:block}
+        .d-actions{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+        .d-btn{display:inline-flex;align-items:center;justify-content:center;padding:3px 12px;height:28px;border-radius:3px;font-size:12px;font-weight:500;border:none;cursor:pointer;color:#999;transition:background .17s;background:#1e1e20;gap:3px;line-height:1;font-family:inherit}
+        .d-btn:hover{background:#262628}
+        .d-btn svg{width:14px;height:14px;fill:currentColor}
+        .d-btn-inner{display:flex;align-items:center;gap:3px}
+        .battle-wrap{width:100%}
+        .battle-wrap .d-wrapper{border-radius:3px 3px 0 0;border-bottom:none}
+        .battle-btns{background:#141416;padding:6px 10px 8px;border:1px solid rgba(255,255,255,0.04);border-top:none;border-radius:0 0 3px 3px;width:100%}
+        .battle-btns-inner{display:flex;flex-wrap:wrap;gap:5px}
+        .b-btn{padding:2px 10px;height:26px;border-radius:3px;font-size:11px;font-weight:500;border:none;cursor:pointer;color:#fff;transition:background .17s;font-family:inherit}
+        .b-btn.brand{background:#5865F2}
+        .b-btn.brand:hover{background:#4752c4}
+        .b-btn.pri{background:#1e1e20;color:#888}
+        .b-btn.pri:hover{background:#262628}
+        .b-btn.dan{background:#ed4245}
+        .b-btn.dan:hover{background:#c03537}
+        
+        /* CTA */
+        .cta-section{text-align:center}
+        .cta-box{border:1px solid rgba(29,185,64,0.04);border-radius:6px;padding:56px 24px;position:relative;overflow:hidden}
+        .cta-box::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:1px;background:linear-gradient(90deg,transparent,rgba(29,185,64,0.3),transparent)}
+        .cta-box h2{font-size:clamp(22px,4vw,32px);font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:28px}
+        
+        /* FOOTER with GIF background */
+        footer{position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.03);padding:48px 24px 32px}
+        .footer-bg-gif{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.3;pointer-events:none;z-index:0}
+        .footer-overlay{position:absolute;inset:0;background:rgba(20,20,22,0.85);z-index:1;pointer-events:none}
+        .footer-content{position:relative;z-index:2}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;max-width:700px;margin:0 auto 40px}
+        .footer-brand{display:flex;flex-direction:column;gap:12px}
+        .footer-brand img{width:36px;height:36px;object-fit:cover}
+        .footer-brand-name{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#1db940}
+        .footer-brand-tag{font-size:11px;color:#333;line-height:1.5}
+        .footer-brand-tag strong{color:#5865F2;font-weight:600}
+        .footer-col h4{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#2a2a2a;margin-bottom:14px}
+        .footer-col a{display:block;font-size:12px;color:#333;margin-bottom:8px;transition:color .2s}
+        .footer-col a:hover{color:#1db940}
+        .footer-bottom{display:flex;align-items:center;justify-content:space-between;max-width:700px;margin:0 auto;padding-top:24px;border-top:1px solid rgba(255,255,255,0.03)}
+        .footer-bottom span{font-size:10px;color:#222;letter-spacing:.05em}
+        .footer-socials{display:flex;gap:14px}
+        .footer-socials a{color:#222;transition:color .2s}
+        .footer-socials a:hover{color:#1db940}
+        .fade{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+        .fade.in{opacity:1;transform:translateY(0)}
+        .fd1{transition-delay:.06s}.fd2{transition-delay:.12s}.fd3{transition-delay:.18s}.fd4{transition-delay:.24s}
+        @media(max-width:768px){.banner-strip{grid-template-columns:1fr 1fr;height:160px}.banner-strip .bn-sm-hide{display:none}.footer-grid{grid-template-columns:1fr 1fr;gap:28px}}
+        @media(max-width:600px){nav{padding:0 16px}.nav-right a:not(.nav-cta){display:none}section{padding:60px 16px}.hero{padding:100px 16px 50px}.hero-stats{gap:28px;flex-wrap:wrap}.banner-strip{grid-template-columns:1fr;height:140px}.banner-single{height:200px}.d-fields{grid-template-columns:1fr}.d-reply{padding-left:34px}.d-reply::before{left:8px;width:18px}.d-thumb-wrap .d-thumb{width:44px;height:44px}.d-select{max-width:100%;min-width:120px}.d-select-wrap{flex-direction:column;align-items:stretch}.d-actions{width:100%}.d-actions .d-btn{flex:1}.cta-box{padding:40px 16px}.embed-narrow{max-width:100%}.footer-grid{grid-template-columns:1fr;gap:24px}.footer-bottom{flex-direction:column;gap:12px;text-align:center}.hero-video-toggle{bottom:80px;left:16px}.hero-logo{width:64px;height:64px}}
+    </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo">
-      <span class="nav-logo-dot"></span>
-      Omnicord
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="features.html">Features</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="team.html">Team</a></li>
-    </ul>
-    <a href="invite.html" class="btn btn-primary" style="padding:10px 18px;font-size:0.8rem;">
-      <i class="fas fa-plus"></i> Invite
-    </a>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <span></span>
-        Ben 10 Discord Bot
-      </div>
-      <h1 class="hero-title">
-        It's Hero<br>Time,<br><em>Anytime.</em>
-      </h1>
-      <p class="hero-sub">
-        The most refined Ben 10 experience on Discord — clean commands, powerful aliens, and a community that never sleeps.
-      </p>
-      <div class="hero-actions">
-        <a href="invite.html" class="btn btn-primary">
-          <i class="fas fa-plus"></i> Invite Omnicord
-        </a>
-        <a href="features.html" class="btn btn-secondary">
-          Explore Features
-        </a>
-      </div>
+<nav id="nav">
+    <a href="#hero" class="nav-logo">Omnicord</a>
+    <div class="nav-right">
+        <a href="#features">Features</a>
+        <a href="#commands">Commands</a>
+        <a href="#invite" class="nav-cta" id="navInvite">Invite</a>
     </div>
+</nav>
 
-    <div class="hero-right">
-      <div class="hero-visual">
-        <div class="hero-stat-card">
-          <span class="hero-stat-num">100+</span>
-          <span class="hero-stat-lbl">Aliens</span>
+<section class="hero" id="hero">
+    <video class="hero-video" id="heroVideo" loop muted playsinline preload="metadata" poster="https://m.media-amazon.com/images/M/MV5BN2ZjOThhZDgtODUwZS00MWZmLTg0NGEtODNhMGU3NDE4ZDdmXkEyXkFqcGc%40._V1_FMjpg_UX1916_.jpg">
+        <source src="https://videotourl.com/videos/1783860059683-932a58a4-04b5-44db-a9fe-fbfae84d5406.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="hero-content">
+        <img class="hero-logo fade" src="https://omnicord.neocities.org/pfp.png" alt="Omnicord">
+        <h1 class="fade fd1"><span class="green">Omnicord</span> <span class="dim">—</span> Best <span class="db">Discord</span> Ben10 Bot</h1>
+        <p class="hero-sub fade fd2">The most refined Ben 10 experience on <span class="db">Discord</span>. <span class="g">100+ aliens</span> to transform into, <span class="g">strategic battles</span>, and a community that never sleeps.</p>
+        <div class="hero-actions fade fd3">
+            <button class="btn-primary" id="heroInvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V4.41l-4.3 4.3a1 1 0 1 1-1.4-1.42L19.58 3H16a1 1 0 0 1-1-1Z"/><path d="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 1 0-2 0v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 1 0 0-2H5Z"/></svg> Invite Bot</button>
+            <a href="#commands" class="btn-ghost">View Commands</a>
         </div>
-
-        <div class="hero-img-frame">
-          <img src="https://omnicord.neocities.org/pfp.png" alt="Omnicord">
+        <div class="hero-stats fade fd4">
+            <div class="hero-stat"><div class="hero-stat-num"><span class="green">100+</span></div><div class="hero-stat-label">Aliens</div></div>
+            <div class="hero-stat"><div class="hero-stat-num"><span class="green">24/7</span></div><div class="hero-stat-label">Active</div></div>
+            <div class="hero-stat"><div class="hero-stat-num"><span class="green">50K+</span></div><div class="hero-stat-label">Servers</div></div>
         </div>
-
-        <div class="hero-stat-card">
-          <span class="hero-stat-num">Active</span>
-          <span class="hero-stat-lbl">24 / 7</span>
+        <div class="hero-video-toggle" id="vidToggle">
+            <span class="vid-dot"></span>
+            <button id="vidBtn">▶ BG Video</button>
         </div>
-      </div>
     </div>
-  </section>
+    <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
 
-  <!-- MARQUEE -->
-  <div class="marquee-wrap" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="marquee-item accent">Omnicord</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Alien Force</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Omnitrix</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item accent">Hero Time</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Discord Bot</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Omniverse</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item accent">Ben 10</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Plumber Badge</span>
-      <span class="marquee-sep">·</span>
-      <!-- duplicate for seamless loop -->
-      <span class="marquee-item accent">Omnicord</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Alien Force</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Omnitrix</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item accent">Hero Time</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Discord Bot</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Omniverse</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item accent">Ben 10</span>
-      <span class="marquee-sep">·</span>
-      <span class="marquee-item">Plumber Badge</span>
-      <span class="marquee-sep">·</span>
-    </div>
-  </div>
+<div class="banner-strip fade">
+    <img src="https://m.media-amazon.com/images/M/MV5BNGMwM2ZhM2MtMTM2My00MzlmLWFhODUtOTgwNDFmZGEzNzVmXkEyXkFqcGc%40._V1_FMjpg_UY2355_.jpg" alt="Ben 10" onerror="this.src='https://picsum.photos/seed/ben10a/800/400.jpg'">
+    <img src="https://m.media-amazon.com/images/M/MV5BY2M1MGQzNjctNjk1Yi00MTc0LWI2NGQtMTUxZGNmN2JmZjNjXkEyXkFqcGc%40._V1_QL75_UX583.5_.jpg" alt="Ben 10" onerror="this.src='https://picsum.photos/seed/ben10b/800/400.jpg'">
+    <img src="https://m.media-amazon.com/images/M/MV5BOGMwZDY2MDUtOTU0NC00Y2E5LTllNmItZmU0ODAxMjg1MTg1XkEyXkFqcGc%40._V1_FMjpg_UX1916_.jpg" alt="Ben 10" class="bn-sm-hide" onerror="this.src='https://picsum.photos/seed/ben10c/800/400.jpg'">
+</div>
 
-  <!-- FEATURES -->
-  <section class="section-features">
-    <div class="section-header reveal">
-      <div>
-        <p class="section-label">What we offer</p>
-        <h2 class="section-title">Built for fans.<br>Designed for everyone.</h2>
-      </div>
-      <p class="section-desc">Every feature stripped to its essence — nothing bloated, nothing missing.</p>
-    </div>
+<div class="divider"></div>
 
-    <div class="features-grid reveal">
-      <div class="feature-item">
-        <p class="feature-num">01</p>
-        <div class="feature-icon-box">
-          <i class="fas fa-exchange-alt"></i>
+<section id="features">
+    <div class="section-inner">
+        <p class="section-tag fade">Features</p>
+        <h2 class="section-title fade fd1">Built for fans.<br>Designed for everyone.</h2>
+        <p class="section-desc fade fd2">Every feature stripped to its essence — <span class="g">nothing bloated</span>, nothing missing.</p>
+        <div class="features-list fade fd3">
+            <div class="feature-item">
+                <div class="feature-name">Transformations</div>
+                <div class="feature-desc">Switch between <span class="g">100+ aliens</span> with clean commands. No clutter — just <span class="g">instantaneous transformation</span> with real lore from every era.</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-name">Battles</div>
+                <div class="feature-desc"><span class="g">Strategic combat</span> system built for depth. Face villains, <span class="g">earn XP</span>, and prove who's the real hero of your server.</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-name">Leaderboards</div>
+                <div class="feature-desc"><span class="g">Global and server-level rankings</span> that show who's truly mastered the Omnitrix. <span class="g">Compete</span>, climb, and conquer.</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-name">Economy & Collecting</div>
+                <div class="feature-desc">Earn <span class="g">Tyden</span> and <span class="g">Nullite</span>, collect rare aliens, trade with others, and build your ultimate roster.</div>
+            </div>
         </div>
-        <h3 class="feature-name">Transformations</h3>
-        <p class="feature-desc">Switch between 100+ aliens with clean commands. No clutter — just instantaneous transformation with real lore.</p>
-      </div>
-
-      <div class="feature-item">
-        <p class="feature-num">02</p>
-        <div class="feature-icon-box">
-          <i class="fas fa-fist-raised"></i>
-        </div>
-        <h3 class="feature-name">Battles</h3>
-        <p class="feature-desc">Strategic combat system built for depth. Face villains, earn XP, and prove who's the real hero of your server.</p>
-      </div>
-
-      <div class="feature-item">
-        <p class="feature-num">03</p>
-        <div class="feature-icon-box">
-          <i class="fas fa-trophy"></i>
-        </div>
-        <h3 class="feature-name">Leaderboards</h3>
-        <p class="feature-desc">Global and server-level rankings that show who's truly mastered the Omnitrix. Compete, climb, and conquer.</p>
-      </div>
     </div>
-  </section>
+</section>
 
-  <!-- STATS -->
-  <section class="section-stats">
-    <p class="section-label" style="color:rgba(255,255,255,0.3);margin-bottom:3rem;" class="reveal">By the numbers</p>
-    <div class="stats-grid">
-      <div class="stat-col reveal">
-        <div class="stats-topgg">
-          <a href="https://top.gg/bot/1350356919604351057">
-            <img src="https://top.gg/api/widget/servers/1350356919604351057.svg?noavatar=true" alt="Server count">
-          </a>
+<div class="banner-single fade">
+    <img src="https://m.media-amazon.com/images/M/MV5BN2ZjOThhZDgtODUwZS00MWZmLTg0NGEtODNhMGU3NDE4ZDdmXkEyXkFqcGc%40._V1_FMjpg_UX1916_.jpg" alt="Omnitrix" onerror="this.src='https://picsum.photos/seed/omnitrix/1200/400.jpg'">
+    <div class="banner-overlay"><p>The Omnitrix — bound to a universe near you</p></div>
+</div>
+
+<div class="divider"></div>
+
+<section id="commands">
+    <div class="section-inner">
+        <p class="section-tag fade">Preview</p>
+        <h2 class="section-title fade fd1">See it in action.</h2>
+        <p class="section-desc fade fd2">Real <span class="db">Discord</span> embeds — no mockups. This is exactly what your <span class="g">server gets</span>.</p>
+        <div class="embeds-container">
+
+            <div class="fade embed-group">
+                <p class="embed-label">.help</p>
+                <p class="embed-group-desc">The command hub — browse every category, find what you need, and get back to transforming.</p>
+                <div class="d-wrapper">
+                    <div class="d-reply"><img src="https://c.tenor.com/m70ANNVjKCwAAAAC/tenor.png" alt=""><span class="ru">Ben Tennyson</span><span class="rc">.help</span></div>
+                    <div class="d-head"><img src="https://omnicord.neocities.org/pfp.png" alt=""><span class="un">Omnicord</span><span class="bt"><svg viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z" clip-rule="evenodd"/></svg>APP</span><span class="ts">Today at 8:46 PM</span></div>
+                    <div class="d-body" style="border-left-color:#3ba55c">
+                        <div class="d-title"><img src="https://cdn.discordapp.com/emojis/1383496885171523734.webp?size=56" alt=""> Commands Folder</div>
+                        <div class="d-desc">Navigate the Omnitrix's core system below. Use <code>.help &lt;command&gt;</code> for detailed command specs.</div>
+                        <div class="d-desc"><blockquote><img src="https://cdn.discordapp.com/emojis/1383505248961953967.webp?size=56" alt="" style="width:14px;height:14px"> <strong>Note:</strong> Some aliens may not be present in the Omnitrix. Report them to our <a href="#">Support Server</a>.</blockquote><blockquote><img src="https://cdn.discordapp.com/emojis/1383497779586007172.webp?size=56" alt="" style="width:14px;height:14px"> <strong>Tip:</strong> Use <code>.help &lt;category&gt;</code> to view commands in a specific category.</blockquote>Its currently <strong>Day</strong> in <strong>Omnicord Universe</strong>.<br><strong><a href="#">Support Server</a> Have Infinite Incense(Spawns)! Join now!!</strong></div>
+                        <div class="d-footer"><img src="https://omnicord.neocities.org/pfp.png" alt=""> Omnicord · Ben 10 Command Line Interface · Year 3040</div>
+                    </div>
+                    <div class="d-select-wrap">
+                        <div class="d-select" onclick="event.stopPropagation();this.classList.toggle('open')">
+                            <span class="ds-ph">📂 Select Command Category</span>
+                            <div class="ds-icon"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M5.3 9.3a1 1 0 0 1 1.4 0l5.3 5.29 5.3-5.3a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-1.4 0l-6-6a1 1 0 0 1 0-1.42Z"/></svg></div>
+                            <div class="ds-opts">
+                                <div class="ds-opt" onclick="event.stopPropagation();this.closest('.d-select').classList.remove('open')">📁 All Commands</div>
+                                <div class="ds-opt" onclick="event.stopPropagation();this.closest('.d-select').classList.remove('open')">⚔️ Battle</div>
+                                <div class="ds-opt" onclick="event.stopPropagation();this.closest('.d-select').classList.remove('open')">🔄 Transformations</div>
+                                <div class="ds-opt" onclick="event.stopPropagation();this.closest('.d-select').classList.remove('open')">👤 Profile</div>
+                                <div class="ds-opt" onclick="event.stopPropagation();this.closest('.d-select').classList.remove('open')">🏆 Leaderboard</div>
+                            </div>
+                        </div>
+                        <div class="d-actions">
+                            <button class="d-btn"><div class="d-btn-inner"><span>Support Server</span><svg viewBox="0 0 24 24"><path d="M15 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V4.41l-4.3 4.3a1 1 0 1 1-1.4-1.42L19.58 3H16a1 1 0 0 1-1-1Z"/><path d="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 1 0-2 0v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 1 0 0-2H5Z"/></svg></div></button>
+                            <button class="d-btn"><div class="d-btn-inner"><span>Invite Me</span><svg viewBox="0 0 24 24"><path d="M15 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V4.41l-4.3 4.3a1 1 0 1 1-1.4-1.42L19.58 3H16a1 1 0 0 1-1-1Z"/><path d="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 1 0-2 0v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 1 0 0-2H5Z"/></svg></div></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade embed-group embed-narrow">
+                <p class="embed-label">.balance</p>
+                <p class="embed-group-desc">Check your <span class="g">Tyden</span>, <span class="g">Nullite</span>, guild tokens, and fusion cores at a glance.</p>
+                <div class="d-wrapper">
+                    <div class="d-reply"><img src="https://c.tenor.com/m70ANNVjKCwAAAAC/tenor.png" alt=""><span class="ru">Ben Tennyson</span><span class="rc">.balance</span></div>
+                    <div class="d-head"><img src="https://omnicord.neocities.org/pfp.png" alt=""><span class="un">Omnicord</span><span class="bt"><svg viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z" clip-rule="evenodd"/></svg>APP</span><span class="ts">Today at 8:38 PM</span></div>
+                    <div class="d-body" style="border-left-color:#5865F2">
+                        <div class="d-title">Balance</div>
+                        <div class="d-desc"><strong>Ben Tennyson's balance</strong></div>
+                        <div class="d-thumb-wrap">
+                            <div class="d-thumb-content">
+                                <div class="d-fields">
+                                    <div><div class="ft">Currency</div><div class="fv"><img src="https://cdn.discordapp.com/emojis/1362653571002142882.webp?size=56" alt=""> <strong>Tyden:</strong> 27.5k<br><img src="https://cdn.discordapp.com/emojis/1363027443786715297.webp?size=56" alt=""> <strong>Nullite:</strong> 24</div></div>
+                                    <div><div class="ft">Tokens</div><div class="fv"><img src="https://cdn.discordapp.com/emojis/1381709620380307567.webp?size=56" alt=""> <strong>Guild Tokens:</strong> 0<br><img src="https://cdn.discordapp.com/emojis/1458756372954091602.webp?size=56" alt=""> <strong>Fusion Cores:</strong> 5</div></div>
+                                </div>
+                            </div>
+                            <img class="d-thumb" src="https://c.tenor.com/m70ANNVjKCwAAAAC/tenor.png" alt="">
+                        </div>
+                        <div class="d-footer"><img src="https://omnicord.neocities.org/pfp.png" alt=""> Last seen: 7/2/2026 · Today at 8:38 PM</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade embed-group">
+                <p class="embed-label">.lb</p>
+                <p class="embed-group-desc">See who's on top. <span class="g">Battle ratings</span>, win/loss records, rank tiers from <span class="g">Iron</span> to <span class="g">Grand Master</span>.</p>
+                <div class="d-wrapper">
+                    <div class="d-reply"><img src="https://c.tenor.com/m70ANNVjKCwAAAAC/tenor.png" alt=""><span class="ru">Ben Tennyson</span><span class="rc">.lb</span></div>
+                    <div class="d-head"><img src="https://omnicord.neocities.org/pfp.png" alt=""><span class="un">Omnicord</span><span class="bt"><svg viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z" clip-rule="evenodd"/></svg>APP</span><span class="ts">Today at 8:44 PM</span></div>
+                    <div class="d-body" style="border-left-color:#ed4245">
+                        <div class="d-title"><img src="https://cdn.discordapp.com/emojis/1395043780838686782.webp?size=56" alt=""> Battle Leaderboard</div>
+                        <div class="d-desc" style="line-height:1.55;font-size:11px"><strong>#1</strong> <img src="https://cdn.discordapp.com/emojis/1433479844620140676.webp?size=56" alt="" style="width:14px;height:14px"> <strong>Gat</strong> — Platinum<br><span style="margin-left:24px"><img src="https://cdn.discordapp.com/emojis/1395128975440871535.webp?size=56" alt="" style="width:12px;height:12px"> 1268 Rating · 62W · <img src="https://cdn.discordapp.com/emojis/1395128771065020540.webp?size=56" alt="" style="width:12px;height:12px"> 22L</span><br><strong>#2</strong> <img src="https://cdn.discordapp.com/emojis/1433512086947762287.webp?size=56" alt="" style="width:14px;height:14px"> <strong>Blue</strong> — Gold<br><span style="margin-left:24px"><img src="https://cdn.discordapp.com/emojis/1395128975440871535.webp?size=56" alt="" style="width:12px;height:12px"> 1187 Rating · 31W · <img src="https://cdn.discordapp.com/emojis/1395128771065020540.webp?size=56" alt="" style="width:12px;height:12px"> 17L</span><br><strong>#3</strong> <img src="https://cdn.discordapp.com/emojis/1433512086947762287.webp?size=56" alt="" style="width:14px;height:14px"> <strong>Bags McBaggerSon</strong> — Gold<br><span style="margin-left:24px"><img src="https://cdn.discordapp.com/emojis/1395128975440871535.webp?size=56" alt="" style="width:12px;height:12px"> 1119 Rating · 8W · <img src="https://cdn.discordapp.com/emojis/1395128771065020540.webp?size=56" alt="" style="width:12px;height:12px"> 2L</span><br><strong>#4</strong> <img src="https://cdn.discordapp.com/emojis/1433512086947762287.webp?size=56" alt="" style="width:14px;height:14px"> <strong>🅴🅼🅴🅻 ❦</strong> — Gold<br><span style="margin-left:24px"><img src="https://cdn.discordapp.com/emojis/1395128975440871535.webp?size=56" alt="" style="width:12px;height:12px"> 1117 Rating · 34W · <img src="https://cdn.discordapp.com/emojis/1395128771065020540.webp?size=56" alt="" style="width:12px;height:12px"> 33L</span><br><strong>#5</strong> <img src="https://cdn.discordapp.com/emojis/1433512086947762287.webp?size=56" alt="" style="width:14px;height:14px"> <strong>Tiger❌ⓘ</strong> — Gold<br><span style="margin-left:24px"><img src="https://cdn.discordapp.com/emojis/1395128975440871535.webp?size=56" alt="" style="width:12px;height:12px"> 1088 Rating · 7W · <img src="https://cdn.discordapp.com/emojis/1395128771065020540.webp?size=56" alt="" style="width:12px;height:12px"> 3L</span><br><strong>#6</strong> <img src="https://cdn.discordapp.com/emojis/1433512086947762287.webp?size=56" alt="" style="width:14px;height:14px"> <strong>GradoN**e</strong> — Gold<br><span style="margin-left:24px"><img src="https://cdn.discordapp.com/emojis/1395128975440871535.webp?size=56" alt="" style="width:12px;height:12px"> 1056 Rating · 1W · <img src="https://cdn.discordapp.com/emojis/1395128771065020540.webp?size=56" alt="" style="width:12px;height:12px"> 0L</span></div>
+                        <div class="d-fields">
+                            <div><div class="ft"><img src="https://cdn.discordapp.com/emojis/1395128975440871535.webp?size=56" alt="" style="width:14px;height:14px"> Your Rank</div><div class="fv"><strong>35th</strong> · <img src="https://cdn.discordapp.com/emojis/1433512385485996053.webp?size=56" alt="" style="width:14px;height:14px"> Silver · 923 Rating</div></div>
+                            <div><div class="ft">Rank Tiers</div><div class="fv" style="line-height:1.6"><img src="https://cdn.discordapp.com/emojis/1433481166832271484.webp?size=56" alt="" style="width:12px;height:12px"> GM (2500+)<br><img src="https://cdn.discordapp.com/emojis/1433480016469037066.webp?size=56" alt="" style="width:12px;height:12px"> Master (2k)<br><img src="https://cdn.discordapp.com/emojis/1433511799352983645.webp?size=56" alt="" style="width:12px;height:12px"> Diamond (1.5k)<br><img src="https://cdn.discordapp.com/emojis/1433479844620140676.webp?size=56" alt="" style="width:12px;height:12px"> Plat (1.2k)<br><img src="https://cdn.discordapp.com/emojis/1433512086947762287.webp?size=56" alt="" style="width:12px;height:12px"> Gold (1k)<br><img src="https://cdn.discordapp.com/emojis/1433512385485996053.webp?size=56" alt="" style="width:12px;height:12px"> Silver (800)<br><img src="https://cdn.discordapp.com/emojis/1433479729595547668.webp?size=56" alt="" style="width:12px;height:12px"> Bronze (600)<br><img src="https://cdn.discordapp.com/emojis/1433479726105890918.webp?size=56" alt="" style="width:12px;height:12px"> Iron (100)</div></div>
+                        </div>
+                        <div class="d-footer">Page 1 of 13</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade embed-group">
+                <p class="embed-label">.aliens</p>
+                <p class="embed-group-desc">Your <span class="g">alien collection</span> — every alien you've unlocked, their level, and how far you've trained them.</p>
+                <div class="d-wrapper">
+                    <div class="d-reply"><img src="https://c.tenor.com/m70ANNVjKCwAAAAC/tenor.png" alt=""><span class="ru">Ben Tennyson</span><span class="rc">.aliens</span></div>
+                    <div class="d-head"><img src="https://omnicord.neocities.org/pfp.png" alt=""><span class="un">Omnicord</span><span class="bt"><svg viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z" clip-rule="evenodd"/></svg>APP</span><span class="ts">Today at 8:50 PM</span></div>
+                    <div class="d-body" style="border-left-color:#3ba55c">
+                        <div class="d-desc" style="line-height:1.7"><img src="https://c.tenor.com/m70ANNVjKCwAAAAC/tenor.png" alt="" style="width:20px;height:20px;border-radius:50%"> <strong>Ben Tennyson's Alien Collection</strong><br><br><code>#1</code> <img src="https://cdn.discordapp.com/emojis/1453763207822049441.webp?size=56" alt="" style="width:14px;height:14px"> Goop "jellyman" <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/2764.png" alt="" style="width:12px;height:12px"> · Lv.24 · 64%<br><code>#2</code> <img src="https://cdn.discordapp.com/emojis/1361223321286610965.webp?size=56" alt="" style="width:14px;height:14px"> Crystalfist · Lv.02 · 34%<br><code>#3</code> <img src="https://cdn.discordapp.com/emojis/1453762003549294684.webp?size=56" alt="" style="width:14px;height:14px"> Stinkfly · Lv.09 · 71%<br><code>#4</code> <img src="https://cdn.discordapp.com/emojis/1453681385435824320.webp?size=56" alt="" style="width:14px;height:14px"> Four Arms · Lv.01 · 60%<br><code>#5</code> <img src="https://cdn.discordapp.com/emojis/1513460944754315315.webp?size=56" alt="" style="width:14px;height:14px"> Snapclaw · Lv.01 · 51%<br><code>#6</code> <img src="https://cdn.discordapp.com/emojis/1453681296323903488.webp?size=56" alt="" style="width:14px;height:14px"> Wildmutt · Lv.01 · 37%<br><code>#7</code> <img src="https://cdn.discordapp.com/emojis/1453681296323903488.webp?size=56" alt="" style="width:14px;height:14px"> Wildmutt · Lv.02 · 50%<br><code>#8</code> <img src="https://cdn.discordapp.com/emojis/1361223191523229889.webp?size=56" alt="" style="width:14px;height:14px"> Bootleg · Lv.17 · 26%</div>
+                        <div class="d-footer"><img src="https://omnicord.neocities.org/pfp.png" alt=""> Page 1/1 · Total: 8 aliens</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade embed-group">
+                <p class="embed-label">.battle</p>
+                <p class="embed-group-desc">Turn-based <span class="g">combat</span> — pick your ability, manage energy, and take down villains to <span class="g">earn XP</span>.</p>
+                <div class="battle-wrap">
+                    <div class="d-wrapper">
+                        <div class="d-reply"><img src="https://c.tenor.com/m70ANNVjKCwAAAAC/tenor.png" alt=""><span class="ru">Ben Tennyson</span><span class="rc">.battle</span></div>
+                        <div class="d-head"><img src="https://omnicord.neocities.org/pfp.png" alt=""><span class="un">Omnicord</span><span class="bt"><svg viewBox="0 0 24 24"><path fill="#fff" fill-rule="evenodd" d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z" clip-rule="evenodd"/></svg>APP</span><span class="ts">Today at 8:54 PM</span></div>
+                        <div class="d-body" style="border-left-color:#faa81a">
+                            <div class="d-title">⚔️ Battle: Ben Tennyson vs Vilgax</div>
+                            <div class="d-desc"><strong>Ben Tennyson (Goop):</strong> 473 HP | 150/150 EN<br><strong>Vilgax (Big Chill):</strong> 879 HP | 150/150 EN</div>
+                            <img class="d-img" src="https://lunarfrost.neocities.org/assets/battle.png" alt="Battle" onerror="this.style.display='none'">
+                            <div class="d-footer">Ben Tennyson's turn · Today at 8:54 PM</div>
+                        </div>
+                    </div>
+                    <div class="battle-btns">
+                        <div class="battle-btns-inner">
+                            <button class="b-btn brand">Frost Nova [22⚡]</button>
+                            <button class="b-btn brand">Frozen Fury [28⚡]</button>
+                            <button class="b-btn brand">Blizzard Breath [30⚡]</button>
+                            <button class="b-btn brand">Glacial Shatter [38⚡]</button>
+                            <button class="b-btn pri">Skip</button>
+                            <button class="b-btn pri">Defend</button>
+                            <button class="b-btn dan">Flee</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <span class="stat-lbl">Servers</span>
-      </div>
+    </div>
+</section>
 
-      <div class="stat-col reveal">
-        <div class="stats-topgg">
-          <a href="https://top.gg/bot/1350356919604351057">
-            <img src="https://top.gg/api/widget/upvotes/1350356919604351057.svg?noavatar=true" alt="Upvotes">
-          </a>
+<div class="divider"></div>
+
+<section class="cta-section" id="invite">
+    <div class="section-inner">
+        <div class="cta-box fade">
+            <h2>Ready to transform?<br>Cause it's <span class="g">hero time</span>.</h2>
+            <button class="btn-primary" id="ctaInvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V4.41l-4.3 4.3a1 1 0 1 1-1.4-1.42L19.58 3H16a1 1 0 0 1-1-1Z"/><path d="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 1 0-2 0v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 1 0 0-2H5Z"/></svg> Get Started</button>
         </div>
-        <span class="stat-lbl">Upvotes on Top.gg</span>
-      </div>
+    </div>
+</section>
 
-      <div class="stat-col reveal">
-        <span class="stat-big">100+</span>
-        <span class="stat-lbl">Alien Forms</span>
-      </div>
-
-      <div class="stat-col reveal">
-        <div class="stats-topgg">
-          <a href="https://top.gg/bot/1350356919604351057">
-            <img src="https://top.gg/api/widget/owner/1350356919604351057.svg?noavatar=true" alt="Owner">
-          </a>
+<footer>
+    <!-- GIF as background -->
+    <img class="footer-bg-gif" src="https://c.tenor.com/YlS5QOoCNxMAAAAd/tenor.gif" alt="Ben 10 background" loading="lazy">
+    <div class="footer-overlay"></div>
+    <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://omnicord.neocities.org/pfp.png" alt="Omnicord">
+                <span class="footer-brand-name">Omnicord</span>
+                <p class="footer-brand-tag">Omnicord — The Best Ben10 <strong>Discord</strong> Bot</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="#features">Features</a>
+                <a href="#commands">Commands</a>
+                <a href="#invite">Invite</a>
+                <a href="#">Changelog</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="#">Documentation</a>
+                <a href="#">Support Server</a>
+                <a href="#">Status</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
         </div>
-        <span class="stat-lbl">Created by</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section class="section-gallery">
-    <div class="gallery-intro reveal">
-      <div>
-        <p class="section-label">Gallery</p>
-        <h2 class="section-title">See it in action.</h2>
-      </div>
-      <div>
-        <p style="font-size:0.9rem;color:var(--gray-500);line-height:1.7;font-weight:300;">
-          From command center to battle arenas — a look inside the Omnicord experience, crafted for every kind of Ben 10 fan.
-        </p>
-        <a href="gallery.html" class="btn btn-secondary" style="margin-top:1.5rem;display:inline-flex;">
-          Full Gallery <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </div>
-
-    <div class="gallery-grid reveal">
-      <div class="gallery-card">
-        <img src="https://omnicord.neocities.org/preview1.jpg" alt="Command Center" loading="lazy">
-        <span class="gallery-caption">Command Center</span>
-      </div>
-      <div class="gallery-card">
-        <img src="https://omnicord.neocities.org/preview2.jpg" alt="Epic Battles" loading="lazy">
-        <span class="gallery-caption">Epic Battles</span>
-      </div>
-      <div class="gallery-card">
-        <img src="https://omnicord.neocities.org/preview3.jpg" alt="Player Profile" loading="lazy">
-        <span class="gallery-caption">Player Profile</span>
-      </div>
-      <div class="gallery-card">
-        <img src="https://omnicord.neocities.org/preview4.jpg" alt="Leaderboard" loading="lazy">
-        <span class="gallery-caption">Leaderboard</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section-cta">
-    <div class="cta-bg-text" aria-hidden="true">OMNICORD</div>
-    <p class="cta-label reveal">Ready to begin?</p>
-    <h2 class="cta-title reveal">Join thousands of<br>servers worldwide.</h2>
-    <p class="cta-sub reveal">One invite. Infinite transformations.</p>
-    <div class="reveal">
-      <a href="invite.html" class="btn btn-primary" style="font-size:1rem;padding:16px 32px;">
-        <i class="fas fa-rocket"></i> Get Started
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        Omnicord
-        <small>Ben 10 · Discord Bot · Est. 2025</small>
-      </div>
-      <div class="footer-nav">
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="team.html">Team</a></li>
-          </ul>
+        <div class="footer-bottom">
+            <span>© 2025 Omnicord. All rights reserved.</span>
+            <div class="footer-socials">
+                <a href="#" aria-label="Discord"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+                <a href="#" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                <a href="#" aria-label="Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-1.438 7.093H16.37l-1.438-7.093h3.312m-11.864 0h4.416l-1.396 7.093H3.836l-1.396-7.093h4.416M.648 22.5h22.704l1.076-5.316H-0.428l1.076 5.316z"/></svg></a>
+            </div>
         </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Links</h4>
-          <ul>
-            <li><a href="invite.html">Invite Bot</a></li>
-            <li><a href="https://top.gg/bot/1350356919604351057">Top.gg</a></li>
-          </ul>
-        </div>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Omnicord. Ben 10 and related characters are trademarks of Cartoon Network.</p>
-      <div class="footer-socials">
-        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      </div>
-    </div>
-  </footer>
+</footer>
 
-  <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-          io.unobserve(e.target);
+<div id="toast" style="position:fixed;bottom:20px;right:20px;background:#1a1a1c;border:1px solid rgba(29,185,64,0.1);color:#888;padding:10px 16px;border-radius:4px;font-size:12px;z-index:9999;transform:translateY(60px);opacity:0;transition:all .3s cubic-bezier(.16,1,.3,1);display:flex;align-items:center;gap:6px;pointer-events:none">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1db940" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    <span id="toastMsg"></span>
+</div>
+
+<script>
+    (function() {
+        // Toast function
+        let tt;
+        function toast(m) {
+            const t = document.getElementById('toast');
+            const tm = document.getElementById('toastMsg');
+            if (!t || !tm) return;
+            tm.textContent = m;
+            t.style.transform = 'translateY(0)';
+            t.style.opacity = '1';
+            clearTimeout(tt);
+            tt = setTimeout(() => {
+                t.style.transform = 'translateY(60px)';
+                t.style.opacity = '0';
+            }, 2200);
         }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(r => io.observe(r));
-  </script>
+
+        // Button handlers
+        const heroBtn = document.getElementById('heroInvite');
+        const navBtn = document.getElementById('navInvite');
+        const ctaBtn = document.getElementById('ctaInvite');
+        if (heroBtn) heroBtn.onclick = () => toast('Redirecting to Discord authorization...');
+        if (navBtn) navBtn.onclick = (e) => { e.preventDefault(); toast('Redirecting to Discord authorization...'); };
+        if (ctaBtn) ctaBtn.onclick = () => toast('Redirecting to Discord authorization...');
+
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
+        }, { passive: true });
+
+        // Dropdown close on outside click
+        document.addEventListener('click', function(e) {
+            document.querySelectorAll('.d-select').forEach(function(s) {
+                if (!s.contains(e.target)) s.classList.remove('open');
+            });
+        });
+
+        // Fade-in observer
+        const obs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(e) {
+                if (e.isIntersecting) e.target.classList.add('in');
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -16px 0px' });
+
+        document.querySelectorAll('.fade').forEach(function(el) {
+            obs.observe(el);
+        });
+
+        setTimeout(function() {
+            document.querySelectorAll('.hero .fade').forEach(function(el) {
+                el.classList.add('in');
+            });
+        }, 60);
+
+        // ─── HERO VIDEO ───────────────────────────────────────
+        const video = document.getElementById('heroVideo');
+        const vidBtn = document.getElementById('vidBtn');
+        const vidToggle = document.getElementById('vidToggle');
+        let videoOn = false;
+
+        if (video && vidBtn && vidToggle) {
+            vidToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                videoOn = !videoOn;
+                if (videoOn) {
+                    video.play().catch(function() {});
+                    video.classList.add('playing');
+                    vidBtn.textContent = '⏸ Pause BG';
+                } else {
+                    video.pause();
+                    video.classList.remove('playing');
+                    vidBtn.textContent = '▶ BG Video';
+                }
+            });
+
+            // Autoplay when hero is visible
+            const heroObs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !videoOn) {
+                        video.play().catch(function() {});
+                        video.classList.add('playing');
+                        vidBtn.textContent = '⏸ Pause BG';
+                        videoOn = true;
+                        heroObs.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            heroObs.observe(document.getElementById('hero'));
+        }
+    })();
+</script>
 </body>
 </html>
