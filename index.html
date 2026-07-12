@@ -28,8 +28,8 @@
 <meta name="twitter:image:alt" content="Omnicord - Ben10 Discord Bot Preview">
 
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="https://omnicord.neocities.org/pfp.jpg">
-<link rel="apple-touch-icon" href="https://omnicord.neocities.org/pfp.jpg">
+<link rel="icon" type="image/png" href="https://omnicord.neocities.org/pfp.png">
+<link rel="apple-touch-icon" href="https://omnicord.neocities.org/pfp.png">
 
 <!-- Theme Color - Pastel Green -->
 <meta name="theme-color" content="#a8e6cf">
@@ -484,13 +484,26 @@
         }
 
         // Button handlers
-        const heroBtn = document.getElementById('heroInvite');
-        const navBtn = document.getElementById('navInvite');
-        const ctaBtn = document.getElementById('ctaInvite');
-        if (heroBtn) heroBtn.onclick = () => toast('Redirecting to Discord authorization...');
-        if (navBtn) navBtn.onclick = (e) => { e.preventDefault(); toast('Redirecting to Discord authorization...'); };
-        if (ctaBtn) ctaBtn.onclick = () => toast('Redirecting to Discord authorization...');
+const heroBtn = document.getElementById('heroInvite');
+const navBtn = document.getElementById('navInvite');
+const ctaBtn = document.getElementById('ctaInvite');
 
+if (heroBtn) {
+    heroBtn.onclick = () => {
+        window.open('/invite', '_blank');
+    };
+}
+if (navBtn) {
+    navBtn.onclick = (e) => {
+        e.preventDefault();
+        window.open('/invite', '_blank');
+    };
+}
+if (ctaBtn) {
+    ctaBtn.onclick = () => {
+        window.open('/invite', '_blank');
+    };
+}
         // Nav scroll
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
