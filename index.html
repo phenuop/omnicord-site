@@ -228,11 +228,20 @@
             <button class="btn-primary" id="heroInvite"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 1 1-2 0V4.41l-4.3 4.3a1 1 0 1 1-1.4-1.42L19.58 3H16a1 1 0 0 1-1-1Z"/><path d="M5 2a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-6a1 1 0 1 0-2 0v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h6a1 1 0 1 0 0-2H5Z"/></svg> Invite Bot</button>
             <a href="#commands" class="btn-ghost">View Commands</a>
         </div>
-        <div class="hero-stats fade fd4">
-            <div class="hero-stat"><div class="hero-stat-num"><span class="green">100+</span></div><div class="hero-stat-label">Aliens</div></div>
-            <div class="hero-stat"><div class="hero-stat-num"><span class="green">24/7</span></div><div class="hero-stat-label">Active</div></div>
-            <div class="hero-stat"><div class="hero-stat-num"><span class="green">190+</span></div><div class="hero-stat-label">Servers</div></div>
-        </div>
+<div class="hero-stats fade fd4">
+    <div class="hero-stat">
+        <div class="hero-stat-num"><span class="green">100+</span></div>
+        <div class="hero-stat-label">Aliens</div>
+    </div>
+    <div class="hero-stat">
+        <div class="hero-stat-num"><span class="green" id="memberCount">Loading...</span></div>
+        <div class="hero-stat-label">Members</div>
+    </div>
+    <div class="hero-stat">
+        <div class="hero-stat-num"><span class="green" id="serverCount">Loading...</span></div>
+        <div class="hero-stat-label">Servers</div>
+    </div>
+</div>
         <div class="hero-video-toggle" id="vidToggle">
             <span class="vid-dot"></span>
             <button id="vidBtn">▶ BG Video</button>
@@ -504,20 +513,20 @@ if (ctaBtn) {
         window.open('/invite', '_blank');
     };
 }
-        // Nav scroll
+        
         const nav = document.getElementById('nav');
         window.addEventListener('scroll', () => {
             if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
         }, { passive: true });
 
-        // Dropdown close on outside click
+       
         document.addEventListener('click', function(e) {
             document.querySelectorAll('.d-select').forEach(function(s) {
                 if (!s.contains(e.target)) s.classList.remove('open');
             });
         });
 
-        // Fade-in observer
+       
         const obs = new IntersectionObserver(function(entries) {
             entries.forEach(function(e) {
                 if (e.isIntersecting) e.target.classList.add('in');
@@ -534,7 +543,7 @@ if (ctaBtn) {
             });
         }, 60);
 
-        // ─── HERO VIDEO ───────────────────────────────────────
+       
         const video = document.getElementById('heroVideo');
         const vidBtn = document.getElementById('vidBtn');
         const vidToggle = document.getElementById('vidToggle');
@@ -555,7 +564,7 @@ if (ctaBtn) {
                 }
             });
 
-            // Autoplay when hero is visible
+            
             const heroObs = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting && !videoOn) {
@@ -571,6 +580,33 @@ if (ctaBtn) {
             heroObs.observe(document.getElementById('hero'));
         }
     })();
+
+    async function fetchStats() {
+    try {
+        const response = await fetch('https://api.omnicord.site/api/stats');
+        const data = await response.json();
+        
+        if (data.ok && data.core) {
+        
+            const memberCount = document.getElementById('memberCount');
+            memberCount.textContent = data.core.members.toLocaleString();
+            
+           
+            const serverCount = document.getElementById('serverCount');
+            serverCount.textContent = data.core.guilds.toLocaleString();
+        }
+    } catch (error) {
+        console.error('Failed to fetch stats:', error);
+        document.getElementById('memberCount').textContent = '—';
+        document.getElementById('serverCount').textContent = '—';
+    }
+}
+
+
+fetchStats();
+
+
+setInterval(fetchStats, 60000);
 </script>
 </body>
 </html>
