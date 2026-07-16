@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Omnicord Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Phyniex">
+    <meta name="google-site-verification" content="HHKdVgrwSgXXbNE5uR9WLn9sV9v3gOt0zZRRwhLiQFA" />
+    <meta name="description" content="Live status page for Omnicord - The Ultimate Ben 10 Discord Bot. Check bot uptime, shard performance, and real-time statistics.">
+    <meta name="keywords" content="Omnicord, Discord, Ben10, Bot, Status, Uptime, Monitoring, Phyniex">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Omnicord Status - Live Bot Statistics">
+    <meta property="og:description" content="Live status page for Omnicord - The Ultimate Ben 10 Discord Bot. Check bot uptime, shard performance, and real-time statistics.">
+    <meta property="og:image" content="https://omnicord.neocities.org/back.jpg">
+    <meta property="og:url" content="https://omnicord.site/status">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Omnicord">
+    <meta property="og:image:alt" content="Omnicord - Ben10 Discord Bot Status">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Omnicord Status - Live Bot Statistics">
+    <meta name="twitter:description" content="Live status page for Omnicord - The Ultimate Ben 10 Discord Bot. Check bot uptime, shard performance, and real-time statistics.">
+    <meta name="twitter:image" content="https://omnicord.neocities.org/back.jpg">
+    <meta name="twitter:image:alt" content="Omnicord - Ben10 Discord Bot Status">
+    
+    <link rel="icon" type="image/png" href="https://omnicord.neocities.org/pfp.png">
+    <link rel="apple-touch-icon" href="https://omnicord.neocities.org/pfp.png">
+    <meta name="theme-color" content="#1db940">
+    <meta name="msapplication-TileColor" content="#1db940">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#141416;--card:#1a1a1c;--text:#ddd;--sub:#666;--border:rgba(255,255,255,0.04);--shadow:0 1px 3px rgba(0,0,0,0.4);--shadow-hover:0 4px 16px rgba(0,0,0,0.6);--shard-bg:#222224;--shard-hover:#2a2a2c;--footer-border:rgba(255,255,255,0.04)}
+        body.light{--bg:#f0f2f5;--card:#fff;--text:#222;--sub:#888;--border:rgba(0,0,0,0.06);--shadow:0 1px 3px rgba(0,0,0,0.06);--shadow-hover:0 4px 16px rgba(0,0,0,0.1);--shard-bg:#f8f9fa;--shard-hover:#f0f1f3;--footer-border:rgba(0,0,0,0.06)}
+        body{background:var(--bg);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;transition:background .4s ease}
+        .status-container{max-width:900px;width:100%;padding:40px 40px 0}
+        .top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}
+        .logo{display:flex;align-items:center;gap:12px}
+        .logo img{width:44px;height:44px;object-fit:cover}
+        .logo span{font-size:22px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#1db940}
+        .top-actions{display:flex;align-items:center;gap:10px}
+        .btn-back,.theme-toggle{display:flex;align-items:center;gap:6px;padding:7px 14px;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;transition:all .2s ease;text-decoration:none;font-family:inherit}
+        .btn-back:hover,.theme-toggle:hover{background:var(--shard-hover)}
+        .btn-back i{font-size:13px;color:#1db940}
+        .theme-toggle i{font-size:13px;color:#faa81a}
+        .status-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+        .status-item{background:var(--card);border-radius:20px;padding:18px 20px;box-shadow:var(--shadow);border:1px solid var(--border);display:flex;flex-direction:column;gap:6px;transition:all .2s ease;overflow:hidden}
+        .status-item:hover{box-shadow:var(--shadow-hover)}
+        .status-item.full{grid-column:1/-1}
+        .status-item .top{display:flex;align-items:center;justify-content:space-between}
+        .status-item .label{font-size:10px;font-weight:600;color:var(--sub);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:6px}
+        .status-item .label i{font-size:13px;color:#1db940;width:16px;text-align:center}
+        .status-item .value{font-size:17px;font-weight:700;color:var(--text);display:flex;align-items:center;gap:6px;height:28px;overflow:hidden}
+        .status-item .badge{display:inline-flex;align-items:center;gap:5px;padding:2px 12px;border-radius:20px;font-size:10px;font-weight:600}
+        .badge.online{background:#e8f5e9;color:#1db940}
+        .badge.offline{background:#fce4ec;color:#ed4245}
+        .badge i{font-size:8px}
+        .shard-grid{display:grid;gap:6px;width:100%;margin-top:2px}
+        .shard-row{display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;padding:8px 14px;background:var(--shard-bg);border-radius:14px;border:1px solid var(--border);font-size:12px}
+        .shard-row:hover{background:var(--shard-hover)}
+        .shard-row .id{font-weight:600;display:flex;align-items:center;gap:6px;color:var(--text)}
+        .shard-row .id i{font-size:12px;color:#5865F2}
+        .shard-row .guilds{color:var(--sub)}
+        .shard-row .ping{display:flex;align-items:center;gap:4px;justify-self:end;font-weight:500}
+        .shard-row .ping.good{color:#1db940}
+        .shard-row .ping.ok{color:#faa81a}
+        .shard-row .ping.bad{color:#ed4245}
+        .status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:2px}
+        .status-dot.online{background:#1db940}
+        .status-dot.offline{background:#ed4245}
+        .status-dot.idle{background:#faa81a}
+        .loading{color:var(--sub);font-size:12px;display:flex;align-items:center;gap:6px}
+        .loading i{color:#5865F2;animation:spin 1.5s linear infinite}
+        @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+        
+        .number-roll{display:inline-block;transition:transform .4s cubic-bezier(.34,1.56,.64,1);will-change:transform}
+        .number-roll.roll{transform:translateY(-100%)}
+        
+        footer{position:relative;overflow:hidden;width:100%;max-width:900px;margin-top:40px;padding:32px 40px 24px;border-top:1px solid var(--footer-border)}
+        .footer-content{position:relative;z-index:2}
+        .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px;max-width:100%;margin:0 auto 28px}
+        .footer-brand{display:flex;flex-direction:column;gap:10px}
+        .footer-brand img{width:32px;height:32px;object-fit:cover}
+        .footer-brand-name{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#1db940}
+        .footer-brand-tag{font-size:10px;color:var(--sub);line-height:1.6}
+        .footer-brand-tag strong{color:#5865F2;font-weight:600}
+        .footer-col h4{font-size:8px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--sub);margin-bottom:12px}
+        .footer-col a{display:block;font-size:11px;color:var(--sub);margin-bottom:6px;transition:color .2s;text-decoration:none}
+        .footer-col a:hover{color:#1db940}
+        .footer-bottom{display:flex;align-items:center;justify-content:space-between;max-width:100%;margin:0 auto;padding-top:16px;border-top:1px solid var(--footer-border)}
+        .footer-bottom span{font-size:9px;color:var(--sub);letter-spacing:.05em}
+        .footer-socials{display:flex;gap:12px}
+        .footer-socials a{color:var(--sub);transition:color .2s;text-decoration:none}
+        .footer-socials a:hover{color:#1db940}
+        .footer-socials svg{width:14px;height:14px;fill:currentColor}
+        
+        @media(max-width:600px){.status-grid{grid-template-columns:1fr}.shard-row{grid-template-columns:1fr;gap:4px;text-align:center}.shard-row .ping{justify-self:center}.top-bar{flex-wrap:wrap;gap:10px}.btn-back,.theme-toggle{padding:5px 12px;font-size:11px}.status-container{padding:20px 16px 0}.footer-grid{grid-template-columns:1fr 1fr;gap:20px}.footer-bottom{flex-direction:column;gap:10px;text-align:center}footer{padding:24px 16px 20px}}
+    </style>
+</head>
+<body>
+
+<div class="status-container">
+    <div class="top-bar">
+        <div class="logo">
+            <img src="https://omnicord.neocities.org/pfp.png" alt="Omnicord">
+            <span>Omnicord</span>
+        </div>
+        <div class="top-actions">
+            <a href="/" class="btn-back"><i class="fas fa-arrow-left"></i> Back</a>
+            <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
+        </div>
+    </div>
+
+    <div class="status-grid">
+        <div class="status-item full" id="botStatus">
+            <div class="top">
+                <span class="label"><i class="fas fa-robot"></i> Status</span>
+                <span class="badge online" id="botBadge"><i class="fas fa-circle"></i> Online</span>
+            </div>
+            <div class="value" id="botStatusText">All systems running</div>
+        </div>
+
+        <div class="status-item full">
+            <div class="top">
+                <span class="label"><i class="fas fa-puzzle-piece"></i> Shards</span>
+                <span class="value" id="shardCount" style="font-size:15px">—</span>
+            </div>
+            <div class="shard-grid" id="shardGrid">
+                <div class="shard-row"><span class="loading"><i class="fas fa-spinner"></i> Loading...</span></div>
+            </div>
+        </div>
+
+        <div class="status-item">
+            <span class="label"><i class="fas fa-globe"></i> Servers</span>
+            <div class="value"><span class="number-roll" id="totalGuilds">—</span></div>
+        </div>
+
+        <div class="status-item">
+            <span class="label"><i class="fas fa-users"></i> Members</span>
+            <div class="value"><span class="number-roll" id="totalMembers">—</span></div>
+        </div>
+
+        <div class="status-item">
+            <span class="label"><i class="fas fa-satellite-dish"></i> Ping</span>
+            <div class="value"><span class="number-roll" id="avgPing">—</span></div>
+        </div>
+
+        <div class="status-item">
+            <span class="label"><i class="fas fa-clock"></i> Uptime</span>
+            <div class="value"><span class="number-roll" id="uptime">—</span></div>
+        </div>
+
+        <div class="status-item">
+            <span class="label"><i class="fas fa-memory"></i> Memory</span>
+            <div class="value"><span class="number-roll" id="memory">—</span></div>
+        </div>
+
+        <div class="status-item">
+            <span class="label"><i class="fas fa-swords"></i> Battles</span>
+            <div class="value"><span class="number-roll" id="battlesActive">—</span></div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://omnicord.neocities.org/pfp.png" alt="Omnicord">
+                <span class="footer-brand-name">Omnicord</span>
+                <p class="footer-brand-tag">Omnicord — The Best Ben10 <strong>Discord</strong> Bot</p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="/#features">Features</a>
+                <a href="/#commands">Commands</a>
+                <a href="/#invite">Invite</a>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <a href="https://discord.gg/bHDYB6MW5Y">Support Server</a>
+                <a href="/status">Status</a>
+                <a href="/faq">FAQ</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/tos">Terms of Service</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Omnicord. All rights reserved.</span>
+            <div class="footer-socials">
+                <a href="https://discord.gg/bHDYB6MW5Y" aria-label="Discord"><svg viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.095 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+                <a href="https://github.com/phenuop/omnicord-site" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                <a href="https://x.com/omnicord" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-1.438 7.093H16.37l-1.438-7.093h3.312m-11.864 0h4.416l-1.396 7.093H3.836l-1.396-7.093h4.416M.648 22.5h22.704l1.076-5.316H-0.428l1.076 5.316z"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+function updateNumber(id, newVal) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const current = el.textContent;
+    if (current !== String(newVal)) {
+        el.classList.remove('roll');
+        void el.offsetWidth;
+        el.classList.add('roll');
+        setTimeout(() => {
+            el.textContent = newVal;
+            el.classList.remove('roll');
+        }, 200);
+    }
+}
+
+async function fetchStatus() {
+    try {
+        const res = await fetch('https://api.omnicord.site/api/stats');
+        const data = await res.json();
+        if (!data.ok) throw new Error('API error');
+        
+        const { core, shards, battles } = data;
+        
+        document.getElementById('botBadge').className = 'badge online';
+        document.getElementById('botBadge').innerHTML = '<i class="fas fa-circle"></i> Online';
+        document.getElementById('botStatusText').textContent = 'All systems running';
+        
+        document.getElementById('shardCount').textContent = `${shards.length} shards`;
+        const shardGrid = document.getElementById('shardGrid');
+        shardGrid.innerHTML = shards.map(s => {
+            const pingClass = s.ping < 100 ? 'good' : s.ping < 200 ? 'ok' : 'bad';
+            const dotClass = s.ping < 200 ? 'online' : 'idle';
+            return `<div class="shard-row">
+                <span class="id"><span class="status-dot ${dotClass}"></span> #${s.shardId}</span>
+                <span class="guilds">${s.guilds} guilds · ${s.members.toLocaleString()} members</span>
+                <span class="ping ${pingClass}">${s.ping}ms</span>
+            </div>`;
+        }).join('');
+        
+        updateNumber('totalGuilds', core.guilds.toLocaleString());
+        updateNumber('totalMembers', core.members.toLocaleString());
+        updateNumber('avgPing', `${core.ping}ms`);
+        updateNumber('uptime', formatUptime(core.uptimeSec));
+        updateNumber('memory', `${core.memoryMB}MB`);
+        updateNumber('battlesActive', battles.active);
+        
+    } catch (err) {
+        document.getElementById('botBadge').className = 'badge offline';
+        document.getElementById('botBadge').innerHTML = '<i class="fas fa-circle"></i> Offline';
+        document.getElementById('botStatusText').textContent = 'Connection failed';
+    }
+}
+
+function formatUptime(seconds) {
+    const d = Math.floor(seconds / 86400);
+    const h = Math.floor((seconds % 86400) / 3600);
+    const m = Math.floor((seconds % 3600) / 60);
+    const s = Math.floor(seconds % 60);
+    if (d > 0) return `${d}d ${h}h`;
+    if (h > 0) return `${h}h ${m}m`;
+    if (m > 0) return `${m}m ${s}s`;
+    return `${s}s`;
+}
+
+function toggleTheme() {
+    document.body.classList.toggle('light');
+    const icon = document.querySelector('.theme-toggle i');
+    icon.className = document.body.classList.contains('light') ? 'fas fa-moon' : 'fas fa-sun';
+}
+
+fetchStatus();
+setInterval(fetchStatus, 30000);
+</script>
+
+</body>
+</html>
