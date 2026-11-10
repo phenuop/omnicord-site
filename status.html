@@ -1,68 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <title>Omnicord Status</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Phyniex">
-    <meta name="google-site-verification" content="HHKdVgrwSgXXbNE5uR9WLn9sV9v3gOt0zZRRwhLiQFA" />
-    <meta name="description" content="Live status page for Omnicord - The Ultimate Ben 10 Discord Bot. Check bot uptime, shard performance, and real-time statistics.">
-    <meta name="keywords" content="Omnicord, Discord, Ben10, Bot, Status, Uptime, Monitoring, Phyniex">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="Omnicord Status - Live Bot Statistics">
-    <meta property="og:description" content="Live status page for Omnicord - The Ultimate Ben 10 Discord Bot. Check bot uptime, shard performance, and real-time statistics.">
-    <meta property="og:image" content="https://lunarfrost.neocities.org/assets/img.icons8.png">
-    <meta property="og:url" content="https://omnicord.site/status">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Omnicord">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Omnicord Status - Live Bot Statistics">
-    <meta name="twitter:description" content="Live status page for Omnicord - The Ultimate Ben 10 Discord Bot. Check bot uptime, shard performance, and real-time statistics.">
-    <meta name="twitter:image" content="https://lunarfrost.neocities.org/assets/img.icons8.png">
-
-    <link rel="icon" type="image/png" href="https://lunarfrost.neocities.org/assets/img.icons8.png">
-    <link rel="apple-touch-icon" href="https://lunarfrost.neocities.org/assets/img.icons8.png">
-    <meta name="theme-color" content="#1db940">
-    <meta name="msapplication-TileColor" content="#1db940">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Status — Omnicord</title>
+<link rel="icon" href="https://lunarfrost.neocities.org/assets/img.icons8.png" />
+<link rel="apple-touch-icon" href="https://lunarfrost.neocities.org/assets/img.icons8.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.469.0/dist/umd/lucide.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root{
-    --background:oklch(1 0 0);
-    --foreground:oklch(.145 0 0);
-    --card:oklch(1 0 0);
-    --muted:oklch(.97 0 0);
-    --muted-foreground:oklch(.556 0 0);
-    --border:oklch(.922 0 0);
-    --primary:oklch(.205 0 0);
-    --primary-foreground:oklch(.985 0 0);
-    --destructive:oklch(.577 .245 27.325);
-    --success:oklch(.627 .194 149.2);
-    --ring:oklch(.145 0 0 / .1);
+    /* ── Warm pastel palette ── */
+    --background:oklch(.975 .015 55);          /* warm cream */
+    --foreground:oklch(.25 .02 45);            /* warm dark brown */
+    --card:oklch(.995 .008 55);                /* near-white cream */
+    --muted:oklch(.94 .022 55);                /* soft peach */
+    --muted-foreground:oklch(.52 .035 45);     /* muted warm brown */
+    --border:oklch(.9 .028 55);                /* warm border */
+    --primary:oklch(.72 .14 35);               /* coral/terracotta */
+    --primary-foreground:oklch(.99 .005 55);
+    --destructive:oklch(.6 .16 25);            /* warm red */
+    --success:oklch(.62 .14 145);              /* sage green */
+    --ring:oklch(.72 .14 35 / .18);            /* coral ring */
     --radius:.625rem;
   }
   .dark{
-    --background:oklch(.145 0 0);
-    --foreground:oklch(.985 0 0);
-    --card:oklch(.205 0 0);
-    --muted:oklch(.269 0 0);
-    --muted-foreground:oklch(.708 0 0);
+    /* ── Warm dark palette ── */
+    --background:oklch(.18 .015 40);
+    --foreground:oklch(.95 .015 55);
+    --card:oklch(.23 .02 45);
+    --muted:oklch(.28 .025 45);
+    --muted-foreground:oklch(.72 .025 50);
     --border:oklch(1 0 0 / 10%);
-    --primary:oklch(.922 0 0);
-    --primary-foreground:oklch(.205 0 0);
-    --destructive:oklch(.704 .191 22.216);
-    --success:oklch(.723 .219 149.6);
-    --ring:oklch(1 0 0 / 10%);
+    --primary:oklch(.78 .13 45);
+    --primary-foreground:oklch(.18 .015 40);
+    --destructive:oklch(.7 .16 25);
+    --success:oklch(.72 .15 145);
+    --ring:oklch(.78 .13 45 / .25);
   }
   *,::before,::after{box-sizing:border-box;border:0 solid var(--border)}
   html,body{margin:0;background:var(--background);color:var(--foreground);-webkit-font-smoothing:antialiased;overscroll-behavior:none;font-family:'Geist',ui-sans-serif,system-ui}
+  /* Warm ambient gradient wash on the whole page */
+  body{
+    background:
+      radial-gradient(1200px 600px at 8% -10%, oklch(.96 .03 40 / .55), transparent 65%),
+      radial-gradient(900px 500px at 100% 0%, oklch(.97 .025 85 / .55), transparent 60%),
+      radial-gradient(1000px 700px at 50% 110%, oklch(.95 .02 25 / .35), transparent 60%),
+      var(--background);
+    min-height:100vh;
+  }
+  .dark body{
+    background:
+      radial-gradient(1200px 600px at 8% -10%, oklch(.32 .04 40 / .4), transparent 65%),
+      radial-gradient(900px 500px at 100% 0%, oklch(.3 .03 85 / .35), transparent 60%),
+      var(--background);
+  }
   img{max-width:100%;height:auto;display:block}
   button,select{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   a{color:inherit;text-decoration:none}
@@ -74,35 +66,73 @@
   .mono{font-family:'Geist Mono',ui-monospace,monospace}
   .head{font-family:'Outfit',system-ui}
 
-  .app-header{height:3.5rem;display:flex;align-items:center;gap:.75rem;padding:0 1.25rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--background);z-index:10}
-  .logo{width:2rem;height:2rem;border-radius:.5rem;object-fit:cover;flex-shrink:0}
+  /* Header — warm pastel glass bar */
+  .app-header{
+    height:3.5rem;
+    display:flex;
+    align-items:center;
+    gap:.75rem;
+    padding:0 1rem;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    background:color-mix(in oklab, var(--card) 85%, transparent);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    z-index:10;
+  }
+  @media(min-width:768px){.app-header{padding:0 1.25rem}}
+  .logo{width:2rem;height:2rem;border-radius:.5rem;object-fit:cover;flex-shrink:0;box-shadow:0 0 0 1px var(--ring)}
 
-  .wrap{max-width:1400px;margin:0 auto;padding:1rem}
+  .header-actions{display:flex;align-items:center;gap:.5rem;margin-left:auto}
+  .hide-mobile{display:none}
+  @media(min-width:640px){.hide-mobile{display:inline-flex}}
+
+  .wrap{max-width:1400px;margin:0 auto;padding:.75rem}
+  @media(min-width:640px){.wrap{padding:1rem}}
   @media(min-width:768px){.wrap{padding:1.5rem}}
 
   .grid-main{display:grid;gap:1rem;grid-template-columns:1fr}
   @media(min-width:900px){.grid-main{grid-template-columns:minmax(0,1fr) minmax(0,2fr);align-items:stretch}}
 
   .col{display:flex;flex-direction:column;gap:1rem}
-  /* KPI column: each card stretches to fill the column height so it lines up with the right column */
   .col.kpi{display:flex;flex-direction:column;gap:1rem}
   .col.kpi > .cn-card{flex:1 1 0;min-height:0}
 
   .row{display:grid;gap:1rem;grid-template-columns:1fr}
   @media(min-width:640px){.row{grid-template-columns:repeat(2,1fr)}}
 
-  .cn-card{background:var(--card);color:var(--foreground);border-radius:.75rem;box-shadow:0 0 0 1px var(--ring);display:flex;flex-direction:column;font-size:.875rem;padding:1rem 0}
-  .dark .cn-card{box-shadow:none}
+  /* ── Cards: warm cream with soft pastel ring ── */
+  .cn-card{
+    background:var(--card);
+    color:var(--foreground);
+    border-radius:.85rem;
+    box-shadow:
+      0 0 0 1px var(--border),
+      0 1px 2px oklch(.3 .04 45 / .04),
+      0 8px 24px -12px oklch(.6 .08 35 / .08);
+    display:flex;
+    flex-direction:column;
+    font-size:.875rem;
+    padding:1rem 0;
+  }
+  .dark .cn-card{
+    box-shadow:
+      0 0 0 1px var(--border),
+      0 8px 24px -12px oklch(0 0 0 / .4);
+  }
   .cn-card.flush{padding:0}
   .cn-card-hd{padding:0 1rem;display:grid;gap:.125rem}
   .cn-card-hd.bb{padding:1rem;border-bottom:1px solid var(--border)}
   .cn-card.flush .cn-card-hd{padding-top:1rem}
-  .cn-card-title{font-family:'Outfit',system-ui;font-weight:500;font-size:1rem;line-height:1.25;display:flex;align-items:center;gap:.5rem}
-  .cn-card-title .ic{width:.95rem;height:.95rem;color:var(--success);flex-shrink:0}
-  .cn-card-title.xs{font-family:'Geist';font-weight:400;font-size:.75rem;color:var(--muted-foreground)}
+  .cn-card-title{font-family:'Outfit',system-ui;font-weight:500;font-size:1rem;line-height:1.25;display:flex;align-items:center;gap:.5rem;color:var(--foreground)}
+  .cn-card-title .ic{
+    width:1.05rem;height:1.05rem;flex-shrink:0;
+    color:var(--primary);
+  }
+  .cn-card-title.xs{font-family:'Geist';font-weight:400;font-size:.75rem;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.06em}
   .cn-card-desc{font-size:.8rem;color:var(--muted-foreground)}
   .cn-card-body{padding:0 1rem;display:flex;flex-direction:column;gap:.5rem}
-  /* KPI card body: pushes the value toward center of the taller card */
   .col.kpi > .cn-card .cn-card-body{flex:1;justify-content:center}
 
   .pt-4{padding-top:1rem}
@@ -112,7 +142,11 @@
   .gap-1{gap:.25rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}
   .flex-col{flex-direction:column}.flex-1{flex:1}.shrink-0{flex-shrink:0}.min-w-0{min-width:0}.ml-auto{margin-left:auto}.hidden{display:none}
   @media(min-width:640px){.sm\:inline-flex{display:inline-flex}.sm\:hidden{display:none}}
-  .h-56{height:14rem}.h-64{height:16rem}
+
+  .h-56{height:12rem}
+  .h-64{height:14rem}
+  @media(min-width:640px){.h-56{height:14rem}.h-64{height:16rem}}
+
   .text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-2xl{font-size:1.5rem}
   .text-\[11px\]{font-size:11px}
   .font-medium{font-weight:500}.font-semibold{font-weight:600}
@@ -125,54 +159,80 @@
   .px-2{padding-left:.5rem;padding-right:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-8{padding-top:2rem;padding-bottom:2rem}
   .size-3{width:.75rem;height:.75rem}.size-3\.5{width:.875rem;height:.875rem}.size-4{width:1rem;height:1rem}.size-8{width:2rem;height:2rem}
 
+  /* ── Badges: pastel tints ── */
   .cn-badge{display:inline-flex;align-items:center;height:1.25rem;padding:0 .5rem;border-radius:999px;font-size:.75rem;font-weight:500;border:1px solid transparent;white-space:nowrap}
-  .b-secondary{background:var(--muted);color:var(--foreground)}
-  .b-success{background:color-mix(in oklab,var(--success) 15%,transparent);color:var(--success)}
-  .b-warning{background:color-mix(in oklab,#f59e0b 15%,transparent);color:#d97706}
+  .b-secondary{background:var(--muted);color:var(--foreground);border-color:var(--border)}
+  .b-success{background:color-mix(in oklab,var(--success) 14%,transparent);color:var(--success);border-color:color-mix(in oklab,var(--success) 25%,transparent)}
+  .b-warning{background:color-mix(in oklab,#e8a13a 15%,transparent);color:#b87418;border-color:color-mix(in oklab,#e8a13a 30%,transparent)}
 
+  /* ── Buttons: warm outlines ── */
   .cn-button{display:inline-flex;align-items:center;justify-content:center;gap:.375rem;height:2rem;padding:0 .625rem;border-radius:calc(var(--radius) - 2px);font-size:.875rem;font-weight:500;border:1px solid transparent;transition:all .15s;background:transparent;color:var(--foreground)}
-  .cn-button.outline{border-color:var(--border);background:var(--background)}
-  .dark .cn-button.outline{background:oklch(1 0 0 / 4%)}
+  .cn-button.outline{border-color:var(--border);background:var(--card)}
+  .cn-button.outline:hover{background:var(--muted);border-color:color-mix(in oklab,var(--primary) 30%,var(--border))}
   .cn-button:hover{background:var(--muted)}
   .cn-button.icon{width:2rem;padding:0}
 
-  .cn-select{background:var(--background);border:1px solid var(--border);color:var(--foreground);border-radius:calc(var(--radius) - 2px);height:2rem;padding:0 .5rem;font-size:.8rem;outline:none}
+  /* ── Select ── */
+  .cn-select{background:var(--card);border:1px solid var(--border);color:var(--foreground);border-radius:calc(var(--radius) - 2px);height:2rem;padding:0 .5rem;font-size:.8rem;outline:none;max-width:6.5rem;transition:border-color .15s}
+  .cn-select:focus{border-color:var(--primary)}
+  @media(min-width:640px){.cn-select{max-width:none}}
 
-  .cn-table th{text-align:left;font-weight:500;font-size:.875rem;height:2.5rem;padding:0 .5rem;white-space:nowrap;color:var(--muted-foreground)}
+  /* ── Table ── */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .cn-table{width:100%;font-size:.875rem;border-collapse:collapse;min-width:520px}
+  .cn-table th{text-align:left;font-weight:500;font-size:.75rem;height:2.5rem;padding:0 .5rem;white-space:nowrap;color:var(--muted-foreground);text-transform:uppercase;letter-spacing:.05em}
   .cn-table td{padding:.5rem;vertical-align:middle}
-  .cn-table tbody tr{border-bottom:1px solid var(--border);height:3.5rem}
+  .cn-table tbody tr{border-bottom:1px solid var(--border);height:3.5rem;transition:background .12s}
+  .cn-table tbody tr:hover{background:color-mix(in oklab,var(--muted) 40%,transparent)}
   .cn-table tbody tr:last-child{border-bottom:0}
-  .cn-table th:first-child,.cn-table td:first-child{padding-left:1.5rem}
-  .cn-table th:last-child,.cn-table td:last-child{padding-right:1.5rem}
+  .cn-table th:first-child,.cn-table td:first-child{padding-left:1rem}
+  .cn-table th:last-child,.cn-table td:last-child{padding-right:1rem}
+  @media(min-width:768px){
+    .cn-table th:first-child,.cn-table td:first-child{padding-left:1.5rem}
+    .cn-table th:last-child,.cn-table td:last-child{padding-right:1.5rem}
+  }
 
-  .act-icon{display:flex;align-items:center;justify-content:center;width:2.5rem;height:2.5rem;flex-shrink:0;color:var(--muted-foreground)}
+  .act-icon{
+    display:flex;align-items:center;justify-content:center;
+    width:2.5rem;height:2.5rem;flex-shrink:0;
+    color:var(--primary);
+    background:color-mix(in oklab,var(--primary) 8%,transparent);
+    border-radius:.55rem;
+  }
   .lucide{stroke-width:2}
 
-  .latency-wrap{position:relative;padding:0 1rem}
+  .latency-wrap{position:relative;padding:0 .75rem}
+  @media(min-width:640px){.latency-wrap{padding:0 1rem}}
   .empty-overlay{position:absolute;inset:0;display:none;align-items:center;justify-content:center;pointer-events:none}
   .latency-wrap.is-empty .empty-overlay{display:flex}
 
   .bar-track{background:var(--muted);height:.5rem;border-radius:999px;overflow:hidden}
-  .bar-fill{height:100%;border-radius:999px;background:var(--primary)}
+  .bar-fill{height:100%;border-radius:999px;background:var(--primary);transition:width .35s ease}
 
   .chart-legend{display:flex;align-items:center;justify-content:center;gap:.75rem;padding:.5rem 1rem 0;flex-wrap:wrap}
   .chart-legend .item{display:inline-flex;align-items:center;gap:.375rem;font-size:.75rem;color:var(--muted-foreground);line-height:1}
   .chart-legend .dot{width:.5rem;height:.5rem;border-radius:999px;flex-shrink:0}
+
+  .shard-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+  @media(min-width:400px){.shard-grid{grid-template-columns:repeat(3,1fr)}}
+
+  /* Footer hint accent */
+  footer{border-top:1px dashed var(--border);margin-top:.5rem}
 </style>
 </head>
 <body>
 
 <header class="app-header">
   <div class="flex items-center gap-2">
-    <img src="https://omnicord.neocities.org/pfp.png" alt="Omnicord" class="logo" />
+    <img src="https://lunarfrost.neocities.org/assets/img.icons8.png" alt="Omnicord" class="logo" />
     <div class="flex flex-col" style="line-height:1">
       <span class="text-sm font-medium head">Status</span>
       <span class="text-[11px] t-muted mt-1" id="statusLine">Connecting…</span>
     </div>
   </div>
-  <div class="ml-auto flex items-center gap-2">
-    <a href="https://api.omnicord.site/health" target="_blank" class="cn-button outline hidden sm:inline-flex" title="API docs"><i data-lucide="book-open" class="size-3.5"></i><span>API</span></a>
-    <select id="rangeSelect" class="cn-select"><option value="24h">Last 24h</option><option value="7d">Last 7d</option><option value="30d">Last 30d</option></select>
+  <div class="header-actions">
+    <a href="https://docs.omnicord.site" target="_blank" rel="noopener" class="cn-button outline hide-mobile" title="Docs"><i data-lucide="book-open" class="size-3.5"></i><span>Docs</span></a>
+    <select id="rangeSelect" class="cn-select"><option value="24h">24h</option><option value="7d">7d</option><option value="30d">30d</option></select>
     <button id="refreshBtn" class="cn-button outline icon" title="Refresh"><i data-lucide="refresh-cw" class="size-4"></i></button>
     <button id="themeBtn" class="cn-button outline icon" title="Toggle theme"><i data-lucide="moon" class="size-4"></i></button>
   </div>
@@ -199,8 +259,8 @@
         </div>
         <div class="cn-card-body pt-4"><div class="h-56"><canvas id="resultsChart"></canvas></div></div>
         <div class="chart-legend">
-          <span class="item"><span class="dot" style="background:#3ccf3c"></span>Success</span>
-          <span class="item"><span class="dot" style="background:#a3a3a3"></span>Errors</span>
+          <span class="item"><span class="dot" style="background:#e07856"></span>Success</span>
+          <span class="item"><span class="dot" style="background:#c9bfb0"></span>Errors</span>
         </div>
       </div>
     </div>
@@ -243,10 +303,12 @@
         <div class="cn-card-title"><i data-lucide="server-cog" class="ic"></i>Recent guilds</div>
         <div class="cn-card-desc">Latest servers joined</div>
       </div>
-      <table class="cn-table">
-        <thead><tr><th>Server</th><th>Members</th><th class="text-right">Joined</th><th class="text-right">Status</th></tr></thead>
-        <tbody id="guildsBody"><tr><td colspan="4" class="t-muted text-center py-8 text-xs">Loading…</td></tr></tbody>
-      </table>
+      <div class="table-wrap">
+        <table class="cn-table">
+          <thead><tr><th>Server</th><th>Members</th><th class="text-right">Joined</th><th class="text-right">Status</th></tr></thead>
+          <tbody id="guildsBody"><tr><td colspan="4" class="t-muted text-center py-8 text-xs">Loading…</td></tr></tbody>
+        </table>
+      </div>
     </div>
 
     <div class="cn-card flush">
@@ -283,7 +345,7 @@ function updateThemeIcon(){document.getElementById('themeBtn').innerHTML=`<i dat
 document.getElementById('themeBtn').addEventListener('click',()=>{root.classList.toggle('dark');localStorage.setItem('theme',root.classList.contains('dark')?'dark':'light');updateThemeIcon();if(lastData)drawCharts(lastData)});
 
 function kpiCard(it){
-  return `<div class="cn-card"><div class="cn-card-hd"><div class="cn-card-title xs">${it.label}</div></div><div class="cn-card-body"><p class="font-semibold text-2xl tabular-nums" style="margin:0">${it.value}</p><div class="flex items-center gap-1 text-xs"><span style="color:${deltaColor(it.delta)}" class="inline-flex items-center gap-1 font-medium tabular-nums"><i data-lucide="${deltaIcon(it.delta)}" class="size-3"></i>${fmtDelta(it.delta)}</span><span class="t-muted">${it.vs}</span></div></div></div>`;
+  return `<div class="cn-card"><div class="cn-card-hd"><div class="cn-card-title xs">${it.label}</div></div><div class="cn-card-body"><p class="font-semibold text-2xl tabular-nums head" style="margin:0">${it.value}</p><div class="flex items-center gap-1 text-xs"><span style="color:${deltaColor(it.delta)}" class="inline-flex items-center gap-1 font-medium tabular-nums"><i data-lucide="${deltaIcon(it.delta)}" class="size-3"></i>${fmtDelta(it.delta)}</span><span class="t-muted">${it.vs}</span></div></div></div>`;
 }
 
 function renderCards(ov){
@@ -297,14 +359,14 @@ function renderCards(ov){
   document.getElementById('kpiCol').innerHTML = items.map(kpiCard).join('');
 
   const pct=ov.shardsTotal?Math.round(ov.shardsOnline/ov.shardsTotal*100):0;
-  document.getElementById('shardCard').innerHTML=`<div class="grid" style="grid-template-columns:repeat(3,1fr);gap:1rem"><div><div class="text-xs t-muted">Latency</div><div class="font-semibold text-2xl tabular-nums mt-1">${c.latency.value}ms</div><div class="text-xs mt-1" style="color:${deltaColor(-c.latency.delta)}">${fmtDelta(c.latency.delta)} <span class="t-muted">${c.latency.vs}</span></div></div><div><div class="text-xs t-muted">Shards online</div><div class="font-semibold text-2xl tabular-nums mt-1">${ov.shardsOnline}/${ov.shardsTotal}</div></div><div><div class="text-xs t-muted">Uptime</div><div class="font-semibold text-2xl tabular-nums mt-1">${fmtDuration(ov.uptimeSec)}</div></div></div><div class="mt-5 bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><div class="text-xs t-muted mt-2">${pct}% of shards connected</div>`;
+  document.getElementById('shardCard').innerHTML=`<div class="shard-grid"><div><div class="text-xs t-muted">Latency</div><div class="font-semibold text-2xl tabular-nums mt-1 head">${c.latency.value}ms</div><div class="text-xs mt-1" style="color:${deltaColor(-c.latency.delta)}">${fmtDelta(c.latency.delta)} <span class="t-muted">${c.latency.vs}</span></div></div><div><div class="text-xs t-muted">Shards online</div><div class="font-semibold text-2xl tabular-nums mt-1 head">${ov.shardsOnline}/${ov.shardsTotal}</div></div><div><div class="text-xs t-muted">Uptime</div><div class="font-semibold text-2xl tabular-nums mt-1 head">${fmtDuration(ov.uptimeSec)}</div></div></div><div class="mt-5 bar-track"><div class="bar-fill" style="width:${pct}%"></div></div><div class="text-xs t-muted mt-2">${pct}% of shards connected</div>`;
   icons();
 }
 
 function renderGuilds(guilds){
   const body=document.getElementById('guildsBody');
   if(!guilds||!guilds.length){body.innerHTML=`<tr><td colspan="4" class="t-muted text-center py-8 text-xs">No guilds</td></tr>`;return}
-  body.innerHTML=guilds.slice(0,4).map(g=>`<tr><td style="max-width:0"><div class="flex items-center gap-3">${g.icon?`<img src="${esc(g.icon)}" alt="" class="size-8 rounded-md object-cover shrink-0">`:`<div class="size-8 rounded-md flex items-center justify-center text-xs font-medium shrink-0" style="background:var(--muted)">${esc((g.name||'?')[0])}</div>`}<div class="min-w-0"><div class="font-medium truncate text-sm">${esc(g.name)}</div><div class="text-[11px] t-muted truncate mono">${g.id}</div></div></div></td><td class="t-muted tabular-nums">${fmt(g.memberCount)}</td><td class="text-right t-muted text-sm">${g.joinedAt?timeAgo(g.joinedAt):'—'}</td><td class="text-right"><span class="cn-badge ${g.status==='new'?'b-success':'b-secondary'}">${esc(g.status)}</span></td></tr>`).join('');
+  body.innerHTML=guilds.slice(0,4).map(g=>`<tr><td style="max-width:0"><div class="flex items-center gap-3">${g.icon?`<img src="${esc(g.icon)}" alt="" class="size-8 rounded-md object-cover shrink-0">`:`<div class="size-8 rounded-md flex items-center justify-center text-xs font-medium shrink-0" style="background:var(--muted);color:var(--primary)">${esc((g.name||'?')[0])}</div>`}<div class="min-w-0"><div class="font-medium truncate text-sm">${esc(g.name)}</div><div class="text-[11px] t-muted truncate mono">${g.id}</div></div></div></td><td class="t-muted tabular-nums">${fmt(g.memberCount)}</td><td class="text-right t-muted text-sm">${g.joinedAt?timeAgo(g.joinedAt):'—'}</td><td class="text-right"><span class="cn-badge ${g.status==='new'?'b-success':'b-secondary'}">${esc(g.status)}</span></td></tr>`).join('');
 }
 
 function renderActivity(events){
@@ -314,18 +376,22 @@ function renderActivity(events){
   icons();
 }
 
+/* ── Warm pastel chart palette ── */
 function theme(){
   const dark=root.classList.contains('dark');
   return{
-    text:dark?'#a1a1aa':'#737373',
-    grid:dark?'rgba(255,255,255,.08)':'rgba(0,0,0,.06)',
-    fg:dark?'#fafafa':'#171717',
-    accent:dark?'#7cff5a':'#3ccf3c',
-    accentSoft:dark?'#7cff5a33':'#3ccf3c33',
-    soft:dark?'#9ca3af':'#a3a3a3'
+    text:dark?'#c9bfb0':'#8a7b68',
+    grid:dark?'rgba(255,235,210,.07)':'rgba(120,85,60,.08)',
+    fg:dark?'#f5ece0':'#3a2e22',
+    accent:dark?'#f0a878':'#e07856',           /* warm coral */
+    accentSoft:dark?'#f0a87833':'#e0785633',
+    soft:dark?'#8a7b68':'#c9bfb0'              /* warm taupe for errors */
   };
 }
-function baseOptions(t){return{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:t.fg,titleColor:'#a3a3a3',bodyColor:'#a3a3a3',borderWidth:0,padding:10,cornerRadius:8,titleFont:{size:11},bodyFont:{size:11}}},scales:{x:{grid:{display:false},ticks:{color:t.text,font:{size:10},maxTicksLimit:10},border:{display:false}},y:{grid:{color:t.grid},ticks:{color:t.text,font:{size:10}},border:{display:false},beginAtZero:true}}}}
+function baseOptions(t){
+  const mobile=window.innerWidth<640;
+  return{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{backgroundColor:t.fg,titleColor:dark_tooltip(),bodyColor:dark_tooltip(),borderWidth:0,padding:10,cornerRadius:8,titleFont:{size:11},bodyFont:{size:11}}},scales:{x:{grid:{display:false},ticks:{color:t.text,font:{size:mobile?9:10},maxTicksLimit:mobile?5:10},border:{display:false}},y:{grid:{color:t.grid},ticks:{color:t.text,font:{size:mobile?9:10}},border:{display:false},beginAtZero:true}}}}
+function dark_tooltip(){return root.classList.contains('dark')?'#3a2e22':'#f5ece0'}
 function destroyCharts(){[chartVolume,chartResults,chartLatency].forEach(c=>c&&c.destroy())}
 
 function buildLatencySeries(data){
@@ -402,6 +468,9 @@ async function load(){
     statusLine.style.color='var(--destructive)';
   }
 }
+
+let resizeTimer;
+window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(lastData)drawCharts(lastData)},200)});
 
 document.getElementById('refreshBtn').addEventListener('click',load);
 document.getElementById('rangeSelect').addEventListener('change',e=>{currentRange=e.target.value;load()});
